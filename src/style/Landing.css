@@ -1,0 +1,38 @@
+.header-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 120px;
+    
+}
+h1{
+    color: #D49733;
+    font-size: 10px;
+}
+.about-container{
+    padding-top: 50px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    align-content: center;
+    text-align: center;
+    margin: 0 auto;
+}
+.service-container{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+}
+.blog-container{
+    padding-top: 10px;
+}
+.contact-header{
+    text-align: center;
+}
