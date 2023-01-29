@@ -35,34 +35,34 @@ export default function TopNavbar() {
           </BurderWrapper>
           <UlWrapper className="flexNullCenter">
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="/" spy={true} smooth={true} offset={-80}>
+              <Link className="links" activeClass="active" style={{ padding: "10px 15px" }} to="/" spy={true} smooth={true} offset={-80}>
                 Home
               </Link>
             </li>
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="/about" spy={true} smooth={true} offset={-80}>
+              <Link className="links" activeClass="active" style={{ padding: "10px 15px" }} to="/about" spy={true} smooth={true} offset={-80}>
                 About
               </Link>
             </li>
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="/blog" spy={true} smooth={true} offset={-80}>
+              <Link className="links" activeClass="active" style={{ padding: "10px 15px" }} to="/blog" spy={true} smooth={true} offset={-80}>
                 Publications
               </Link>
             </li>
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="/contact" spy={true} smooth={true} offset={-80}>
+              <Link className="links" activeClass="active" style={{ padding: "10px 15px" }} to="/contact" spy={true} smooth={true} offset={-80}>
                 Contact
               </Link>
             </li>
           </UlWrapper>
           <UlWrapperRight className="flexNullCenter">
             <li className="semiBold font15 pointer">
-              <Link style={{ padding: "10px 30px 10px 0" }} to='login'>
+              <Link className="links" style={{ padding: "10px 30px 10px 0" }} to='login'>
                 Login
               </Link>
             </li>
             <li className="semiBold font15 pointer flexCenter">
-              <Link style={{ padding: "10px 15px" }} to='login'>
+              <Link className="links" style={{ padding: "10px 15px" }} to='login'>
                 Join
               </Link>
             </li>

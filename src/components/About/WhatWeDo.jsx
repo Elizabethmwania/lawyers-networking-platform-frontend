@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import ContactImg1 from "../../assets/img/contact-1.png";
-import ContactImg2 from "../../assets/img/contact-2.png";
-import ContactImg3 from "../../assets/img/contact-3.png";
-
+import ContactImg1 from "../../images/about/about1.png";
 export default function WhatWeDo() {
   return (
     <Wrapper>
@@ -31,13 +28,18 @@ export default function WhatWeDo() {
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
               sed diam nonumy eirmod tempor invidunt ut            
               labore et dolore magna aliquyam erat, sed diam voluptua.
+            
+            <h2>Core Values</h2>
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+              sed diam nonumy eirmod tempor invidunt ut            
+              labore et dolore magna aliquyam erat, sed diam voluptua.
             </p>
             </AboutContent>
             </div>
             <div className=" col-xs-12 col-sm-12 col-md-6 col-lg-6 flex">
               {/* <div style={{ width: "50%",marginLeft:'30%' }}> */}
                 {/* <div style={{ marginTop: "20px" }}> */}
-                  <img src={ContactImg3} alt="office" className="radius6" />
+                  <img src={ContactImg1} alt="about" className="radius6" />
                 {/* </div> */}
               {/* </div> */}
             </div>
@@ -58,7 +60,7 @@ const HeaderInfo = styled.div`
   }
 `;
 const AboutContent = styled.div`
-  margin-left:20%;
+  margin-left:10%;
   width:80%;
   h2 
   {

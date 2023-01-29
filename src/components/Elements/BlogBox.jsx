@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import blog1 from '../../images/blog/blog1.png'
+import { blogs } from "../Data/Data";
 
 export default function BlogBox({ tag, image, text, action, author }) {
   return (

@@ -6,7 +6,7 @@ import QuotesIcon from "../../assets/svg/Quotes";
 import Dots from "../../assets/svg/Dots";
 import '../../style/Landing.css'
 import carouselImg from '../../assets/img/Carousel/img1.png';
-import { Carousels } from "../../Data";
+import { Carousels } from '../../components/Data/Data';
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import BlogBox from "../Elements/BlogBox";
 import FullButton from "../Buttons/FullButton";
-import TestimonialSlider from "../Elements/TestimonialSlider";
 import ClientSlider from "../Elements/ClientSlider";
+import { blogs } from "../Data/Data";
+import { Link } from "react-router-dom";
+import '../../style/Landing.css';
 
 export default function Blog() {
   return (
@@ -20,55 +21,25 @@ export default function Blog() {
           </HeaderInfo>
           <div className="row textCenter">
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <BlogBox
-                title="New Office!"
-                text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor."
-                tag="company"
-                author="Luke Skywalker, 2 days ago"
-              />
-            </div>
-            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <BlogBox
-                image
-                text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor."
-                tag="company"
-                author="Luke Skywalker, 2 days ago"
-              />
-            </div>
-            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <BlogBox
-                title="New Office!"
-                text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor."
-                tag="company"
-                author="Luke Skywalker, 2 days ago"
-              />
-            </div>
-          </div>
-          <div className="row textCenter">
-            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <BlogBox
-                title="New Office!"
-                text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor."
-                tag="company"
-                author="Luke Skywalker, 2 days ago"
-              />
-            </div>
-            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <BlogBox
-                title="New Office!"
-                text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor."
-                tag="company"
-                author="Luke Skywalker, 2 days ago"
-                // action={() => alert("clicked")}
-              />
-            </div>
-            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <BlogBox
-                title="New Office!"
-                text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor."
-                tag="company"
-                author="Luke Skywalker, 2 days ago"
-              />
+              <SingleBlog>
+              {blogs.map((blog) => 
+              <WrapperBtn className="animate">
+              <BlogWrapper className="whiteBg radius8 shadow">
+                <img src={blog.image} alt='blog' />
+                <p className="font13 extraBold" style={{ padding: "20px 0" }}>{blog.author}</p>
+                <p className="font13" >
+                  {blog.description}
+                </p>
+                <div className="flex">
+                <Link to={blog.link} className='links'>
+                  <p className="tag coralBg radius6 font13 extraBold">{blog.category}</p>
+                </Link>
+                </div>
+              </BlogWrapper>
+              
+            </WrapperBtn> 
+              )}
+            </SingleBlog>  
             </div>
           </div>
           <div className="row flexCenter">
@@ -112,3 +83,22 @@ const HeaderInfo = styled.div`
     text-align: center;
   }
 `;
+const BlogWrapper = styled.div`
+  width: 100%;
+  text-align: left;
+  padding: 20px 30px;
+  margin-top: 30px;
+
+`;
+const WrapperBtn = styled.button`
+  border: 0px;
+  outline: none;
+  background-color: transparent;
+  :hover {
+    opacity: 0.5;
+  }
+`;
+const SingleBlog = styled.div`
+  display:flex;
+`;
+
