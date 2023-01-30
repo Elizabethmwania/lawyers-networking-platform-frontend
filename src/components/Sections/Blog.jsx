@@ -4,7 +4,6 @@ import FullButton from "../Buttons/FullButton";
 import ClientSlider from "../Elements/ClientSlider";
 import { blogs } from "../Data/Data";
 import { Link } from "react-router-dom";
-import '../../style/Landing.css';
 
 export default function Blog() {
   return (
