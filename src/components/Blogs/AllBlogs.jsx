@@ -6,6 +6,7 @@ import Chip from "./Chip/Chip";
 import EmptyList from "./EmptyList/EmptyList";
 import { Link } from "react-router-dom";
 import img from '../../images/blog/recent-blog.png';
+import '../../style/Landing.css'
 
 export default function AllBlogs() {
     const { id } = useParams();
@@ -19,9 +20,9 @@ export default function AllBlogs() {
     }, []);
   return (
     <>
-    <Link className='blog-goBack' to='/'>
+    <Link className='blog-goBack' to='/blog'>
         <span> &#8592;</span> <span>Go Back</span>
-      </Link>
+    </Link>
       {blog ? (
         <div className='blog-wrap'>
           <header>

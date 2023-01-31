@@ -9,8 +9,14 @@ const BlogScreen = () => {
         <>
         <TopNavbar />
         <BlogHeader/>
-        <div className='container'>
+        <div className='blog-container'>
+            <div className='blog-flex'>
             <BlogIndex/>
+            </div>
+            <div className='sidebar-flex'>
+                Side bar
+            </div>
+            
         </div>
         {/* <AllBlogs/> */}
         {/* <Blogs/> */}
