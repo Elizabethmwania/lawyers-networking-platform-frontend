@@ -14,7 +14,7 @@ const BlogScreen = () => {
             <BlogIndex/>
             </div>
             <div className='sidebar-flex'>
-                Side bar
+                Categories
             </div>
             
         </div>
