@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import ContactImg1 from "../../assets/img/contact-1.png";
-import ContactImg2 from "../../assets/img/contact-2.png";
-import ContactImg3 from "../../assets/img/contact-3.png";
+import ContactImg1 from "../../images/contact/contact1.png";
+import ContactImg2 from "../../images/contact/contact2.png";
+import ContactImg3 from "../../images/contact/contact3.png";
 
 export default function Contact() {
   return (

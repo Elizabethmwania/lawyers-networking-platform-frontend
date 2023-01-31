@@ -25,7 +25,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             activeClass="active"
             className="whiteColor"
             style={{ padding: "10px 15px" }}
-            to=""
+            to="/"
             spy={true}
             smooth={true}
             offset={-60}
@@ -39,12 +39,12 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             activeClass="active"
             className="whiteColor"
             style={{ padding: "10px 15px" }}
-            to=""
+            to="/about"
             spy={true}
             smooth={true}
             offset={-60}
           >
-            Services
+            About
           </Link>
         </li>
         <li className="semiBold font15 pointer">
@@ -53,12 +53,12 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             activeClass="active"
             className="whiteColor"
             style={{ padding: "10px 15px" }}
-            to=""
+            to="/blog"
             spy={true}
             smooth={true}
             offset={-60}
           >
-            About
+            Publications
           </Link>
         </li>
         <li className="semiBold font15 pointer">
@@ -81,21 +81,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             activeClass="active"
             className="whiteColor"
             style={{ padding: "10px 15px" }}
-            to=""
-            spy={true}
-            smooth={true}
-            offset={-60}
-          >
-            Logi/Join
-          </Link>
-        </li>
-        <li className="semiBold font15 pointer">
-          <Link
-            onClick={() => toggleSidebar(!sidebarOpen)}
-            activeClass="active"
-            className="whiteColor"
-            style={{ padding: "10px 15px" }}
-            to=""
+            to="/contact"
             spy={true}
             smooth={true}
             offset={-60}
@@ -112,7 +98,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         </li>
         <li className="semiBold font15 pointer flexCenter">
           <a href="/" className="radius8 lightBg" style={{ padding: "10px 15px" }}>
-            Get Started
+            Sign Up
           </a>
         </li>
       </UlStyle>

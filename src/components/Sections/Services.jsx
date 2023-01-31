@@ -43,7 +43,7 @@ export default function Services() {
               <ServiceBox 
               icon="printer" 
               title="Print" 
-              subtitle="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat." />
+              subtitle="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam" />
             </ServiceBoxWrapper>
           </ServiceBoxRow>
         </div>

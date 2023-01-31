@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
 import FullButton from "../Buttons/FullButton";
-import HeaderImage from "../../assets/img/header-img.png";
-import QuotesIcon from "../../assets/svg/Quotes";
-import Dots from "../../assets/svg/Dots";
 import '../../style/Landing.css'
 import carouselImg from '../../assets/img/Carousel/img1.png';
 import { Carousels } from '../../components/Data/Data';
@@ -35,7 +32,7 @@ export default function Header() {
               voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
             </HeaderP>
             <BtnWrapper>
-              <FullButton title="Get Started" />
+              <FullButton title="Get Started Today" />
             </BtnWrapper>
           </div>
         </LeftSide> 

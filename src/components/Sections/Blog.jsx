@@ -67,7 +67,7 @@ export default function Blog() {
 
 const Wrapper = styled.section`
   width: 100%;
-  padding-top: 20px;
+  padding-top: 0px;
   justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -87,6 +87,9 @@ const BlogWrapper = styled.div`
   text-align: left;
   padding: 20px 30px;
   margin-top: 30px;
+  @media (max-width: 860px) {
+    width: fit-content;
+  }
 
 `;
 const WrapperBtn = styled.button`
@@ -99,5 +102,9 @@ const WrapperBtn = styled.button`
 `;
 const SingleBlog = styled.div`
   display:flex;
+  @media (max-width: 860px) {
+    flex-direction:column;
+    align-content:center;
+  }
 `;
 

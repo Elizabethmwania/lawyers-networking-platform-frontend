@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import Sidebar from "../Nav/Sidebar";
 import Backdrop from "../Elements/Backdrop";
-import LogoIcon from '../../images/logo/logo-no-bg.png'
+import LogoIcon from '../../images/logo/logo-no-bg.png';
 import BurgerIcon from "../../assets/svg/BurgerIcon";
 
 export default function TopNavbar() {
