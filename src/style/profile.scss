@@ -1,0 +1,37 @@
+.profilePic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.asterisc {
+    content: " *";
+    color: red;
+}
+
+.SaveDetails {
+    background-color: #22BAA0;
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    height: 3em;
+    width: 8em;
+    margin-top: 20px;
+}
+.changeProfile{
+    background-color: #22BAA0;
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+.PhoneInputInput{
+    height: 36px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    padding-left: 10px;
+    font-weight: 100;
+
+}
