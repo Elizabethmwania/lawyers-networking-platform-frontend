@@ -44,7 +44,6 @@ export default function TopNavbar() {
               style={{ marginLeft: "15px", color: "black" }}
               className="font20 extraBold"
             >
-              NFLP
             </h1>
           </Link>
           <BurderWrapper
@@ -124,11 +123,6 @@ export default function TopNavbar() {
                 Contact
               </NavLink>
             </li>
-          </UlWrapper>
-          <UlWrapperRight
-            className="flexNullCenter navlinks"
-            style={{ padding: "0", margin: "0" }}
-          >
             <li className="semiBold font15 pointer links">
               <NavLink
                 className=""
@@ -145,11 +139,11 @@ export default function TopNavbar() {
                 Login
               </NavLink>
             </li>
-            <li className="semiBold font15 pointer flexCenter links">
+            <li className="semiBold font15 pointer links">
               <NavLink
                 className=""
                 style={{ padding: "10px 15px" }}
-                to="/login"
+                to="/register"
                 activeStyle={{
                   fontWeight: "bold",
                   color: " #d49733",
@@ -161,7 +155,7 @@ export default function TopNavbar() {
                 Join
               </NavLink>
             </li>
-          </UlWrapperRight>
+          </UlWrapper>
         </NavInner>
       </Wrapper>
     </>

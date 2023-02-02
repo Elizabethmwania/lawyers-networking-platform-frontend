@@ -1,15 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import FullButton from "../Buttons/FullButton";
 
 export default function AboutSection() {
   return (
     <Wrapper>
-      <div className="about-container" style={{ paddingTop: "60px" }}>
+      <div className="about-container" style={{ paddingTop: "30px" }}>
         <div className="container">
           <HeaderInfo>
-            <h1 className="font40 extraBold">What We Do</h1>
-            <p className="font13">
+            <h1 className="font30 extraBold">What We Do</h1>
+            <p className="font14">
             Lorem Ipsum is simply dummy text of the printing and typesetting 
             industry. Lorem Ipsum has been the industry's standard dummy text 
             ever since the 1500s, when an unknown printer took a galley of type 
@@ -21,9 +22,11 @@ export default function AboutSection() {
             software like Aldus PageMaker including versions of Lorem Ipsum.
             </p>
           </HeaderInfo>
-          <ButtonsRow className="flexNullCenter" style={{ margin: "30px 0" }}>
-            <div style={{ width: "190px" }}>
-              <FullButton title="Read More . . ." action={() => alert("clicked")} />
+          <ButtonsRow className="flexNullCenter" style={{ margin: "20px 0" }}>
+            <div style={{ width: "fit-content" }}>
+              <Link to='/about'>
+                <FullButton title="Read More . . ." />
+              </Link>
             </div>
           </ButtonsRow>
            

@@ -1,4 +1,6 @@
-import carousel from '../../images/Carousel/img1.png'
+import carousel from '../../images/Carousel/carousel1.png'
+import carousel1 from '../../images/Carousel/carousel2.png'
+import carousel2 from '../../images/Carousel/carousel3.png'
 import blog1 from '../../images/blog/blog1.png';
 
 export const Carousels = [
@@ -7,11 +9,11 @@ export const Carousels = [
       content: 'join today'
     },
     {
-      image: carousel,
+      image: carousel1,
       content: 'join today'
     },
     {
-      image: carousel,
+      image: carousel2,
       content: 'join today'
     },
     {

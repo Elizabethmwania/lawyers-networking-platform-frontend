@@ -2,16 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import '../../style/Landing.css'
 import ServiceBox from "../Elements/ServiceBox";
-import FullButton from "../Buttons/FullButton";
 
 export default function Services() {
   return (
     <Wrapper>
-      <div className="service-container" style={{ paddingTop: "60px" }}>
+      <div className="service-container" style={{ paddingTop: "30px" }}>
         <div className="container">
           <HeaderInfo>
-            <h1 className="font40 extraBold">Practice Area</h1>
-            <p className="font13">
+            <h1 className="font30 extraBold">Practice Area</h1>
+            <p className="font14">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
               <br />
               labore et dolore magna aliquyam erat, sed diam voluptua.
@@ -20,38 +19,29 @@ export default function Services() {
           <ServiceBoxRow className="flex">
             <ServiceBoxWrapper>
               <ServiceBox
-                icon="roller"
                 title="Education"
                 subtitle="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
               />
             </ServiceBoxWrapper>
             <ServiceBoxWrapper>
               <ServiceBox
-                icon="monitor"
                 title="Education"
                 subtitle="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
               />
             </ServiceBoxWrapper>
             <ServiceBoxWrapper>
               <ServiceBox
-                icon="browser"
                 title="Education"
                 subtitle="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
               />
             </ServiceBoxWrapper>
             <ServiceBoxWrapper>
               <ServiceBox 
-              icon="printer" 
               title="Print" 
               subtitle="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam" />
             </ServiceBoxWrapper>
           </ServiceBoxRow>
         </div>
-          {/* <ButtonsRow className="flexNullCenter" style={{ margin: "30px 0"}}>
-            <div style={{ width: "190px" }}>
-               <FullButton title="Learn More . . ." action={() => alert("clicked")} />
-            </div>
-          </ButtonsRow> */}
       </div>
     </Wrapper>
   );

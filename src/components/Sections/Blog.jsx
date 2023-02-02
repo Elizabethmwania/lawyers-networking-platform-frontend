@@ -11,7 +11,7 @@ export default function Blog() {
       <div className="blog-container" >
         <div className="container">
           <HeaderInfo>
-            <h1 className="font40 extraBold">Recent Stories</h1>
+            <h1 className="font30 extraBold">Recent Stories</h1>
             <p className="font13">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
               <br />
@@ -48,10 +48,10 @@ export default function Blog() {
           </div>
         </div>
       </div>
-      <div className="lightBg" style={{padding: '50px 0'}}>
+      <div className="lightBg" style={{padding: '30px'}}>
         <div className="container">
           <HeaderInfo>
-            <h1 className="font40 extraBold">Trusted clients</h1>
+            <h1 className="font30 extraBold">Trusted clients</h1>
             <p className="font13">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
               <br />

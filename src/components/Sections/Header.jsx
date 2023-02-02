@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
-import FullButton from "../Buttons/FullButton";
 import '../../style/Landing.css'
-import carouselImg from '../../assets/img/Carousel/img1.png';
 import { Carousels } from '../../components/Data/Data';
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -26,14 +24,11 @@ export default function Header() {
         <Carousel.Caption>
         <LeftSide className="flexCenter">
           <div className="header-container">
-            <h1 className="extraBold font40">Networking for Legal Practitioners</h1>
+            <h1 className="extraBold font30">Networking for Legal Practitioners</h1>
             <HeaderP className="font18 semiBold">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
               voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
             </HeaderP>
-            <BtnWrapper>
-              <FullButton title="Get Started Today" />
-            </BtnWrapper>
           </div>
         </LeftSide> 
         </Carousel.Caption>

@@ -6,11 +6,11 @@ import ContactImg3 from "../../images/contact/contact3.png";
 
 export default function Contact() {
   return (
-    <Wrapper id="contact">
-      <div className="lightBg">
+    <Wrapper>
+      <div className="lightBg" >
         <div className="container">
           <HeaderInfo className="contact-header">
-            <h1 className="font40 extraBold">Let's get in touch</h1>
+            <h1 className="font30 extraBold">Let's get in touch</h1>
             <p className="font13">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
               <br />
@@ -58,7 +58,7 @@ const Wrapper = styled.section`
   width: 100%;
 `;
 const HeaderInfo = styled.div`
-  padding: 70px 0 30px 0;
+  
   @media (max-width: 860px) {
     text-align: center;
   }
