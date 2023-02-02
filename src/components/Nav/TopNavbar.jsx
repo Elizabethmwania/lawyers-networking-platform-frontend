@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import Sidebar from "../Nav/Sidebar";
 import Backdrop from "../Elements/Backdrop";
@@ -9,6 +10,15 @@ import BurgerIcon from "../../assets/svg/BurgerIcon";
 export default function TopNavbar() {
   const [y, setY] = useState(window.scrollY);
   const [sidebarOpen, toggleSidebar] = useState(false);
+
+  
+  const [bgcolor, setBgcolor] = useState('black');
+  const [textcolor, setTextcolor] = useState('white');    
+
+  function handleHighlightTab() {
+      setBgcolor('white');
+      setTextcolor('black');
+  }
 
   useEffect(() => {
     window.addEventListener("scroll", () => setY(window.scrollY));
