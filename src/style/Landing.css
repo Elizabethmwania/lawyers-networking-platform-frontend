@@ -57,18 +57,32 @@ h1 {
   text-align: center;
 }
 
-.blog-container {
+.blogs-container {
   display: flex;
+  /* align-items: center; */
+  /* align-content: center; */
+  flex-direction: row;
+  margin-left: 100px;
+  margin-right: 100px;
+  
+}
+@media screen and (min-width: 720px) and (max-width: 979px) {
+  .blogs-container{
+    margin-left: 10px;
+    margin-right: 10px;
+    justify-content: center;
+  }
+  
 }
 
-.blog-flex {
-  flex: 9;
+.blogs-flex {
+  flex: 6;
   display: flex;
   flex-wrap: wrap;
   margin: 20px;
 }
 
-.sidebar-flex {
+/* .sidebar-flex {
   flex: 3;
   height: fit-content;
   margin-top: 70px;
@@ -78,7 +92,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 /* AllBloggs.css */
 .blog-wrap {
   max-width: 700px;
@@ -117,4 +131,62 @@ h1 {
 .blog-desc {
   padding: 1rem;
   margin-top: 1.5rem;
+}
+/* ======================================== */
+.blogs-sidebar {
+  flex: 2;
+  height: fit-content;
+  margin: 20px;
+  margin-top: 40px;
+  background-color: #f7ecec;
+  border-radius: 10px;
+  display: flex;
+}
+
+
+.blogSidebarItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blogSidebarTitle {
+  margin: 10px;
+  padding: 5px;
+  width: 80%;
+  /* border-top: solid 1px #a7a4a4; */
+  border-bottom: solid 1px #a7a4a4;
+  text-align: center;
+  font-family: "Varela Round", sans-serif;
+  font-size: 12px;
+  line-height: 19px;
+  color: #222222;
+  font-weight: 600;
+}
+
+.blogSidebarItem > img {
+  margin-top: 15px;
+  width: 250px;
+  height: 250px;
+}
+
+
+.blogSidebarList {
+  list-style-type: none;
+  margin-bottom: 30px;
+  
+}
+
+.sidebarListItem {
+  display: inline-block;
+  width: 100%;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.itemNumber{
+  color: rgb(26, 164, 219);
+  float: right;
+  font-weight: 700;
+  padding-right: 10px;
+
 }

@@ -18,28 +18,16 @@ export default function KeepTouch() {
               labore et dolore magna aliquyam erat, sed diam voluptua.
             </p>
           </HeaderInfo>
-          <div className="row" style={{ paddingBottom: "30px" }}>
+          <div className="row" style={{ marginLeft:'10%' }}>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-              <Form>
-                <label className="font13">Full Name:</label>
-                <input type="text" id="fname" name="fname" className="font20" />
-                <label className="font13">Email:</label>
-                <input type="text" id="email" name="email" className="font20" />
-                <label className="font13">Subject:</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  className="font20"
-                />
-                <textarea
-                  rows="4"
-                  cols="50"
-                  type="text"
-                  id="message"
-                  name="message"
-                  className="font20"
-                />
+            <Form>
+                <label className="font15">Full Name:</label>
+                <input type="text" id="fname" name="fname" className="font13" />
+                <label className="font15">Email:</label>
+                <input type="text" id="email" name="email" className="font13" />
+                <label className="font15">Subject:</label>
+                <input type="text" id="subject" name="subject" className="font13" />
+                <textarea rows="4" cols="50" type="text" id="message" name="message" className="font13" />
               </Form>
               <SumbitWrapper className="flex">
                 <ButtonInput
@@ -52,27 +40,29 @@ export default function KeepTouch() {
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 flex">
               <div
-                style={{ width: "50%", marginTop: "80px" }}
+                style={{ width: "100%", marginTop: "80px" }}
                 className="flexNullCenter flexColumn"
               >
-                {/* </div> */}
-                {/* <div style={{ width: "50%" }}> */}
-                {/* <div style={{ marginTop: "100px" }}> */}
-                <EnvelopeIcon style={{ height: "30px", color: "#D49733" }} />
+                <EnvelopeIcon 
+                  style={{ 
+                  height: "30px", 
+                  color: "#D49733" 
+                  }} 
+                /> <span>email us</span>
                 <PhoneIcon
                   style={{
                     height: "30px",
                     color: "#D49733",
                     marginTop: "50px",
                   }}
-                />
+                /><span>call us</span>
                 <MapPinIcon
                   style={{
                     height: "30px",
                     color: "#D49733",
                     marginTop: "50px",
                   }}
-                />
+                /><span>Visit us</span>
               </div>
               {/* </div>  */}
             </div>

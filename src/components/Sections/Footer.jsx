@@ -16,9 +16,7 @@ export default function Footer() {
           <InnerWrapper className="flexSpaceCenter" style={{ padding: "30px 0" }}>
             <Link className="flexCenter animate pointer" to="/" smooth={true} offset={-80}>
               <img src={LogoIcon} alt='logo' style={{width:'50px', height:'50px'}} />
-              <h1 className="font15 extraBold whiteColor" style={{ marginLeft: "15px" }}>
-                NFLP
-              </h1>
+              
             </Link>
             <StyleP className="whiteColor font13">
               © {getCurrentYear()} - <span className="purpleColor font13">

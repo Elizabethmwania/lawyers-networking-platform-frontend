@@ -1,42 +1,56 @@
 import React from "react";
-import "./BlogScreen.css";
-import { blogList } from "../components/Blogs/Data";
+import '../style/Landing.css';
 import BlogHeader from "../components/Blogs/BlogHeader";
 import TopNavbar from "../components/Nav/TopNavbar";
 import BlogIndex from "../components/Blogs/BlogIndex";
-
+import { Link } from "react-router-dom";
 const BlogScreen = () => {
   return (
     <>
       <TopNavbar />
       <BlogHeader />
-      <div className="blog-container">
-        <div className="blog-flex">
+      <div className="blogs-container">
+        <div className="blogs-flex">
           <BlogIndex />
         </div>
-        <div className="sidebar-flex">
-          <div className="category-card">
-            <div className="top">Categories</div>
-            <hr style={{ height: "1px", width: "100%" }} />
-            <div className="bottom">
-              <div className="categories">
-                <span>crime</span>
-                <span>10</span>
-              </div>
-              <div className="categories">
-                <span>crime</span>
-                <span>10</span>
-              </div>
-              <div className="categories">
-                <span>crime</span>
-                <span>10</span>
-              </div>
+          <div className="blogs-sidebar">
+          <div className="blogSidebarItem">
+            <span className="blogSidebarTitle">CATEGORIES</span>
+            <ul className="blogSidebarList">
+              <li className="sidebarListItem">
+                <Link className="link" to="/">
+                  Life <span className="itemNumber">(2)</span>
+                </Link>
+              </li>
+              <li className="sidebarListItem">
+                <Link className="link" to="/">
+                  Education<span className="itemNumber"> (5)</span>
+                </Link>
+              </li>
+              <li className="sidebarListItem">
+                <Link className="link" to="/">
+                  Crime<span className="itemNumber"> (2)</span>
+                </Link>
+              </li>
+              <li className="sidebarListItem">
+                <Link className="link" to="/">
+                  Marriage <span className="itemNumber"> (10)</span>
+                </Link>
+              </li>
+              <li className="sidebarListItem">
+                <Link className="link" to="/">
+                  Counties<span className="itemNumber"> (5)</span>
+                </Link>
+              </li>
+              <li className="sidebarListItem">
+                <Link className="link" to="/">
+                  Cinema<span className="itemNumber"> (15)</span>
+                </Link>
+              </li>
+            </ul>
             </div>
           </div>
-        </div>
       </div>
-      {/* <AllBlogs/> */}
-      {/* <Blogs/> */}
     </>
   );
 };

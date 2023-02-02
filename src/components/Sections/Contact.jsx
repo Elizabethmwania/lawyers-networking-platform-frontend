@@ -20,13 +20,13 @@ export default function Contact() {
           <div className="row" style={{ paddingBottom: "30px" }}>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <Form>
-                <label className="font13">Full Name:</label>
-                <input type="text" id="fname" name="fname" className="font20 extraBold" />
-                <label className="font13">Email:</label>
-                <input type="text" id="email" name="email" className="font20 extraBold" />
-                <label className="font13">Subject:</label>
-                <input type="text" id="subject" name="subject" className="font20 extraBold" />
-                <textarea rows="4" cols="50" type="text" id="message" name="message" className="font20 extraBold" />
+                <label className="font15">Full Name:</label>
+                <input type="text" id="fname" name="fname" className="font13" />
+                <label className="font15">Email:</label>
+                <input type="text" id="email" name="email" className="font13" />
+                <label className="font15">Subject:</label>
+                <input type="text" id="subject" name="subject" className="font13" />
+                <textarea rows="4" cols="50" type="text" id="message" name="message" className="font13" />
               </Form>
               <SumbitWrapper className="flex">
                 <ButtonInput type="submit" value="Send Message" className="pointer animate radius8" style={{ maxWidth: "220px" }} />
