@@ -19,8 +19,8 @@ export default function Header() {
       {Carousels.map((carousel) => (
         <Carousel.Item style={{borderBottom:'none'}}>
         <img
-          className="d-block w-100"
-          src={carouselImg}
+          className="d-block w-100 h-50"
+          src={carousel.image}
           alt="First slide"
         />
         <Carousel.Caption>

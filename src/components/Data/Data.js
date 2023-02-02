@@ -6,6 +6,20 @@ export const Carousels = [
       image: carousel,
       content: 'join today'
     },
+    {
+      image: carousel,
+      content: 'join today'
+    },
+    {
+      image: carousel,
+      content: 'join today'
+    },
+    {
+      image: carousel,
+      content: 'join today'
+    },
+
+  
     
 ]    
 
