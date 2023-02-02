@@ -25,7 +25,7 @@ export default function Header() {
         <LeftSide className="flexCenter">
           <div className="header-container">
             <h1 className="extraBold font30">Networking for Legal Practitioners</h1>
-            <HeaderP className="font18 semiBold">
+            <HeaderP className="font18">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
               voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
             </HeaderP>
@@ -43,7 +43,7 @@ export default function Header() {
 
 
 const Wrapper = styled.section`
-  padding-top: 80px;
+  padding-top: 70px;
   width: 100%;
   min-height: 840px;
   @media (max-width: 960px) {
@@ -51,7 +51,7 @@ const Wrapper = styled.section`
   }
 `;
 const LeftSide = styled.div`
-  width: 50%;
+  width: 100%;
   height: 100%;
   @media (max-width: 960px) {
     width: 100%;
@@ -65,18 +65,11 @@ const LeftSide = styled.div`
 `;
 const HeaderP = styled.div`
   max-width: 470px;
-  padding: 15px 0 50px 0;
   line-height: 1.5rem;
   @media (max-width: 960px) {
     padding: 15px 0 50px 0;
     text-align: center;
     max-width: 100%;
-  }
-`;
-const BtnWrapper = styled.div`
-  max-width: 190px;
-  @media (max-width: 960px) {
-    margin: 0 auto;
   }
 `;
 
