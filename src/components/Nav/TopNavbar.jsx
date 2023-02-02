@@ -10,6 +10,14 @@ export default function TopNavbar() {
   const [y, setY] = useState(window.scrollY);
   const [sidebarOpen, toggleSidebar] = useState(false);
 
+  const [bgcolor, setBgcolor] = useState("black");
+  const [textcolor, setTextcolor] = useState("white");
+
+  function handleHighlightTab() {
+    setBgcolor("white");
+    setTextcolor("black");
+  }
+
   useEffect(() => {
     window.addEventListener("scroll", () => setY(window.scrollY));
     return () => {
