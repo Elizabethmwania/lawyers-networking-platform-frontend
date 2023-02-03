@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
-import CloseIcon from "../../assets/svg/CloseIcon";
+import CloseIcon from "../../images/svg/CloseIcon";
 import LogoIcon from '../../images/logo/logo-no-bg.png';
 export default function Sidebar({ sidebarOpen, toggleSidebar }) {
   return (
