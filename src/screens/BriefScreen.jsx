@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import '../style/style.scss';
-import '../style/brief.scss';
+import "../style/style.scss";
+import "../style/brief.scss";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import PuffLoader from "react-spinners/PuffLoader";
@@ -166,7 +166,22 @@ export default function BriefScreen() {
   setTimeout(() => {
     setShowNone(false);
   }, 1400);
+  // Check if my application exists
+  const id = 1;
+  const [applications, setApplications] = useState([]);
+  const ApplicationsAPI = `http://localhost:8000/applications/myapplication/${id}`;
+  const fetchMyApplications = () => {
+    fetch(ApplicationsAPI)
+      .then((response) => response.json())
+      .then((applications) => {
+        setApplications(applications);
+      });
+  };
 
+  useEffect(() => {
+    fetchMyApplications();
+  }, []);
+ 
   return (
     <div>
       <input type="checkbox" id="menu-toggle" />
@@ -219,7 +234,7 @@ export default function BriefScreen() {
             {loading == true ? (
               <div style={{ marginTop: "100px" }}>
                 <center>
-                  <PuffLoader color="#36d7b7" />
+                  <PuffLoader color="#e1b772" />
                 </center>
               </div>
             ) : (
@@ -474,7 +489,7 @@ export default function BriefScreen() {
                 <button
                   type="submit"
                   style={{
-                    backgroundColor: "#22BAA0",
+                    backgroundColor: "#9a6c20",
                     border: "0px solid #fff",
                   }}
                   className="btn btn-primary"

@@ -126,7 +126,7 @@ export default function BriefApplication() {
 
                 <button
                   style={{
-                    backgroundColor: "#22BAA0",
+                    backgroundColor: "#9a6c20",
                     border: "0px solid #fff",
                   }}
                   className="btn btn-primary"

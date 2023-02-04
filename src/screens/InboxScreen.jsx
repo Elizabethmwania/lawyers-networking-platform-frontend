@@ -97,7 +97,7 @@ export default function InboxScreen() {
                 </>
               ) : (
                 <div style={{ marginLeft: "40%", marginTop: "3%" }}>
-                  <PuffLoader color="#36d7b7" />
+                  <PuffLoader color="#9a6c20" />
                 </div>
               )}
               {/* card for receiver */}

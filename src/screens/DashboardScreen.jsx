@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import '../style/dashboard.scss';
+import "../style/dashboard.scss";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { AiFillQuestionCircle } from "react-icons/ai";
@@ -42,6 +42,20 @@ export default function DashboardScreen() {
   const date = d.getDate();
   const year = d.getFullYear();
   const hour = d.getHours();
+  // Fetch my briefs
+  const id = 1;
+  const backendapi = `http://localhost:8000/brief/mybriefs/${id}`;
+  const fetchmybriefs = () => {
+    fetch(backendapi)
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+      });
+  };
+
+  useEffect(() => {
+    fetchmybriefs();
+  }, []);
   // Report data
   const options = {
     title: "Brief Analytics",
@@ -49,18 +63,28 @@ export default function DashboardScreen() {
     vAxis: { minValue: 0 },
     chartArea: { width: "60%", height: "70%" },
   };
+  const CompleteBriefs = data.filter(
+    (data) => data.BriefStatus === "Complete"
+  ).length;
+  const ActiveBriefs = data.filter(
+    (data) => data.BriefStatus === "Active"
+  ).length;
+  const PendingPayment = data.filter(
+    (data) => data.PaymentStatus === "Payment Pending"
+  ).length;
   const BriefNumbers = [
     ["Brief Status", "Number of Brief", { role: "style" }],
-    ["Complete Briefs", 28, "#198754"],
-    ["Active Briefs", 23, "#ffc107"],
-    ["Payment Pending Briefs", 8, "#dc3545"],
+    ["Complete Briefs", CompleteBriefs, "#198754"],
+    ["Active Briefs", ActiveBriefs, "#ffc107"],
+    ["Payment Pending Briefs", PendingPayment, "#dc3545"],
   ];
   const BriefReport = [
     ["Brief Status", "Number of Briefs"],
-    ["Complete Briefs", 12],
-    ["Active Briefs", 12],
-    ["Payment Pending Briefs", 12],
+    ["Complete Briefs", CompleteBriefs],
+    ["Active Briefs", ActiveBriefs],
+    ["Payment Pending Briefs", PendingPayment],
   ];
+
   return (
     <div className="main-content">
       <input type="checkbox" id="menu-toggle" />
@@ -74,7 +98,7 @@ export default function DashboardScreen() {
           <p style={{ fontSize: "30px", color: "black" }}>
             {day}, {month} {date}
           </p>
-          <h5 style={{ fontSize: "40px", color: "#22baa0" }}>
+          <h5 style={{ fontSize: "40px", color: "#e1b772" }}>
             {" "}
             {hour >= 12 ? (
               hour >= 16 ? (
@@ -101,7 +125,7 @@ export default function DashboardScreen() {
                       <MdLibraryBooks />
                     </span>
                     <div className="dash-count">
-                      <h3>26</h3>
+                      <h3>{data.length}</h3>
                     </div>
                   </div>
                   <div className="dash-widget-info">
@@ -125,7 +149,7 @@ export default function DashboardScreen() {
                       <MdAddTask />
                     </span>
                     <div className="dash-count">
-                      <h3>14</h3>
+                      <h3>{CompleteBriefs}</h3>
                     </div>
                   </div>
                   <div className="dash-widget-info">
@@ -149,7 +173,7 @@ export default function DashboardScreen() {
                       <MdOutlinePendingActions />
                     </span>
                     <div className="dash-count">
-                      <h3>8</h3>
+                      <h3>{ActiveBriefs}</h3>
                     </div>
                   </div>
                   <div className="dash-widget-info">
@@ -173,7 +197,7 @@ export default function DashboardScreen() {
                       <AiFillQuestionCircle />
                     </span>
                     <div className="dash-count">
-                      <h3>4</h3>
+                      <h3>{PendingPayment}</h3>
                     </div>
                   </div>
                   <div className="dash-widget-info">
@@ -226,9 +250,6 @@ export default function DashboardScreen() {
           </div>
         </div>
         {/*  */}
-       
-
-       
         {/*  */}
       </main>
     </div>

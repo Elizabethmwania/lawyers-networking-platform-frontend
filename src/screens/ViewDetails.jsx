@@ -219,7 +219,7 @@ export default function ViewDetails() {
             <button
               type="submit"
               style={{
-                backgroundColor: "#22BAA0",
+                backgroundColor: "#e1b772",
                 border: "0px solid #fff",
               }}
               className="btn btn-primary"

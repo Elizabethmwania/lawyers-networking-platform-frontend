@@ -101,7 +101,7 @@ export default function ProfileScreen() {
                     textALign: "center",
                   }}
                 >
-                  <h5>Welcome Jane</h5>
+                  <h6>Welcome Jane</h6>
                   {/* <button className="changeProfile">Change Profile</button> */}
                 </div>
               </div>

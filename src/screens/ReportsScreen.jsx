@@ -1,11 +1,29 @@
-import React, { useState } from "react";
-import '../style/reports.scss';
+import React, { useState, useEffect } from "react";
+import "../style/reports.scss";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { Chart } from "react-google-charts";
 import { AiFillPrinter } from "react-icons/ai";
+import PuffLoader from "react-spinners/PuffLoader";
+// Convert date and time to a more readable format
+import Moment from "react-moment";
 
 export default function ReportsScreen() {
+  const id = 1;
+  const [data, setData] = useState([]);
+  // Fetch my briefs
+  const backendapi = `http://localhost:8000/brief/mybriefs/${id}`;
+  const fetchmybriefs = () => {
+    fetch(backendapi)
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+      });
+  };
+
+  useEffect(() => {
+    fetchmybriefs();
+  }, []);
   // Report data
   const options = {
     title: "Brief Analytics",
@@ -13,17 +31,26 @@ export default function ReportsScreen() {
     vAxis: { minValue: 0 },
     chartArea: { width: "60%", height: "70%" },
   };
+  const CompleteBriefs = data.filter(
+    (data) => data.BriefStatus === "Complete"
+  ).length;
+  const ActiveBriefs = data.filter(
+    (data) => data.BriefStatus === "Active"
+  ).length;
+  const PendingPayment = data.filter(
+    (data) => data.PaymentStatus === "Payment Pending"
+  ).length;
   const BriefNumbers = [
-    ["Brief Status", "Brief",  { role: "style" }],
-    ["Complete Briefs", 28, "#198754"],
-    ["Active Briefs", 23, "#ffc107"],
-    ["Payment Pending Briefs", 8, "#dc3545"],
+    ["Brief Status", "Number of Brief", { role: "style" }],
+    ["Complete Briefs", CompleteBriefs, "#198754"],
+    ["Active Briefs", ActiveBriefs, "#ffc107"],
+    ["Payment Pending Briefs", PendingPayment, "#dc3545"],
   ];
   const BriefReport = [
     ["Brief Status", "Number of Briefs"],
-    ["Complete Briefs", 12],
-    ["Active Briefs", 12],
-    ["Payment Pending Briefs", 12],
+    ["Complete Briefs", CompleteBriefs],
+    ["Active Briefs", ActiveBriefs],
+    ["Payment Pending Briefs", PendingPayment],
   ];
   return (
     <div>
@@ -64,39 +91,39 @@ export default function ReportsScreen() {
                     </th>
                   </tr>
                 </thead>
+
                 <tbody>
-                  <tr>
-                    <td>#003</td>
-                    <td>
-                      <div className="client">
-                        <div className="client-info">
-                          <small>Interlectual Property</small>
+                  {data.map((data) => (
+                    <tr>
+                      <td>#{data.id}</td>
+                      <td>
+                        <div className="client">
+                          <div className="client-info">
+                            <small>{data.BriefTitle}</small>
+                          </div>
                         </div>
-                      </div>
-                    </td>
-                    <td>24 January, 2023</td>
-                    <td>Ksh. 15,000</td>
-                    <td>Milimani Law Courts</td>
-                    <td>
-                      <span className="completeBtn">Complete</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>#0027</td>
-                    <td>
-                      <div className="client">
-                        <div className="client-info">
-                          <small>Civil Case</small>
-                        </div>
-                      </div>
-                    </td>
-                    <td>28 January, 2023</td>
-                    <td>Ksh. 26,000</td>
-                    <td>Supreme court building</td>
-                    <td>
-                      <span className="activeBtn">Active</span>
-                    </td>
-                  </tr>
+                      </td>
+                      <td>
+                        {" "}
+                        <Moment
+                          parse="YYYY-MM-DD HH:mm"
+                          style={{ fontSize: "14px" }}
+                        >
+                          {data.BriefDate}
+                        </Moment>
+                      </td>
+                      <td>Ksh. {data.Cost}</td>
+                      <td> {data.CourtStation}</td>
+
+                      <td>
+                        {data.BriefStatus == "Complete" ? (
+                          <span className="completeBtn">Complete</span>
+                        ) : (
+                          <span className="activeBtn">Active</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>

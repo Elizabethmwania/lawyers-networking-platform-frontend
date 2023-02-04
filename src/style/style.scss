@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600&display=swap');
 
 :root {
-    --main-color: #D49733;
-    --color-dark: #344B3E;
+    --main-color: #e1b772;
+    --color-dark: #af7a25;
     --text-grey: #B0B0B0;
 }
 
@@ -42,19 +42,12 @@
 }
 
 .dropdowns-content a:hover {
-    color: #D49733;
+    color: #e1b772;
 }
 
 .dropdowns:hover .dropdowns-content {
     display: block;
 }
-
-
-
-
-
-
-
 
 
 .main-content {
@@ -75,17 +68,21 @@
 .sidebar {
     position: fixed;
     height: 100%;
-    width: 200px;
+    width: 201px;
     left: 0;
     bottom: 0;
     top: 0;
     z-index: 100;
-    background: var(--color-dark);
-    transition: left 300ms;
+    color: var(--color-dark);
+    background: #fff;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
 
 .side-header {
-    background: var(--main-color);
+    // background: var(--main-color);
+    box-shadow: 0 0.3px 0.2px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
     height: 60px;
     display: flex;
     justify-content: center;
@@ -140,7 +137,7 @@ side-head span {
 }
 
 .sidebarIcon {
-    color: #fff !important;
+    color: var(--color-dark);
     margin-left: 20%;
     font-size: 20px !important;
 }
@@ -184,12 +181,16 @@ side-head span {
 }
 
 .side-menu a.active {
-    background: #D49733;
+    background: #e1b772;
+   
 }
 
 .side-menu a.active span,
 .side-menu a.active small {
-    color: #fff;
+    color: #fff !important;
+}
+.side-menu a.active .sidebarIcon {
+    color: #fff !important;
 }
 
 .side-menu a span {
@@ -209,7 +210,7 @@ side-head span {
 
 .side-menu a span,
 .side-menu a small {
-    color: #fff;
+    color: #000;
     text-decoration: none !important;
     padding-left: 10px !important;
 }
@@ -400,7 +401,7 @@ main {
 }
 
 .indicator.one {
-    background: #D49733;
+    background: #e1b772;
 }
 
 .indicator.two {
@@ -462,7 +463,7 @@ select {
 }
 
 .addBrief {
-    background: var(--main-color);
+    background:#e1b772;
     color: #fff;
     height: 37px;
     border-radius: 4px;
@@ -578,7 +579,7 @@ table tbody tr {
     }
 }
 
-@media only screen and (max-width: 840px) {
+@media only screen and (max-width: 900px) {
     .analytics {
         grid-template-columns: 100%;
     }
