@@ -1,11 +1,33 @@
-import React, { useState } from "react";
-import '../style/reports.scss';
+import React, { useState, useEffect } from "react";
+import "../style/reports.scss";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { AiFillPrinter } from "react-icons/ai";
+import PuffLoader from "react-spinners/PuffLoader";
+// Convert date and time to a more readable format
+import Moment from "react-moment";
 
 export default function MyBriefs() {
-  const id = 22;
+  const id = 1;
+  const [data, setData] = useState([]);
+  const [loading, isLoading] = useState(true);
+
+  // Fetch my briefs
+  const backendapi = `http://localhost:8000/brief/mybriefs/${id}`;
+  const fetchmybriefs = () => {
+    fetch(backendapi)
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+        setTimeout(() => {
+          isLoading(false);
+        }, 1000);
+      });
+  };
+
+  useEffect(() => {
+    fetchmybriefs();
+  }, []);
   return (
     <div>
       <input type="checkbox" id="menu-toggle" />
@@ -44,71 +66,55 @@ export default function MyBriefs() {
                     </th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>#054</td>
-                    <td>
-                      <div className="client">
-                        <div className="client-info">
-                          <small>Civil Case</small>
-                        </div>
-                      </div>
-                    </td>
-                    <td>28 January, 2023</td>
-                    <td>Ksh. 26,000</td>
-                    <td>Supreme court building</td>
-                    <td>
-                      <a href={`ViewDetails/${id}`} className="moreInfoBtn">
-                        View Details
-                      </a>
-                    </td>
-                    <td>
-                      <span className="activeBtn">Active</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>#016</td>
-                    <td>
-                      <div className="client">
-                        <div className="client-info">
-                          <small>Interlectual Property</small>
-                        </div>
-                      </div>
-                    </td>
-                    <td>18 January, 2023</td>
-                    <td>Ksh. 15,000</td>
-                    <td>Milimani Law Courts</td>
-                    <td>
-                      <a href={`ViewDetails/${id}`} className="moreInfoBtn">
-                        View Details
-                      </a>
-                    </td>
-                    <td>
-                      <span className="completeBtn">Complete</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>#003</td>
-                    <td>
-                      <div className="client">
-                        <div className="client-info">
-                          <small>Interlectual Property</small>
-                        </div>
-                      </div>
-                    </td>
-                    <td>14 January, 2023</td>
-                    <td>Ksh. 18,000</td>
-                    <td>Milimani Law Courts</td>
-                    <td>
-                      <a href={`ViewDetails/${id}`} className="moreInfoBtn">
-                        View Details
-                      </a>
-                    </td>
-                    <td>
-                      <span className="completeBtn">Complete</span>
-                    </td>
-                  </tr>
-                </tbody>
+
+                {loading == true ? (
+                  <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)"  }}>
+                    <center>
+                      <PuffLoader color="#9a6c20"/>
+                    </center>
+                  </div>
+                ) : (
+                  <tbody>
+                    {data.map((data) => (
+                      <tr>
+                        <td>#{data.id}</td>
+                        <td>
+                          <div className="client">
+                            <div className="client-info">
+                              <small>{data.BriefTitle}</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          {" "}
+                          <Moment
+                            parse="YYYY-MM-DD HH:mm"
+                            style={{ fontSize: "14px" }}
+                          >
+                            {data.BriefDate}
+                          </Moment>
+                        </td>
+                        <td>Ksh. {data.Cost}</td>
+                        <td> {data.CourtStation}</td>
+                        <td>
+                          <a
+                            href={`ViewDetails/${data.id}`}
+                            className="moreInfoBtn"
+                          >
+                            View Details
+                          </a>
+                        </td>
+                        <td>
+                          {data.BriefStatus == "Complete" ? (
+                            <span className="completeBtn">Complete</span>
+                          ) : (
+                            <span className="activeBtn">Active</span>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                )}
               </table>
             </div>
           </div>
