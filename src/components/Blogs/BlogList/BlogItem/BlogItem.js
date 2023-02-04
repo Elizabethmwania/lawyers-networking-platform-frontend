@@ -45,11 +45,11 @@ export default function BlogItem({
     },
 }) {
   return (
-    <div className='blogItemWrap' style={BlogItemStyle.blogItemWrap}>
-      <img className='blogItemcover' src={img} alt='cover' style={BlogItemStyle.blogItemCover} />
+    <div className='blogItem-wrap'>
+      <img className='blogItem-cover' src={img} alt='cover' />
       <Chip label={category} />
-      <h3 className='blogItemHeader' style={BlogItemStyle.blogItemHeader} >{title}</h3>
-      <p className='blogItemDesc' style={BlogItemStyle.blogItemDesc}>{description}</p>
+      <h5>{title}</h5>
+      <p className='blogItem-desc'>{description}</p>
       <footer>
         <div className='blogItem-author'>
           {/* <img src={authorAvatar} alt='avatar' /> */}
@@ -59,7 +59,7 @@ export default function BlogItem({
           </div>
         </div>
         <Link className='blogItem-link' to={`/blog/${id}`}>
-        Read More➝
+        Read More ➝
         </Link>
       </footer>
     </div>

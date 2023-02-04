@@ -2,10 +2,9 @@ import React from 'react';
 import AboutHeader from '../components/About/AbouHeader';
 import AboutServices from '../components/About/AboutServices';
 import WhatWeDo from '../components/About/WhatWeDo';
+import Backdrop from '../components/Elements/Backdrop';
 import TopNavbar from '../components/Nav/TopNavbar';
 import Footer from '../components/Sections/Footer';
-import Header from '../components/Sections/Header';
-
 const AboutScreen = () => {
     return (
         <>
@@ -13,6 +12,7 @@ const AboutScreen = () => {
         <AboutHeader/>
         <WhatWeDo/>
         <AboutServices/>
+        <Backdrop/>
         <Footer/>
         </>
     );

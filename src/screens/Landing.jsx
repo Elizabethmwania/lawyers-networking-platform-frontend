@@ -6,6 +6,7 @@ import Blog from "../components/Sections/Blog";
 import Contact from "../components/Sections/Contact";
 import Footer from "../components/Sections/Footer"
 import AboutSection from "../components/Sections/AboutSection";
+import Backdrop from "../components/Elements/Backdrop";
 
 export default function Landing() {
   return (
@@ -16,6 +17,7 @@ export default function Landing() {
       <Services />
       <Blog />
       <Contact />
+      <Backdrop/>
       <Footer />
     </>
   );

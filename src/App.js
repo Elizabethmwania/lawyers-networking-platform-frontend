@@ -15,6 +15,7 @@ import MyBriefs from "./screens/MyBriefs.jsx";
 import ProfileScreen from "./screens/ProfileScreen.jsx";
 import ReportsScreen from "./screens/ReportsScreen.jsx";
 import ViewDetails from "./screens/ViewDetails.jsx";
+import Backdrop from "./components/Elements/Backdrop.jsx";
 
 export default function App() {
   return (

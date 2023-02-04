@@ -4,6 +4,8 @@ import BlogHeader from "../components/Blogs/BlogHeader";
 import TopNavbar from "../components/Nav/TopNavbar";
 import BlogIndex from "../components/Blogs/BlogIndex";
 import { Link } from "react-router-dom";
+import Footer from "../components/Sections/Footer";
+import Backdrop from "../components/Elements/Backdrop";
 const BlogScreen = () => {
   return (
     <>
@@ -51,6 +53,8 @@ const BlogScreen = () => {
             </div>
           </div>
       </div>
+      <Backdrop/>
+      <Footer/>
     </>
   );
 };
