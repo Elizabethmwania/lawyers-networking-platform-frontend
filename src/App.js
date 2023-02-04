@@ -15,7 +15,7 @@ import MyBriefs from "./screens/MyBriefs.jsx";
 import ProfileScreen from "./screens/ProfileScreen.jsx";
 import ReportsScreen from "./screens/ReportsScreen.jsx";
 import ViewDetails from "./screens/ViewDetails.jsx";
-import Backdrop from "./components/Elements/Backdrop.jsx";
+import RegistrationForm from "./components/Registartion/RegistrationForm.jsx";
 
 export default function App() {
   return (
@@ -36,6 +36,7 @@ export default function App() {
           <Route path="/blog" element={<BlogScreen />} />
           <Route path="/blog/:id" element={<AllBlogs />} />
           <Route path="/contact" element={<ContactScreen />} />
+          <Route path="/register" element={<RegistrationForm />} />
           {/* Dashboard */}
           <Route path="/dashboard" exact element={<DashboardScreen />} />
           <Route path="/briefs" exact element={<BriefScreen />} />
