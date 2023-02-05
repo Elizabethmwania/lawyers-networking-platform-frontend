@@ -27,6 +27,7 @@ export default function KeepTouch() {
                 <input type="text" id="email" name="email" className="font13" />
                 <label className="font15">Subject:</label>
                 <input type="text" id="subject" name="subject" className="font13" />
+                <label className="font15">Message:</label>
                 <textarea rows="4" cols="50" type="text" id="message" name="message" className="font13" />
               </Form>
               <SumbitWrapper className="flex">
@@ -39,8 +40,7 @@ export default function KeepTouch() {
               </SumbitWrapper>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 flex">
-              <div
-                style={{ width: "100%", marginTop: "80px" }}
+              <div style={{ width: "100%" }}
                 className="flexNullCenter flexColumn"
               >
                 <EnvelopeIcon 
@@ -48,39 +48,41 @@ export default function KeepTouch() {
                   height: "30px", 
                   color: "#D49733" 
                   }} 
-                /> <span>email us</span>
+                /> <span>network@gmail.com</span>
                 <PhoneIcon
                   style={{
                     height: "30px",
                     color: "#D49733",
                     marginTop: "50px",
                   }}
-                /><span>call us</span>
+                /><span>+254 711 002 673</span>
                 <MapPinIcon
                   style={{
                     height: "30px",
                     color: "#D49733",
                     marginTop: "50px",
                   }}
-                /><span>Visit us</span>
+                />
+                <span>
+                  P.O Box 19 - 00100 <br/>
+                  Muthaiga Square, <br/>Nairobi. <br/>
+                </span>
+                
               </div>
-              {/* </div>  */}
             </div>
           </div>
         </div>
         <iframe
-          width="100%"
-          height="100%"
-          title="map"
-          className="absolute inset-0"
-          frameBorder={0}
-          marginHeight={0}
-          marginWidth={0}
-          loading="lazy"
-          style={{ filter: "opacity(0.7)" }}
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d90256.46989614451!2d36.80476501014542!3d-1.2880827889894189!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d89586303f%3A0x249cb113a045ce9c!2sKRA%20Offices!5e0!3m2!1sen!2ske!4v1668174135269!5m2!1sen!2ske"
-        />
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d90256.46989614451!2d36.80476501014542!3d-1.2880827889894189!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d89586303f%3A0x249cb113a045ce9c!2sKRA%20Offices!5e0!3m2!1sen!2ske!4v1668174135269!5m2!1sen!2ske"
+                  width="100%"
+                  height="400px"
+                  title="map"
+                  className="absolute inset-0"
+                  loading="lazy"
+                  style={{ filter: "opacity(0.7)", border:'0'}}
+                  />
       </div>
+      
     </Wrapper>
   );
 }
@@ -95,16 +97,16 @@ const HeaderInfo = styled.div`
   }
 `;
 const Form = styled.form`
-  padding: 70px 0 30px 0;
+  padding: 0px 0 10px 0;
   input,
   textarea {
     width: 100%;
     background-color: transparent;
-    border: 1px solid #d49733;
+    border: 1px solid #eed0a1;
     outline: none;
     box-shadow: none;
     height: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
   textarea {
     min-height: 100px;
@@ -116,8 +118,8 @@ const Form = styled.form`
 const ButtonInput = styled.input`
   border: 1px solid #d49733;
   background-color: #d49733;
-  width: 100%;
-  padding: 15px;
+  width: fit-content;
+  padding: 10px;
   outline: none;
   color: #fff;
   :hover {
@@ -131,10 +133,11 @@ const ButtonInput = styled.input`
 `;
 
 const SumbitWrapper = styled.div`
+  margin-top: 0px;
+  margin-bottom: 50px;
   @media (max-width: 991px) {
     width: 100%;
     margin-bottom: 50px;
   }
 `;
 
-const Icons = styled.div``;

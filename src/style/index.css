@@ -45,9 +45,9 @@
     color: #7620FF;
   }
   input:-webkit-autofill {
-    -webkit-box-shadow:0 0 0 50px #fff inset; /* Change the color to your own background color */
+    -webkit-box-shadow:0 0 0 50px #505152 inset; 
     box-shadow: transparent;
-    -webkit-text-fill-color: #fff;
+    -webkit-text-fill-color: #505152;
   }
   body {
     background: #fff;
@@ -150,7 +150,8 @@
     font-size: 0.75rem;
   }
   .font13 {
-    font-size: 0.813rem;
+    font-size: 1rem;
+    color: #505152;
   }
   .font14 {
     font-size: 0.875rem;

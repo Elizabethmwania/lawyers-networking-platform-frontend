@@ -1,22 +1,50 @@
-import React from 'react'
-import { useForm } from 'react-hook-form';
+import React, { useState } from 'react'
+import { useForm, Controller } from 'react-hook-form';
+import Select from 'react-select';
 import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
+const selectCounty = [
+  { value: 'nairobi', label: "Nairobi" },
+  { value: 'mombasa', label: "Mombasa" },
+  { value: 'kisumu', label: "Kisumu" }
+];
 
-export default function RegistrationForms() {
-    const {register, handleSubmit, formState: { errors } } = useForm();
+const selectPracticeArea = [
+  { value: 'education', label: "Education" },
+  { value: 'marriage', label: "Marriage" },
+  { value: 'criminal', label: "Criminal" }
+];
+
+export default function RegistrationForm() {
+    const {register, handleSubmit, control, formState: { errors } } = useForm();
+    const [selectedCounty, setSelectedCounty] = useState(null);
+    const [selectedPractice, setSelectedPractice] = useState(null);
+    const [showPopup, setShowPopup] = useState(false);
+    const navigate = useNavigate();
+
+    const handleCountyChange = selectedCounty => {
+      setSelectedCounty(selectedCounty);
+    }
+
+    const handlePracticeChange = selectedPractice => {
+      setSelectedPractice(selectedPractice);
+    }
 
     const onSubmit = (data) => {
+        setShowPopup(true);
+        setTimeout(() => {
+          navigate("/login");
+        }, 3000);
         localStorage.setItem(data.email, JSON.stringify({ 
-            name: data.name, password: data.password 
+            name: data.name, pnumber: data.pnumber, email: data.email, county: data.county, practiceArea: data.practiceArea, password: data.password 
         }));
         console.log(JSON.parse(localStorage.getItem(data.email)));
       };
     
     return (
       <>
-      <div>
       <Container>
         <Row className="vh-100 d-flex justify-content-center align-items-center">
           <Col md={8} lg={6} xs={12}>
@@ -24,65 +52,86 @@ export default function RegistrationForms() {
             <Card className="shadow px-4">
               <Card.Body>
                 <div className="mb-3 mt-md-4">
+                
                   <h2 className="fw-bold mb-2 text-center text-uppercase ">Logo</h2>
                   <div className="mb-3">
-                    <Form>
+                    <Form onSubmit={handleSubmit(onSubmit)}>
+                    {Object.keys(errors).length > 0 && <p style={{color:'red'}}>All fields are mandatory!</p>}
                         <Row>
                             <Col>
                                 <Form.Group className="mb-3" controlId="Name">
                                     <Form.Label className="text-center">
-                                        Name
+                                        Full Name
                                     </Form.Label>
-                                    <Form.Control type="text"/>
+                                    <Form.Control type="text" {...register("name",{ required:true })} />
+                                    {/* {errors.name && <p style={{color:'red'}}>Name is required</p>} */}
                                 </Form.Group>
                             </Col>
                             <Col>
-                                <Form.Group className="mb-3" controlId="Name">
+                                <Form.Group className="mb-3" controlId="Pnumber">
                                     <Form.Label className="text-center">
                                         P/Number
                                     </Form.Label>
-                                    <Form.Control type="text"/>
+                                    <Form.Control type="text" {...register("pnumber", {required: true})} />
+                                    {/* {errors.pnumber && <p style={{color:'red'}}>P/Number is required</p>} */}
                                 </Form.Group>
                             </Col>
                         </Row>
-                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Group className="mb-3" controlId="Email">
                         <Form.Label className="text-center">
                           Email address
                         </Form.Label>
-                        <Form.Control type="email"/>
+                        <Form.Control type="email" {...register("email", {required:true})} />
                       </Form.Group>
                       <Row>
                         <Col>
                             <Form.Group
                             className="mb-3"
-                            controlId="formBasicPassword"
+                            controlId="county"
                             >
                                 <Form.Label>Residence</Form.Label>
-                                <Form.Control as="select" value="counties" type="text" placeholder="Select County">
-                                    <option selected>--Select--</option>
-                                    <option value="">Mombasa</option>
-                                </Form.Control>
+                                <Controller
+                                name="county"
+                                control={control}
+                                defaultValue=""
+                                render={({field}) => (
+                                  <Select options={selectCounty} {...field} 
+                                  onChange={handleCountyChange} 
+                                  value={selectedCounty} 
+                                  label="Text Field"
+                                  />
+                                )}
+                                />
                             </Form.Group>
                         </Col>
                         <Col>
                             <Form.Group
                             className="mb-3"
-                            controlId="formBasicPassword"
+                            controlId="practiceArea"
                             >
                                 <Form.Label>Practice Area</Form.Label>
-                                <Form.Control as="select" value="counties" type="text">
-                                    <option selected>--Select--</option>
-                                    <option value="">Divorce</option>
-                                </Form.Control>
+                                <Controller 
+                                name='practiceArea'
+                                control={control}
+                                defaultValue=""
+                                render={({field}) => (
+                                  <Select 
+                                  options={selectPracticeArea} 
+                                  {...field} 
+                                  onChange={handlePracticeChange} 
+                                  value={selectedPractice}
+                                  />
+                                )}
+                                />
                             </Form.Group>
                         </Col>
                       </Row>
                       <Form.Group
                         className="mb-3"
-                        controlId="formBasicPassword"
+                        controlId="password"
                       >
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" />
+                        <Form.Control type="password" {...register("password", {required:true})} />
                       </Form.Group>
                       <Form.Group
                         className="mb-3"
@@ -90,10 +139,26 @@ export default function RegistrationForms() {
                       >
                       </Form.Group>
                       <div className="d-grid">
-                        <Button variant="primary" type="submit" style={{backgroundColor:'rgb(20, 87, 35)'}}>
+                        <Button variant="primary" type={"submit"} style={{backgroundColor:'rgb(20, 87, 35)'}}>
                           Create Account
                         </Button>
                       </div>
+                      {showPopup && (
+                      <div style={{
+                        position: 'fixed',
+                        width:'100%',
+                        bottom: 20,
+                        right: 20,
+                        background: 'green',
+                        color: 'white',
+                        padding: '1em',
+                        borderRadius: '5px',
+                        opacity: 0,
+                        transition: 'opacity 0.5s ease-in-out'
+                      }}>
+                        Form Submitted Successfully!
+                      </div>
+                    )}
                     </Form>
                     <div className="mt-3">
                       <p className="mb-0  text-center">
@@ -109,19 +174,7 @@ export default function RegistrationForms() {
           </Col>
         </Row>
       </Container>
-    </div>
-       
-
-        {/* <h3>Register Here</h3>
-        <form className="registrationForm" onSubmit={handleSubmit(onSubmit)}>
-            <label>username</label>
-          <input type="text" {...register("name")} />
-          <input type="email" {...register("email", { required: true })} />
-          {errors.email && <span style={{ color: "red" }}>
-          *Email* is mandatory </span>}
-          <input type="password" {...register("password")} />
-          <input type={"submit"} style={{ backgroundColor: "#a1eafb" }} />
-        </form> */}
-      </>
+      
+    </>
   )
 }

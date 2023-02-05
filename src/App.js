@@ -16,6 +16,7 @@ import ProfileScreen from "./screens/ProfileScreen.jsx";
 import ReportsScreen from "./screens/ReportsScreen.jsx";
 import ViewDetails from "./screens/ViewDetails.jsx";
 import RegistrationForm from "./components/Registartion/RegistrationForm.jsx";
+import LoginForm from "./components/Login/LoginForm.js";
 
 export default function App() {
   return (
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="/blog/:id" element={<AllBlogs />} />
           <Route path="/contact" element={<ContactScreen />} />
           <Route path="/register" element={<RegistrationForm />} />
+          <Route path="/login" element={<LoginForm />} />
           {/* Dashboard */}
           <Route path="/dashboard" exact element={<DashboardScreen />} />
           <Route path="/briefs" exact element={<BriefScreen />} />
