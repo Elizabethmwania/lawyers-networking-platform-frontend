@@ -11,25 +11,103 @@ export default function Footer() {
 
   return (
     <Wrapper>
-      <div className="darkBg">
-        <div className="container">
+      <div className="darkBg flexRowFooter">
+        <div className="containerFooter">
           <InnerWrapper className="flexSpaceCenter" style={{ padding: "30px 0" }}>
-            <Link className="flexCenter animate pointer" to="/" smooth={true} offset={-80}>
-              <img src={LogoIcon} alt='logo' style={{width:'50px', height:'50px'}} />
-              
-            </Link>
-            <StyleP className="whiteColor font13">
+            <ul>
+              <li className="flexColumnFooter">
+                <Link className="flexCenter animate pointer" to="/" smooth={true} offset={-80}>
+                <img src={LogoIcon} alt='logo' style={{width:'50px', height:'50px'}} />
+                </Link>
+              </li>
+              <li className="flexColumnFooter">Muthaiga Square</li>
+              <li className="flexColumnFooter">P.O Box 25-00100</li>
+              <li className="flexColumnFooter">24 Hours Open</li>
+            </ul>
+            <ul>
+              <li className="flexColumnFooter orangeColor">
+                Quick Links
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate pointer" to="/" smooth={true} offset={-80}>
+                  Home
+                </Link>
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate pointer" to="/" smooth={true} offset={-80}>
+                  About Us
+                </Link>
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate pointer" to="/" smooth={true} offset={-80}>
+                  Login
+                </Link>
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate pointer" to="/" smooth={true} offset={-80}>
+                  Contact
+                </Link>
+              </li>
+            </ul>
+            <ul>
+              <li className="flexColumnFooter orangeColor">
+                Recent Stories
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate pointer" to="/" smooth={true} offset={-80}>
+                  Home
+                </Link>
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate pointer" to="/" smooth={true} offset={-80}>
+                  About Us
+                </Link>
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate pointer" to="/" smooth={true} offset={-80}>
+                  Login
+                </Link>
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate pointer" to="/" smooth={true} offset={-80}>
+                  Contact
+                </Link>
+              </li>
+            </ul>
+            <ul>
+              <li className="flexColumnFooter orangeColor">
+                We are Social
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate pointer" to="/" smooth={true} offset={-80}>
+                  Home
+                </Link>
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate pointer" to="/" smooth={true} offset={-80}>
+                  About Us
+                </Link>
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate pointer" to="/" smooth={true} offset={-80}>
+                  Login
+                </Link>
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate pointer" to="/" smooth={true} offset={-80}>
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </InnerWrapper>
+        </div>
+        
+      </div>
+      <StyleP className="textCenter whiteColor darkBg" style={{marginBottom:'0px'}}>
               © {getCurrentYear()} - <span className="purpleColor font13">
               </span> 
               All Right Reserved
-            </StyleP>
-              {/* To be implemented*/}
-            <Link className="whiteColor animate pointer font13" to="home" smooth={true} offset={-80}>
-              Back to top
-            </Link>
-          </InnerWrapper>
-        </div>
-      </div>
+        </StyleP>
     </Wrapper>
   );
 }
@@ -43,6 +121,7 @@ const InnerWrapper = styled.div`
   }
 `;
 const StyleP = styled.p`
+margin-bottom:'0px';
   @media (max-width: 550px) {
     margin: 20px 0;
   }

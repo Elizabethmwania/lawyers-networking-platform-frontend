@@ -63,6 +63,11 @@
     margin: 0 auto;
     padding: 0px 30px;
   }
+  .containerFooter {
+    width: 100%;
+    max-width: 1220px;
+    margin: 0px 150px;
+  }
   @media only screen and (max-width: 859px) {
     .container {
       padding: 0 15px;
@@ -83,7 +88,7 @@
     text-align: center
   }
   .animate {
-    transition: 0.3s ease;
+    transition: 0.8s ease;
   }
   .pointer {
     cursor: pointer;
@@ -132,10 +137,21 @@
   .flexColumn {
     flex-direction: column;
   }
+  .flexColumnFooter {
+    flex-direction: column;
+    padding-bottom: 5px;
+    color: rgb(161, 148, 148);
+  }
   .flexCenter {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .flexRowFooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
   }
   .flexSpaceNull {
     display: flex;
