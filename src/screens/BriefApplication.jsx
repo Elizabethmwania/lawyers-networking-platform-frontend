@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import '../style/BriefApplication.scss'
+import "../style/BriefApplication.scss";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import ScaleLoader from "react-spinners/ScaleLoader";
 // toast notification
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+// Convert date and time to a more readable format
+import Moment from "react-moment";
 
 export default function BriefApplication() {
   const [data, setData] = useState([]);
   const [sending, setSending] = useState(false);
-  const [loading, setLoading] = useState(false);
   // get the email of the logged in user
   const { email } = useParams();
   const applicantId = "1";
@@ -48,28 +49,30 @@ export default function BriefApplication() {
   }, [briefid]);
 
   // Submit Application
+
   const [application, setApplication] = useState({
     BriefId: id,
+    FullName: "",
     ApplicantId: applicantId,
     CurrentLocation: "",
     Availability: "",
   });
 
-  const { BriefId, ApplicantId, CurrentLocation, Availability } = application;
+  const { BriefId, ApplicantId, FullName, CurrentLocation, Availability } =
+    application;
 
   const onApplicationInputChange = (e) => {
     setApplication({ ...application, [e.target.name]: e.target.value });
   };
 
   const submitApplication = async (e) => {
-    e.preventDefault();
-    await axios.post("http://localhost:8000/applications/", application);
     setSending(true);
     ApplicationNotification();
-    setApplication("");
+    e.preventDefault();
+    await axios.post("http://localhost:8000/applications/", application);
     navigate("/briefs");
   };
-
+  console.log(FullName);
   return (
     <div>
       <input type="checkbox" id="menu-toggle" />
@@ -83,8 +86,32 @@ export default function BriefApplication() {
           </div>
 
           <div className="page-content">
-            <div style={{ width: "60%" }}>
-              <form className="row g-3">
+            <div style={{ width: "50%" }}>
+              <form
+                className="row g-3"
+                onSubmit={(e) => {
+                  submitApplication(e);
+                }}
+              >
+                <div className="col-md-12">
+                  <div className="form-group">
+                    <label htmlFor="FullName">
+                      Full Name: <span className="asterisc">*</span>
+                    </label>
+
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={FullName}
+                      name="FullName"
+                      id="FullName"
+                      required
+                      onChange={(e) => {
+                        onApplicationInputChange(e);
+                      }}
+                    />
+                  </div>
+                </div>
                 <div className="col-md-12">
                   <div className="form-group">
                     <label htmlFor="CurrentLocation">
@@ -103,10 +130,10 @@ export default function BriefApplication() {
                     />
                   </div>
                 </div>
-
                 <div className="form-group col-lg-12">
                   <label htmlFor="Availability">
-                    Are you available on(January 25 between 1400hrs to 1600hrs):
+                    Are you available on (
+                    <Moment parse="YYYY-MM-DD HH:mm">{data.BriefDate}</Moment>):
                     <span className="asterisc">*</span>
                   </label>
                   <select
@@ -123,6 +150,7 @@ export default function BriefApplication() {
                     <option>No</option>
                   </select>
                 </div>
+                <br />
 
                 <button
                   style={{
@@ -130,12 +158,10 @@ export default function BriefApplication() {
                     border: "0px solid #fff",
                   }}
                   className="btn btn-primary"
-                  onClick={(e) => {
-                    submitApplication(e);
-                  }}
+                  type="submit"
                 >
                   {sending == true ? (
-                    <ScaleLoader height="20" width="3" color="#fff" />
+                    <ScaleLoader height="18" width="3" color="#fff" />
                   ) : (
                     "Submit Application"
                   )}

@@ -82,17 +82,14 @@ export default function BriefScreen() {
   };
   const [sending, setSending] = useState(false);
   const AddBrief = async (e) => {
-    e.preventDefault();
-    await axios.post("http://localhost:8000/brief/", briefs);
-    handleClose();
     setSending(true);
     BriefNotification();
-    setBriefs("");
+    handleClose();
     window.location.reload();
+    e.preventDefault();
+    await axios.post("http://localhost:8000/brief/", briefs);
   };
-  setTimeout(() => {
-    setSending(false);
-  }, 4000);
+
   const Applied = "False";
 
   // filter data
@@ -181,7 +178,7 @@ export default function BriefScreen() {
   useEffect(() => {
     fetchMyApplications();
   }, []);
- 
+
   return (
     <div>
       <input type="checkbox" id="menu-toggle" />

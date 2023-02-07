@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import { BsPower } from "react-icons/bs";
 import { FaHome, FaUserTie } from "react-icons/fa";
 import { GoListUnordered } from "react-icons/go";
@@ -9,6 +10,7 @@ import logo from "../images/Logos.png";
 import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
+  const { id } = useParams();
   return (
     <div className="sidebar">
       <div className="side-header">
@@ -21,38 +23,38 @@ export default function Sidebar() {
         <div className="side-menu">
           <ul>
             <li>
-              <NavLink to="/dashboard">
+              <NavLink to={`/dashboard/${id}`}>
                 <FaHome className="sidebarIcon" />
                 <small>Dashboard</small>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/briefs">
+              <NavLink to={`/briefs/${id}`}>
                 <MdOutlineWork className="sidebarIcon" />
                 <small>Briefs</small>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/mybriefs">
+              <NavLink to={`/mybriefs/${id}`}>
                 <GoListUnordered className="sidebarIcon" />
                 <small>My Briefs</small>
               </NavLink>
             </li>
 
             <li>
-              <NavLink to="/reports">
+              <NavLink to={`/reports/${id}`}>
                 <VscGraph className="sidebarIcon" />
                 <small>Reports</small>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/inbox">
+              <NavLink to={`/inbox/${id}`}>
                 <AiFillMessage className="sidebarIcon" />
                 <small>Inbox</small>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/profile">
+              <NavLink to={`/profile/${id}`}>
                 <FaUserTie className="sidebarIcon" />
                 <small>Profile</small>
               </NavLink>

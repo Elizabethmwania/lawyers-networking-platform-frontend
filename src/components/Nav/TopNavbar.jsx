@@ -25,7 +25,7 @@ export default function TopNavbar() {
         className="flexCenter animate whiteBg"
         style={y > 100 ? { height: "60px" } : { height: "80px" }}
       >
-        <NavInner className="container flexSpaceCenter">
+        <NavInner className="container flexSpaceCenter" style={{borderBottom: "1px solid #cc44cc1a"}}>
           <Link className="pointer flexNullCenter" to="/" smooth={true}>
             <img
               src={LogoIcon}
