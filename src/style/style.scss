@@ -62,7 +62,12 @@
 .AiOutlineMenuUnfold {
     margin-top: 10px;
     font-size: 26px;
-    margin-left: 12px;
+    margin-left: 1px;
+    display: none;
+}
+
+#menu-toggle:checked~.sidebar .AiOutlineMenuUnfold {
+    display: block;
 }
 
 .sidebar {
@@ -587,6 +592,9 @@ table tbody tr {
     .sidebar {
         left: -200px;
         z-index: 90;
+    }
+    .AiOutlineMenuUnfold{
+        display: block;
     }
 
     .side-menu ul {
