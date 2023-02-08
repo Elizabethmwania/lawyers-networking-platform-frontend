@@ -7,7 +7,7 @@ import profile from "../images/Profile.png";
 
 export default function Header() {
   return (
-    <header>
+    <header >
       <div className="header-content">
         <label htmlFor="menu-toggle">
           <span className="las la-bars">

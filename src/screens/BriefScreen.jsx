@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../style/style.scss";
 import "../style/brief.scss";
 import Sidebar from "../components/Sidebar";
@@ -9,37 +9,14 @@ import PuffLoader from "react-spinners/PuffLoader";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import { BiCurrentLocation } from "react-icons/bi";
 import { Modal } from "react-bootstrap";
-// toast notification
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 // Convert date and time to a more readable format
 import Moment from "react-moment";
 
 export default function BriefScreen() {
-  let navigate = useNavigate();
+  const { id } = useParams();
 
-  const BriefNotification = () =>
-    toast.success("Brief created sucessfully!", {
-      position: "top-right",
-      autoClose: 4000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
-  const ApplicationNotification = () =>
-    toast.success("Application Submitted!", {
-      position: "top-right",
-      autoClose: 4000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
+  let navigate = useNavigate();
 
   const [data, setData] = useState([]);
   // Modal One
@@ -53,7 +30,7 @@ export default function BriefScreen() {
   };
   // Add brief
   const [briefs, setBriefs] = useState({
-    userId: 12,
+    userId: id,
     BriefTitle: "",
     CourtStation: "",
     Cost: "",
@@ -83,7 +60,7 @@ export default function BriefScreen() {
   const [sending, setSending] = useState(false);
   const AddBrief = async (e) => {
     setSending(true);
-    BriefNotification();
+    CreateBriefSucessMessage();
     handleClose();
     window.location.reload();
     e.preventDefault();
@@ -163,21 +140,7 @@ export default function BriefScreen() {
   setTimeout(() => {
     setShowNone(false);
   }, 1400);
-  // Check if my application exists
-  const id = 1;
-  const [applications, setApplications] = useState([]);
-  const ApplicationsAPI = `http://localhost:8000/applications/myapplication/${id}`;
-  const fetchMyApplications = () => {
-    fetch(ApplicationsAPI)
-      .then((response) => response.json())
-      .then((applications) => {
-        setApplications(applications);
-      });
-  };
 
-  useEffect(() => {
-    fetchMyApplications();
-  }, []);
 
   return (
     <div>
@@ -281,7 +244,7 @@ export default function BriefScreen() {
                             onClick={
                               Applied == "False"
                                 ? () => {
-                                    let path = `/application/${data.id}`;
+                                    let path = `/application/${id}/${data.id}`;
                                     navigate(path);
                                   }
                                 : AlreadyApplied
@@ -501,20 +464,16 @@ export default function BriefScreen() {
             </Modal.Body>
           </Modal>
           {/* end of modal */}
-          <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="colored"
-          />
         </main>
       </div>
     </div>
   );
 }
+
+const CreateBriefSucessMessage = () => {
+  Swal.fire({
+    title: "Create Brief",
+    text: "Brief has been created sucessfully!",
+    icon: "success",
+  });
+};

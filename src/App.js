@@ -55,11 +55,11 @@ export default function App() {
             <Route path="/dashboard/:id" exact element={<DashboardScreen />} />
             <Route path="/briefs/:id" exact element={<BriefScreen />} />
             <Route
-              path="/application/:id"
+              path="/application/:id/:briefid"
               exact
               element={<BriefApplication />}
             />
-            <Route path="/ViewDetails/:id" exact element={<ViewDetails />} />
+            <Route path="/ViewDetails/:id/:dataId" exact element={<ViewDetails />} />
             <Route path="/mybriefs/:id" exact element={<MyBriefs />} />
             <Route path="/inbox/:id" exact element={<InboxScreen />} />
             <Route path="/reports/:id" exact element={<ReportsScreen />} />

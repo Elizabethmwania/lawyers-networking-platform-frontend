@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {useParams} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../style/dashboard.scss";
 import Sidebar from "../components/Sidebar";
@@ -43,7 +44,7 @@ export default function DashboardScreen() {
   const year = d.getFullYear();
   const hour = d.getHours();
   // Fetch my briefs
-  const id = 1;
+  const {id} = useParams()
   const backendapi = `http://localhost:8000/brief/mybriefs/${id}`;
   const fetchmybriefs = () => {
     fetch(backendapi)
@@ -56,6 +57,20 @@ export default function DashboardScreen() {
   useEffect(() => {
     fetchmybriefs();
   }, []);
+    // Fetch user details
+const [userDetails, setUserDetails] = useState([])
+    const userapi = `http://localhost:8000/users/${id}`;
+    const fetchuserdetails = () => {
+      fetch(userapi)
+        .then((response) => response.json())
+        .then((data) => {
+          setUserDetails(data);
+        });
+    };
+  
+    useEffect(() => {
+      fetchuserdetails();
+    }, []);
   // Report data
   const options = {
     title: "Brief Analytics",
@@ -109,7 +124,7 @@ export default function DashboardScreen() {
             ) : (
               <> Good Morning</>
             )}
-            , Jane
+            , {userDetails.FirstName}
           </h5>
         </div>
         <br />

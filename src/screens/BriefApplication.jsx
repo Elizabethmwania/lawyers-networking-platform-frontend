@@ -5,9 +5,7 @@ import "../style/BriefApplication.scss";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import ScaleLoader from "react-spinners/ScaleLoader";
-// toast notification
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 // Convert date and time to a more readable format
 import Moment from "react-moment";
 
@@ -15,24 +13,11 @@ export default function BriefApplication() {
   const [data, setData] = useState([]);
   const [sending, setSending] = useState(false);
   // get the email of the logged in user
-  const { email } = useParams();
+  const { userId } = useParams();
   const applicantId = "1";
   const { id } = useParams();
   const briefid = id;
   let navigate = useNavigate();
-
-  // toast notification
-  const ApplicationNotification = () =>
-    toast.success("Application Sent!", {
-      position: "top-right",
-      autoClose: 4000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
 
   // fetch application details
   useEffect(() => {
@@ -70,7 +55,7 @@ export default function BriefApplication() {
     ApplicationNotification();
     e.preventDefault();
     await axios.post("http://localhost:8000/applications/", application);
-    navigate("/briefs");
+    navigate(`/briefs/${userId}`);
   };
   console.log(FullName);
   return (
@@ -171,18 +156,14 @@ export default function BriefApplication() {
           </div>
         </main>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
+
     </div>
   );
 }
+const ApplicationNotification = () => {
+  Swal.fire({
+    title: "Brief Application",
+    text: "Application has been sent sucessfully!",
+    icon: "success",
+  });
+};

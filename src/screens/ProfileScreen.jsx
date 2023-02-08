@@ -1,34 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import '../style/profile.scss';
+import { useNavigate, useParams } from "react-router-dom";
+import "../style/profile.scss";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import profile from "../images/Profile.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
-// toast notification
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 export default function ProfileScreen() {
-  // Success Notification
-  const SuccessNotification = () =>
-    toast.success("Profile Updated Sucessfully!", {
-      position: "top-right",
-      autoClose: 4000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
-  // update user profile
   let navigate = useNavigate();
-  // const { userid } = useParams();
-  const id = "1"
+  const { id } = useParams();
+ 
   const [users, setUsers] = useState({
     email: "",
     Title: "",
@@ -63,7 +48,7 @@ export default function ProfileScreen() {
   const SendToDb = async (e) => {
     e.preventDefault();
     await axios.put(`http://127.0.0.1:8000/users/update/${id}`, users);
-    SuccessNotification();
+    UpdateProfileSuccess();
   };
   // Load user details
   const LoadUser = async () => {
@@ -101,7 +86,7 @@ export default function ProfileScreen() {
                     textALign: "center",
                   }}
                 >
-                  <h6>Welcome Jane</h6>
+                  <h6>Welcome {FirstName}</h6>
                   {/* <button className="changeProfile">Change Profile</button> */}
                 </div>
               </div>
@@ -184,7 +169,7 @@ export default function ProfileScreen() {
                   </div>
                   <div className="col-6 ">
                     <label>
-                      Phone Number<span className="asterisc">*</span>
+                      Phone Number
                     </label>
                     <PhoneInput
                       id="phone-number"
@@ -202,7 +187,7 @@ export default function ProfileScreen() {
                   </div>
                   <div className="col-6 ">
                     <label>
-                      Location<span className="asterisc">*</span>
+                      Location
                     </label>
                     <select
                       className="form-control"
@@ -261,18 +246,6 @@ export default function ProfileScreen() {
                 >
                   Save Details
                 </button>
-                <ToastContainer
-                  position="top-right"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                  theme="colored"
-                />
               </div>
             </div>
           </div>
@@ -281,3 +254,11 @@ export default function ProfileScreen() {
     </div>
   );
 }
+
+const UpdateProfileSuccess = () => {
+  Swal.fire({
+    title: "User Profile",
+    text: "Profile updated sucessfully!",
+    icon: "success",
+  });
+};
