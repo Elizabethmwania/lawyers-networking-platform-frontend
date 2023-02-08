@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "../style/reports.scss";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
@@ -8,7 +9,7 @@ import PuffLoader from "react-spinners/PuffLoader";
 import Moment from "react-moment";
 
 export default function MyBriefs() {
-  const id = 1;
+  const {id} = useParams();
   const [data, setData] = useState([]);
   const [loading, isLoading] = useState(true);
 
@@ -98,7 +99,7 @@ export default function MyBriefs() {
                         <td> {data.CourtStation}</td>
                         <td>
                           <a
-                            href={`ViewDetails/${data.id}`}
+                            href={`/ViewDetails/${id}/${data.id}`}
                             className="moreInfoBtn"
                           >
                             View Details

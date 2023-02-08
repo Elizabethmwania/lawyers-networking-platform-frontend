@@ -2,22 +2,26 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Moment from "react-moment";
 import { useParams } from "react-router-dom";
-import '../style/inbox.scss';
+import "../style/inbox.scss";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { FaTelegramPlane } from "react-icons/fa";
+import ScaleLoader from "react-spinners/ScaleLoader";
 import PuffLoader from "react-spinners/PuffLoader";
 import profile from "../images/Profile.png";
+import Swal from "sweetalert2";
 
 export default function InboxScreen() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [sending, setSending] = useState(false);
   // get the email of the logged in user
   const { email } = useParams();
   const senderEmail = "J.Wangari63@gmail.com";
   // Post request for the message
   const [message, setMessage] = useState("");
   const sendRevisionRequest = () => {
+    setSending(true);
     console.warn(senderEmail, message);
     const formData = new FormData();
     formData.append("senderEmail", senderEmail);
@@ -30,6 +34,7 @@ export default function InboxScreen() {
     })
       .then(() => {
         window.location.reload();
+        MessageSent();
       })
       .catch((error) => {
         console.log(error);
@@ -49,6 +54,9 @@ export default function InboxScreen() {
         });
     }
   }, [senderEmail]);
+  setTimeout(() => {
+    setSending(false);
+  }, 5000);
   return (
     <div>
       <input type="checkbox" id="menu-toggle" />
@@ -85,9 +93,13 @@ export default function InboxScreen() {
                       <br />
                       {/* reciever */}
                       <div className="senderSection">
-                        <div class="cardSender">
-                          <p>{data.response}</p>
-                        </div>
+                        {data.response != null ? (
+                          <div class="cardSender">
+                            <p>{data.response}</p>
+                          </div>
+                        ) : (
+                         ""
+                        )}
 
                         <img src={profile} alt="pic" className="profileImage" />
                       </div>
@@ -118,7 +130,11 @@ export default function InboxScreen() {
                 type="submit"
                 className="messageBtn"
               >
-                Send <FaTelegramPlane style={{ fontSize: "16px" }} />
+                {sending == false ? (
+                  <FaTelegramPlane style={{ fontSize: "22px" }} />
+                ) : (
+                  <ScaleLoader height="10" width="2" color="#fff" />
+                )}
               </button>
 
               {/* </form> */}
@@ -131,3 +147,10 @@ export default function InboxScreen() {
     </div>
   );
 }
+const MessageSent = () => {
+  Swal.fire({
+    title: "Message!",
+    text: "Message sent sucessfully!",
+    icon: "success",
+  });
+};
