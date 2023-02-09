@@ -13,10 +13,10 @@ export default function BriefApplication() {
   const [data, setData] = useState([]);
   const [sending, setSending] = useState(false);
 
-// Get param details
+  // Get param details
   const { briefid } = useParams();
   const { id } = useParams();
- 
+
   let navigate = useNavigate();
 
   // fetch application details
@@ -34,7 +34,6 @@ export default function BriefApplication() {
   }, [briefid]);
 
   // Submit Application
-
   const [application, setApplication] = useState({
     BriefId: briefid,
     FullName: "",
@@ -58,6 +57,23 @@ export default function BriefApplication() {
     navigate(`/briefs/${id}`);
   };
   console.log(FullName);
+  // Confirm if application is present
+  const [myapp, setMyapp] = useState([]);
+  const fetchData = () => {
+    fetch(`http://localhost:8000/applications/${briefid}`)
+      .then((response) => response.json())
+      .then((myapp) => {
+        setMyapp(myapp);
+      });
+  };
+
+  useEffect(() => {
+    if (briefid) {
+      fetchData();
+    }
+  }, [briefid]);
+
+  const mybrief = myapp.BriefId;
   return (
     <div>
       <input type="checkbox" id="menu-toggle" />
@@ -67,7 +83,7 @@ export default function BriefApplication() {
         <main>
           <div className="page-header">
             <h1>Brief Application</h1>
-           
+
             <small>Dashboard / Application form / {data.BriefTitle} </small>
           </div>
 
@@ -137,27 +153,44 @@ export default function BriefApplication() {
                   </select>
                 </div>
                 <br />
-
-                <button
-                  style={{
-                    backgroundColor: "#9a6c20",
-                    border: "0px solid #fff",
-                  }}
-                  className="btn btn-primary"
-                  type="submit"
-                >
-                  {sending == true ? (
-                    <ScaleLoader height="18" width="3" color="#fff" />
-                  ) : (
-                    "Submit Application"
-                  )}
-                </button>
+                {mybrief != null ? (
+                  <button
+                    style={{
+                      backgroundColor: "#ccc",
+                      border: "0px solid #fff",
+                      color: "#000",
+                    }}
+                    className="btn btn-primary"
+                    // type="submit"
+                    disabled
+                  >
+                    {sending == true ? (
+                      <ScaleLoader height="18" width="3" color="#fff" />
+                    ) : (
+                      "Already Applied!"
+                    )}
+                  </button>
+                ) : (
+                  <button
+                    style={{
+                      backgroundColor: "#9a6c20",
+                      border: "0px solid #fff",
+                    }}
+                    className="btn btn-primary"
+                    type="submit"
+                  >
+                    {sending == true ? (
+                      <ScaleLoader height="18" width="3" color="#fff" />
+                    ) : (
+                      "Submit Application"
+                    )}
+                  </button>
+                )}
               </form>
             </div>
           </div>
         </main>
       </div>
-
     </div>
   );
 }
