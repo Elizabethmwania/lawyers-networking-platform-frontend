@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../style/reports.scss";
+import {useParams} from 'react-router-dom'
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { Chart } from "react-google-charts";
@@ -9,7 +10,7 @@ import PuffLoader from "react-spinners/PuffLoader";
 import Moment from "react-moment";
 
 export default function ReportsScreen() {
-  const id = 1;
+  const {id} = useParams()
   const [data, setData] = useState([]);
   // Fetch my briefs
   const backendapi = `http://localhost:8000/brief/mybriefs/${id}`;
@@ -95,7 +96,7 @@ export default function ReportsScreen() {
                 <tbody>
                   {data.map((data) => (
                     <tr>
-                      <td>#{data.id}</td>
+                   <td>{data.BriefId}</td>
                       <td>
                         <div className="client">
                           <div className="client-info">

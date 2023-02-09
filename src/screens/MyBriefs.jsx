@@ -78,7 +78,7 @@ export default function MyBriefs() {
                   <tbody>
                     {data.map((data) => (
                       <tr>
-                        <td>#{data.id}</td>
+                        <td>{data.BriefId}</td>
                         <td>
                           <div className="client">
                             <div className="client-info">
@@ -99,7 +99,7 @@ export default function MyBriefs() {
                         <td> {data.CourtStation}</td>
                         <td>
                           <a
-                            href={`/ViewDetails/${id}/${data.id}`}
+                            href={`/ViewDetails/${id}/${data.BriefId}`}
                             className="moreInfoBtn"
                           >
                             View Details

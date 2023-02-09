@@ -16,15 +16,18 @@ export default function InboxScreen() {
   const [loading, setLoading] = useState(false);
   const [sending, setSending] = useState(false);
   // get the email of the logged in user
-  const { email } = useParams();
-  const senderEmail = "J.Wangari63@gmail.com";
+  const { id } = useParams();
+
+  const SenderId = id;
   // Post request for the message
   const [message, setMessage] = useState("");
   const sendRevisionRequest = () => {
     setSending(true);
-    console.warn(senderEmail, message);
+    MessageSent();
+    window.location.reload();
+    console.warn(SenderId, message);
     const formData = new FormData();
-    formData.append("senderEmail", senderEmail);
+    formData.append("SenderId", SenderId);
     formData.append("message", message);
 
     Axios.post("http://localhost:8000/inbox/", formData, {
@@ -32,10 +35,7 @@ export default function InboxScreen() {
         "content-type": "multipart/form-data",
       },
     })
-      .then(() => {
-        window.location.reload();
-        MessageSent();
-      })
+      .then(() => {})
       .catch((error) => {
         console.log(error);
       });
@@ -43,8 +43,8 @@ export default function InboxScreen() {
 
   // fetch the messages
   useEffect(() => {
-    if (senderEmail) {
-      Axios.get(`http://localhost:8000/inbox/messages/${senderEmail}`)
+    if (id) {
+      Axios.get(`http://localhost:8000/inbox/messages/${id}`)
         .then((res) => {
           setData(res.data);
           setTimeout(() => setLoading(true), 400);
@@ -53,7 +53,7 @@ export default function InboxScreen() {
           console.log(err);
         });
     }
-  }, [senderEmail]);
+  }, [id]);
   setTimeout(() => {
     setSending(false);
   }, 5000);
@@ -98,7 +98,7 @@ export default function InboxScreen() {
                             <p>{data.response}</p>
                           </div>
                         ) : (
-                         ""
+                          ""
                         )}
 
                         <img src={profile} alt="pic" className="profileImage" />
@@ -116,29 +116,28 @@ export default function InboxScreen() {
             </div>
             {/* end of chatbody */}
             {/* Chat Footer */}
+            <form onSubmit={sendRevisionRequest} className="row g-3">
             <div className="chatFooter">
-              {/* <form> */}
-              <input
-                type="text"
-                id="message"
-                onChange={(e) => setMessage(e.target.value)}
-                className="form-control"
-                required
-              />
-              <button
-                onClick={sendRevisionRequest}
-                type="submit"
-                className="messageBtn"
-              >
-                {sending == false ? (
-                  <FaTelegramPlane style={{ fontSize: "22px" }} />
-                ) : (
-                  <ScaleLoader height="10" width="2" color="#fff" />
-                )}
-              </button>
+              
+                <input
+                  type="text"
+                  id="message"
+                  name="message"
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="form-control"
+                  required
+                />
 
-              {/* </form> */}
-            </div>
+                <button type="submit" className="messageBtn">
+                  {sending == false ? (
+                    <FaTelegramPlane style={{ fontSize: "22px" }} />
+                  ) : (
+                    <ScaleLoader height="10" width="2" color="#fff" />
+                  )}
+                </button>
+                </div>
+              </form>
+       
 
             {/* Chat footer */}
           </div>

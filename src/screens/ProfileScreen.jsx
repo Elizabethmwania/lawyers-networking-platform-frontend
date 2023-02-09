@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 export default function ProfileScreen() {
   let navigate = useNavigate();
   const { id } = useParams();
- 
+
   const [users, setUsers] = useState({
     email: "",
     Title: "",
@@ -168,10 +168,8 @@ export default function ProfileScreen() {
                     />
                   </div>
                   <div className="col-6 ">
-                    <label>
-                      Phone Number
-                    </label>
-                    <PhoneInput
+                    <label>Phone Number</label>
+                    {/* <PhoneInput
                       id="phone-number"
                       international
                       dropdownStyle={{ borderRadius: "8px", height: "4em" }}
@@ -179,16 +177,24 @@ export default function ProfileScreen() {
                       defaultCountry="KE"
                       className="form-control"
                       name="PhoneNumber"
-                      value={value}
+                      value={PhoneNumber}
+                      onChange={(e) => {
+                        onInputChange(e);
+                      }}
+                    /> */}
+                    <input
+                      className="form-control"
+                      type="number"
+                      required
+                      name="PhoneNumber"
+                      value={PhoneNumber}
                       onChange={(e) => {
                         onInputChange(e);
                       }}
                     />
                   </div>
                   <div className="col-6 ">
-                    <label>
-                      Location
-                    </label>
+                    <label>Location</label>
                     <select
                       className="form-control"
                       name="Location"

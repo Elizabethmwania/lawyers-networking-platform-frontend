@@ -141,6 +141,20 @@ export default function BriefScreen() {
     setShowNone(false);
   }, 1400);
 
+  // Check if my application exists
+  // const [applications, setApplications] = useState([]);
+  // const ApplicationsAPI = `http://localhost:8000/applications/myapplication/${id}`;
+  // const fetchMyApplications = () => {
+  //   fetch(ApplicationsAPI)
+  //     .then((response) => response.json())
+  //     .then((applications) => {
+  //       setApplications(applications);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   fetchMyApplications();
+  // }, []);
 
   return (
     <div>
@@ -152,7 +166,6 @@ export default function BriefScreen() {
           <div className="page-header">
             <h1>Briefs</h1>
             <small>Dashboard / All Briefs</small>
-
             <button onClick={handleShow} className="addBrief">
               Add brief
             </button>
@@ -244,7 +257,7 @@ export default function BriefScreen() {
                             onClick={
                               Applied == "False"
                                 ? () => {
-                                    let path = `/application/${id}/${data.id}`;
+                                    let path = `/application/${id}/${data.BriefId}`;
                                     navigate(path);
                                   }
                                 : AlreadyApplied

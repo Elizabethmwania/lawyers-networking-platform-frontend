@@ -95,7 +95,7 @@ export default function ViewDetails() {
         <main>
           <div className="page-header">
             <h1>Brief Details</h1>
-
+           
             <small>Dashboard / Brief Details / {BriefTitle}</small>
             <button
               onClick={

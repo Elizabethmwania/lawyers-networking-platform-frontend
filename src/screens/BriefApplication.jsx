@@ -12,11 +12,11 @@ import Moment from "react-moment";
 export default function BriefApplication() {
   const [data, setData] = useState([]);
   const [sending, setSending] = useState(false);
-  // get the email of the logged in user
-  const { userId } = useParams();
-  const applicantId = "1";
+
+// Get param details
+  const { briefid } = useParams();
   const { id } = useParams();
-  const briefid = id;
+ 
   let navigate = useNavigate();
 
   // fetch application details
@@ -36,9 +36,9 @@ export default function BriefApplication() {
   // Submit Application
 
   const [application, setApplication] = useState({
-    BriefId: id,
+    BriefId: briefid,
     FullName: "",
-    ApplicantId: applicantId,
+    ApplicantId: id,
     CurrentLocation: "",
     Availability: "",
   });
@@ -55,7 +55,7 @@ export default function BriefApplication() {
     ApplicationNotification();
     e.preventDefault();
     await axios.post("http://localhost:8000/applications/", application);
-    navigate(`/briefs/${userId}`);
+    navigate(`/briefs/${id}`);
   };
   console.log(FullName);
   return (
@@ -67,6 +67,7 @@ export default function BriefApplication() {
         <main>
           <div className="page-header">
             <h1>Brief Application</h1>
+           
             <small>Dashboard / Application form / {data.BriefTitle} </small>
           </div>
 
