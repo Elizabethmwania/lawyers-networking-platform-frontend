@@ -37,7 +37,7 @@ function LoginForm({ isAuthenticated, login }) {
   useEffect(() => {
     if (email) {
       axios
-        .get(`http://localhost:8000/users/${email}`)
+        .get(`http://localhost:8000/users/account/${email}`)
         .then((res) => {
           setData(res.data);
         })
