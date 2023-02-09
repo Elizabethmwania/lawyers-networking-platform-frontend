@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { React, useState, useEffect } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { Bars } from "react-loader-spinner";
@@ -18,21 +17,6 @@ function LoginForm({ isAuthenticated, login }) {
     password: "",
   });
   const { email, password } = formData;
-=======
-import React from 'react'
-import { useForm } from 'react-hook-form';
-import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import image from '../../images/logo/login.png'
-export default function LoginForm() {
-  const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
->>>>>>> 70bcca6 (logo)
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -83,7 +67,6 @@ export default function LoginForm() {
                   <br />
                   <div className="mb-3">
                     <Row>
-<<<<<<< HEAD
                       <div className="col-md-6">
                         <img
                           src={logo}
@@ -96,10 +79,6 @@ export default function LoginForm() {
                             marginRight: "auto",
                           }}
                         />
-=======
-                      <div className='bg-light col-md-6' >
-                        <img src={image} alt="logo" style={{height:'80%', width:'100%'}} />
->>>>>>> 70bcca6 (logo)
                       </div>
                       <div className="col-md-6">
                         <Form onSubmit={(e) => onSubmit(e)}>
