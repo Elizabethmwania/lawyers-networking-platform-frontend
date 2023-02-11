@@ -20,7 +20,7 @@ export default function RecentBlogs() {
 
     <>
      <div className='recentBlogsContainer'>   
-     <h3>Most Recent</h3>
+     <h2 className='textCenter'>Most Recent</h2>
      {!blogs.length ? <EmptyList /> : <BlogList blogs={blogs.slice(1,3)} />}
      </div>
     </>

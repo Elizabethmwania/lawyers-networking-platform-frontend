@@ -10,7 +10,7 @@ export default function Services() {
         <div className="container">
           <HeaderInfo>
             <h1 className="font30 extraBold">Practice Area</h1>
-            <p className="font14">
+            <p className="font13">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
               <br />
               labore et dolore magna aliquyam erat, sed diam voluptua.
@@ -25,19 +25,19 @@ export default function Services() {
             </ServiceBoxWrapper>
             <ServiceBoxWrapper>
               <ServiceBox
-                title="Education"
+                title="Civil Law"
                 subtitle="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
               />
             </ServiceBoxWrapper>
             <ServiceBoxWrapper>
               <ServiceBox
-                title="Education"
+                title="Marriage"
                 subtitle="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
               />
             </ServiceBoxWrapper>
             <ServiceBoxWrapper>
               <ServiceBox 
-              title="Print" 
+              title="Criminal Law" 
               subtitle="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam" />
             </ServiceBoxWrapper>
           </ServiceBoxRow>

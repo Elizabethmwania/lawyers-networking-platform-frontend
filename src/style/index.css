@@ -167,7 +167,7 @@
   }
   .font13 {
     font-size: 1rem;
-    color: #505152;
+    color: grey;
   }
   .font14 {
     font-size: 0.875rem;
@@ -275,7 +275,7 @@
     background-color: #F5F5F5;
   }
   .coralBg {
-    background-color: #C4FFFF;
+    background-color: #c9a647;
   }
   .greenBg {
     background-color: #49CB86;

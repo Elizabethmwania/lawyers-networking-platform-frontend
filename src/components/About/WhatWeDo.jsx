@@ -13,7 +13,7 @@ export default function WhatWeDo() {
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <AboutContent>
                 <h2>What we do</h2>
-              <p className="font15">
+              <p className="font13">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
               sed diam nonumy eirmod tempor invidunt ut            
               labore et dolore magna aliquyam erat, sed diam voluptua.
@@ -60,7 +60,7 @@ const HeaderInfo = styled.div`
   }
 `;
 const AboutContent = styled.div`
-  margin-left:10%;
+  
   width:80%;
   h2 
   {

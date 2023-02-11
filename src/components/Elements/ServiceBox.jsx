@@ -1,16 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-// Assets
 import practiceIcon from '../../images/practice/Ellipse 10.png'
 
 export default function ServiceBox({title, subtitle}) {
   //add prop image...
   return (
-    <Wrapper className="flex flexColumn">
+    <Wrapper className="flexColumn">
       <IconStyle>
         <img src={practiceIcon} alt="clientIcon" />
       </IconStyle>
-      <TitleStyle className="font20 extraBold">{title}</TitleStyle>
+      <TitleStyle className="font13 extraBold textLeft">{title}</TitleStyle>
       <SubtitleStyle className="font13">{subtitle}</SubtitleStyle>
     </Wrapper>
   );

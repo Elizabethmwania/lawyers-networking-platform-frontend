@@ -25,7 +25,7 @@ export default function Header() {
         <LeftSide className="flexCenter">
           <div className="header-container">
             <h1 className="extraBold font30">Networking for Legal Practitioners</h1>
-            <HeaderP className="font18">
+            <HeaderP className="font13">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
               voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
             </HeaderP>

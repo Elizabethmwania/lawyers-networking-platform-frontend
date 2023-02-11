@@ -1,10 +1,55 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useState } from "react";
+import Swal from "sweetalert2";
 import styled from "styled-components";
+import { Navigate } from "react-router-dom";
 import ContactImg1 from "../../images/contact/contact1.png";
 import ContactImg2 from "../../images/contact/contact2.png";
 import ContactImg3 from "../../images/contact/contact3.png";
 
 export default function Contact() {
+  const formRef = useRef(null);
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    FirstName: '',
+    LastName:'',
+    PhoneNumber:'',
+    Message:'',
+  })
+
+  const handleInputChange = event => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value
+    });
+  };
+  const handleSubmit = async event => {
+    event.preventDefault();
+    try{
+      const response = await fetch("http://127.0.0.1:8000/contact/",{
+        method: "POST",
+        headers: {
+          Accept:'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+      const data = await response.json();
+      if (response.status === 200){
+        setIsSubmitted(true);
+        formRef.current.reset();
+      }
+      if (isSubmitted) {
+        showAlert();
+        return <Navigate to='/contact' />;
+      }
+      console.log(data);  
+    }
+    catch (error) {
+      console.error(error);
+    }
+
+  }
   return (
     <Wrapper>
       <div className="lightBg" >
@@ -19,18 +64,48 @@ export default function Contact() {
           </HeaderInfo>
           <div className="row" style={{ paddingBottom: "30px" }}>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-              <Form>
-                <label className="font15">Full Name:</label>
-                <input type="text" id="fname" name="fname" className="font13" />
-                <label className="font15">Email:</label>
-                <input type="text" id="email" name="email" className="font13" />
-                <label className="font15">Subject:</label>
-                <input type="text" id="subject" name="subject" className="font13" />
-                <textarea rows="4" cols="50" type="text" id="message" name="message" className="font13" />
+            <Form ref={formRef} onSubmit={handleSubmit}>
+                <label className="font13">First Name:</label>
+                  <input type="text"
+                    name="FirstName" 
+                    value={formData.FirstName} 
+                    className="font13"
+                    onChange={handleInputChange}
+                   />
+                <label className="font13">Last Name:</label>
+
+                <input 
+                  type="text"
+                  name="LastName"
+                  value={formData.LastName}
+                  onChange={handleInputChange}
+                  className="font13" 
+                />
+                <label className="font13">Phone Number:</label>
+                <input 
+                  type="text" 
+                  name="PhoneNumber"
+                  value={formData.PhoneNumber} 
+                  className="font13" 
+                  onChange={handleInputChange}
+                />
+                <label className="font13">Message:</label>
+                <textarea rows="4" cols="50" 
+                  type="text" 
+                  name="Message"
+                  value={formData.Message}
+                  onChange={handleInputChange}  
+                  className="font13" 
+                />
+                <SumbitWrapper className="flex">
+                  <ButtonInput
+                    type="submit"
+                    value="Send Message"
+                    className="pointer animate radius8"
+                    style={{ maxWidth: "150px" }}
+                  />
+                </SumbitWrapper>
               </Form>
-              <SumbitWrapper className="flex">
-                <ButtonInput type="submit" value="Send Message" className="pointer animate radius8" style={{ maxWidth: "220px" }} />
-              </SumbitWrapper>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 flex">
               <div style={{ width: "50%" }} className="flexNullCenter flexColumn">
@@ -53,6 +128,14 @@ export default function Contact() {
     </Wrapper>
   );
 }
+
+const showAlert = () => {
+  Swal.fire({
+    title: "Message Sent!",
+    text: "You will get feedback within 12 hours",
+    icon: "success",
+  });
+};
 
 const Wrapper = styled.section`
   width: 100%;
@@ -86,9 +169,9 @@ const ButtonInput = styled.input`
   border: 1px solid #D49733;
   background-color: #D49733;
   width: 100%;
-  padding: 15px;
+  padding: 10px 20;
   outline: none;
-  color: #fff;
+  color: grey;
   :hover {
     background-color: #143d20;
     border: 1px solid #143d20;
