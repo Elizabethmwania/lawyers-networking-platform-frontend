@@ -6,7 +6,9 @@ import BlogIndex from "../components/Blogs/BlogIndex";
 import { Link } from "react-router-dom";
 import Footer from "../components/Sections/Footer";
 import Backdrop from "../components/Elements/Backdrop";
+
   const BlogScreen = () => {
+    
   const [categories, setCategories] = useState([]);
   useEffect (() => {
     const fetchCategories = async () => {

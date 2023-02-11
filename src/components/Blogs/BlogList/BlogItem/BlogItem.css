@@ -12,6 +12,7 @@
   .blogItem-wrap h3 {
     margin: 0.5rem 0 1rem 0;
     flex: 1;
+    color: grey;
   }
   
   .blogItem-desc {
@@ -19,7 +20,7 @@
     max-height: 50px;
     overflow: hidden;
     padding-right: 0.6rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: #a9a9a9;
   }
   

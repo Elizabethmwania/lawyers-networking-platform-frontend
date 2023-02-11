@@ -3,37 +3,10 @@ import Chip from '../../Chip/Chip'
 import { Link, useParams } from 'react-router-dom'
 import './BlogItem.css'
 import img from '../../../../images/blog/blog1.png';
-
-// const BlogItemStyle = {
-//   blogItemWrap: {
-//     display: 'flex',
-//     flexDirection: 'column',
-//   },
-//   blogItemCover: {
-//     width: '100%',
-//     height: '250px',
-//     objectFit: 'cover',
-//     borderRadius: '20px',
-//     marginBottom: '0.5rem',
-//   },
-//   blogItemHeader: {
-//     margin: '0.5rem 0 1rem 0',
-//     flex: 1,
-//     fontSize:'14px'
-//   },
-  
-//    blogItemDesc: {
-//     position: 'relative',
-//     maxHeight: '50px',
-//     overflow: 'hidden',
-//     paddingRight: '0.6rem',
-//     fontSize: '0.8rem',
-//     color: '#a9a9a9',
-//   }
-// }  
+ 
 //display each blog item 
 export default function BlogItem() {
-  const {id} = useParams();
+
   const [blogs, setBlogs] = useState([]);
   useEffect (() => {
     const fetchBlogs = async () => {
@@ -52,7 +25,7 @@ export default function BlogItem() {
     {blogs.map((blog) => 
     <div className='blogItem-wrap'>
       <img className='blogItem-cover' src={img} alt='cover' />
-      <h5>
+      <h5 className='font13 extraBold'>
         {blog.Title}
         <span className="tag font11">{blog.DatePublished}</span>
       </h5>

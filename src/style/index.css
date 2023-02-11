@@ -199,7 +199,8 @@
       font-size: 0.688rem;
     }
     .font12 {
-      font-size: 0.688rem;
+      font-size: 0.7rem;
+      color: rgb(255, 255, 255);
     }
     .font13 {
       font-size: 0.75rem;
@@ -275,7 +276,7 @@
     background-color: #F5F5F5;
   }
   .coralBg {
-    background-color: #c9a647;
+    background: linear-gradient(to right, rgb(212, 151, 51), rgb(204, 162, 94));
   }
   .greenBg {
     background-color: #49CB86;

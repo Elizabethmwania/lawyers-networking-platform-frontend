@@ -48,14 +48,13 @@ export default function Blog() {
                     {blog.Description}
                   </p>
                   <div className="flex flexSpaceNull">
-                    <p className="tag coralBg radius6 font13 extraBold">{blog.Category}    
+                    <p className="whiteColor tag coralBg radius6 font12">{blog.Category}    
                     </p>
                     <span className=" radius6 tag font13">
-                      <Link className='blogItem-link' to="/">
+                      <Link key={blog.id} className='blogItem-link' to={`/blog/${blog.id}`}>
                       Read More ➝
                       </Link>
                     </span>
-                  {/* </Link> */}
                   </div>
                 </SingleBlog>
                 )}
@@ -126,7 +125,7 @@ flex-direction: row;
 width: calc(33.33% - 20px);
 
 :hover {
-  opacity: 0.5;
+  opacity: 0.7;
 }
   @media (max-width: 860px) {
     flex-direction:column;
