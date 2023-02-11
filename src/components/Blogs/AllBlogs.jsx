@@ -63,7 +63,7 @@ const AllBlogStyle = {
     marginTop: '1.5rem',
   },
   blogImage:{
-    marginTop:'4rem',
+    marginTop:'0rem',
     maxWidth:'700px'
   }
 
@@ -71,78 +71,61 @@ const AllBlogStyle = {
 
 export default function AllBlogs() {
     const { id } = useParams();
-    const [blog, setBlog] = useState(null);
+    const [blogs, setBlogs] = useState(null);
+    const [categories, setCategories] = useState([]);
 
-    useEffect(() => {
-        let blog = blogList.find((blog) => blog.id === parseInt(id));
-        if (blog) {
-        setBlog(blog);
-        }
+    useEffect (() => {
+      const fetchBlogs = async () => {
+        const response = await fetch (
+          "http://127.0.0.1:8000/publication/"
+          // `http://127.0.0.1:8000/publication/${id}`
+        );
+        const data = await response.json();
+        let blogs = data.find((blogs) => blogs.id === parseInt(id));
+        setBlogs(blogs);
+        setCategories(data);
+      };
+  
+      fetchBlogs();
     }, []);
+  
   return (
     <>
     <Navbar/>
     <BlogHeader />
     
-      {blog ? (
+      {blogs ? (
       <div className="blogGrid" style={AllBlogStyle.blogGrid}>
       <div className="blogFlexContainer" style={AllBlogStyle.blogFlexContainer}>
         <div className='blogWrap' style={AllBlogStyle.blogWrap}>
           <header className="blogHeaders" style={AllBlogStyle.blogHeaders}>
-           <h2>{blog.title}</h2>
-            <div className='blogSubCategory' style={AllBlogStyle.blogSubCategory}  >
-              {blog.subCategory.map((category, i) => (
-                <div key={i}>
-                  <div style={{margin:'1rem'}} >
-                    <Chip label={category} />
-                  </div>
-                </div>
-              ))}
-            </div>
+           <h2>{blogs.Title}</h2>
           </header>
           <img src={img} alt='cover'className="blogImage" style={AllBlogStyle.blogImage} />
-          <p className='blogDates' style={AllBlogStyle.blogDates} >Published {blog.createdAt}</p>
-          <p className='blogDesc' style={AllBlogStyle.blogDesc} >{blog.description}</p>
+          <div style={{margin:'1rem', display:'flex', justifyContent:'space-between'}}>
+                    <Chip label={blogs.Category} />
+                    <span>
+                    <p className='blogDates' style={AllBlogStyle.blogDates} >Published {blogs.DatePublished}</p>
+                   </span>
+          </div>
+          <p className='font13' style={AllBlogStyle.blogDesc} >{blogs.Description}</p>
           <Link className='blogGoBack' style={AllBlogStyle.blogGoBack} to='/blog'>
           <span> &#8592;</span> <span>Go Back</span>
           </Link>
         </div>
         <div className="mostReviewedContainer" style={AllBlogStyle.mostReviewedContainer}>
-          {/* category side bar */}
           <div className="blogs-sidebar">
           <div className="blogSidebarItem">
             <span className="blogSidebarTitle">CATEGORIES</span>
             <ul className="blogSidebarList">
+            {categories.map((category) =>
               <li className="sidebarListItem">
                 <Link className="link" to="/">
-                  Life <span className="itemNumber">(2)</span>
+                  {category.Category} 
+                  <span className="itemNumber">(2)</span>
                 </Link>
               </li>
-              <li className="sidebarListItem">
-                <Link className="link" to="/">
-                  Education<span className="itemNumber"> (5)</span>
-                </Link>
-              </li>
-              <li className="sidebarListItem">
-                <Link className="link" to="/">
-                  Crime<span className="itemNumber"> (2)</span>
-                </Link>
-              </li>
-              <li className="sidebarListItem">
-                <Link className="link" to="/">
-                  Marriage <span className="itemNumber"> (10)</span>
-                </Link>
-              </li>
-              <li className="sidebarListItem">
-                <Link className="link" to="/">
-                  Counties<span className="itemNumber"> (5)</span>
-                </Link>
-              </li>
-              <li className="sidebarListItem">
-                <Link className="link" to="/">
-                  Cinema<span className="itemNumber"> (15)</span>
-                </Link>
-              </li>
+            )}
             </ul>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Chip from '../../Chip/Chip'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import './BlogItem.css'
 import img from '../../../../images/blog/blog1.png';
 
@@ -33,6 +33,7 @@ import img from '../../../../images/blog/blog1.png';
 // }  
 //display each blog item 
 export default function BlogItem() {
+  const {id} = useParams();
   const [blogs, setBlogs] = useState([]);
   useEffect (() => {
     const fetchBlogs = async () => {
@@ -60,7 +61,7 @@ export default function BlogItem() {
         <div className='blogItem-author'>
             <Chip label={blog.Category} />
         </div>
-        <Link className='blogItem-link' to="/id">
+        <Link key={blog.id} className='blogItem-link' to={`/blog/${blog.id}`}>
         Read More ➝
         </Link>
       </footer>
