@@ -5,6 +5,7 @@ import SearchBar from './SearchBar/SearchBar';
 import EmptyList from './EmptyList/EmptyList';
 import BlogList from './BlogList/BlogList';
 export default function BlogIndex() {
+  const [allBlogs, setAllBlogs] = useState([]);
     const [blogs, setBlogs] = useState(blogList);
     const [searchKey, setSearchKey] = useState('');
 
