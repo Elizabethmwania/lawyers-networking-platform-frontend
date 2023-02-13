@@ -169,19 +169,6 @@ export default function ProfileScreen() {
                   </div>
                   <div className="col-6 ">
                     <label>Phone Number</label>
-                    {/* <PhoneInput
-                      id="phone-number"
-                      international
-                      dropdownStyle={{ borderRadius: "8px", height: "4em" }}
-                      style={{ border: "0px solid white" }}
-                      defaultCountry="KE"
-                      className="form-control"
-                      name="PhoneNumber"
-                      value={PhoneNumber}
-                      onChange={(e) => {
-                        onInputChange(e);
-                      }}
-                    /> */}
                     <input
                       className="form-control"
                       type="number"
@@ -204,11 +191,54 @@ export default function ProfileScreen() {
                       }}
                     >
                       <option selected>Nairobi</option>
-                      <option value="1">Isiolo</option>
-                      <option value="2">Mombasa</option>
-                      <option value="3">Nakuru</option>
-                      <option value="4">Eldoret</option>
-                      <option value="5">Kisumu</option>
+
+                      <option value="Baringo">Baringo</option>
+                      <option value="Bomet">Bomet</option>
+                      <option value="Bungoma">Bungoma</option>
+                      <option value="Busia">Busia</option>
+                      <option value="Elgeyo-Marakwet">Elgeyo-Marakwet</option>
+                      <option value="Embu">Embu</option>
+                      <option value="Garissa">Garissa</option>
+                      <option value="Homa Bay">Homa Bay</option>
+                      <option value="Isiolo">Isiolo</option>
+                      <option value="Kajiado">Kajiado</option>
+                      <option value="Kakamega">Kakamega</option>
+                      <option value="Kericho">Kericho</option>
+                      <option value="Kiambu">Kiambu</option>
+                      <option value="Kilifi">Kilifi</option>
+                      <option value="Kirinyaga">Kirinyaga</option>
+                      <option value="Kisii">Kisii</option>
+                      <option value="Kisumu">Kisumu</option>
+                      <option value="Kitui">Kitui</option>
+                      <option value="Kwale">Kwale</option>
+                      <option value="Laikipia">Laikipia</option>
+                      <option value="Lamu">Lamu</option>
+                      <option value="Machakos">Machakos</option>
+                      <option value="Makueni">Makueni</option>
+                      <option value="Mandera">Mandera</option>
+                      <option value="Marsabit">Marsabit</option>
+                      <option value="Meru">Meru</option>
+                      <option value="Migori">Migori</option>
+                      <option value="Mombasa">Mombasa</option>
+                      <option value="Muranga">Murang'a</option>
+                      <option value="Nairobi City">Nairobi City</option>
+                      <option value="Nakuru">Nakuru</option>
+                      <option value="Nandi">Nandi</option>
+                      <option value="Narok">Narok</option>
+                      <option value="Nyamira">Nyamira</option>
+                      <option value="Nyandarua">Nyandarua</option>
+                      <option value="Nyeri">Nyeri</option>
+                      <option value="Samburu">Samburu</option>
+                      <option value="Siaya">Siaya</option>
+                      <option value="Taita-Taveta">Taita-Taveta</option>
+                      <option value="Tana River">Tana River</option>
+                      <option value="Tharaka-Nithi">Tharaka-Nithi</option>
+                      <option value="Trans Nzoia">Trans Nzoia</option>
+                      <option value="Turkana">Turkana</option>
+                      <option value="Uasin Gishu">Uasin Gishu</option>
+                      <option value="Vihiga">Vihiga</option>
+                      <option value="West Pokot">West Pokot</option>
+                      <option value="wajir">wajir</option>
                     </select>
                   </div>
 

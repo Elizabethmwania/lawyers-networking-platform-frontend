@@ -9,47 +9,49 @@ import { Navigate } from "react-router-dom";
 
 export default function KeepTouch() {
   const formRef = useRef(null);
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [formData, setFormData] = useState({
-    FirstName: '',
-    LastName:'',
-    PhoneNumber:'',
-    Message:'',
-  })
+  const [sending, setSending] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleInputChange = event => {
+  const [formData, setFormData] = useState({
+    FirstName: "",
+    LastName: "",
+    PhoneNumber: "",
+    Message: "",
+  });
+
+  const handleInputChange = (event) => {
     setFormData({
       ...formData,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
+    setSending(true);
+    showAlert();
+    window.location.reload();
     event.preventDefault();
-    try{
-      const response = await fetch("http://127.0.0.1:8000/contact/",{
+    try {
+      const response = await fetch("http://127.0.0.1:8000/contact/", {
         method: "POST",
         headers: {
-          Accept:'application/json',
-          'Content-Type': 'application/json',
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
       const data = await response.json();
-      if (response.status === 200){
+      if (response.status === 200) {
         setIsSubmitted(true);
         formRef.current.reset();
       }
       if (isSubmitted) {
-        showAlert();
-        return <Navigate to='/contact' />;
+        return <Navigate to="/contact" />;
       }
-      console.log(data);  
-    }
-    catch (error) {
+      console.log(data);
+    } catch (error) {
       console.error(error);
     }
-
-  }
+  };
   return (
     <Wrapper id="contact">
       <div className="lightBg">
@@ -63,62 +65,66 @@ export default function KeepTouch() {
               labore et dolore magna aliquyam erat, sed diam voluptua.
             </p>
           </HeaderInfo>
-          <div className="row" style={{ marginLeft:'10%' }}>
+          <div className="row" style={{ marginLeft: "10%" }}>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <Form ref={formRef} onSubmit={handleSubmit}>
+              <Form ref={formRef} onSubmit={handleSubmit}>
                 <label className="font13">First Name:</label>
-                  <input type="text"
-                    name="FirstName" 
-                    value={formData.FirstName} 
-                    className="font13"
-                    onChange={handleInputChange}
-                   />
+                <input
+                  type="text"
+                  name="FirstName"
+                  value={formData.FirstName}
+                  className="font13"
+                  onChange={handleInputChange}
+                />
                 <label className="font13">Last Name:</label>
 
-                <input 
+                <input
                   type="text"
                   name="LastName"
                   value={formData.LastName}
                   onChange={handleInputChange}
-                  className="font13" 
+                  className="font13"
                 />
                 <label className="font13">Phone Number:</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="PhoneNumber"
-                  value={formData.PhoneNumber} 
-                  className="font13" 
+                  value={formData.PhoneNumber}
+                  className="font13"
                   onChange={handleInputChange}
                 />
                 <label className="font13">Message:</label>
-                <textarea rows="4" cols="50" 
-                  type="text" 
+                <textarea
+                  rows="4"
+                  cols="50"
+                  type="text"
                   name="Message"
                   value={formData.Message}
-                  onChange={handleInputChange}  
-                  className="font13" 
+                  onChange={handleInputChange}
+                  className="font13"
                 />
                 <SumbitWrapper className="flex">
                   <ButtonInput
                     type="submit"
-                    value="Send Message"
+                    value={sending == false ? "Send Message" : "Sending.."}
+                    // sending
                     className="pointer animate radius8"
                     style={{ maxWidth: "150px" }}
                   />
                 </SumbitWrapper>
               </Form>
-              
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 flex">
-              <div style={{ width: "100%" }}
+              <div
+                style={{ width: "100%" }}
                 className="flexNullCenter flexColumn"
               >
-                <EnvelopeIcon 
-                  style={{ 
-                  height: "30px", 
-                  color: "#D49733" 
-                  }} 
-                /> 
+                <EnvelopeIcon
+                  style={{
+                    height: "30px",
+                    color: "#D49733",
+                  }}
+                />
                 <span className="font13">network@gmail.com</span>
                 <PhoneIcon
                   style={{
@@ -136,10 +142,10 @@ export default function KeepTouch() {
                   }}
                 />
                 <span className="font13">
-                  P.O Box 19 - 00100 <br/>
-                  Muthaiga Square, <br/>Nairobi. <br/>
+                  P.O Box 19 - 00100 <br />
+                  Muthaiga Square, <br />
+                  Nairobi. <br />
                 </span>
-                
               </div>
             </div>
           </div>
@@ -151,10 +157,9 @@ export default function KeepTouch() {
           title="map"
           className="absolute inset-0"
           loading="lazy"
-          style={{ filter: "opacity(0.7)", border:'0'}}
+          style={{ filter: "opacity(0.7)", border: "0" }}
         />
       </div>
-      
     </Wrapper>
   );
 }
@@ -218,4 +223,3 @@ const SumbitWrapper = styled.div`
     margin-bottom: 50px;
   }
 `;
-

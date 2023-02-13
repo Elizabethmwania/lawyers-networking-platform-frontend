@@ -10,6 +10,7 @@ import ContactImg3 from "../../images/contact/contact3.png";
 export default function Contact() {
   const formRef = useRef(null);
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [sending, setSending] = useState(false);
   const [formData, setFormData] = useState({
     FirstName: '',
     LastName:'',
@@ -25,6 +26,9 @@ export default function Contact() {
   };
   const handleSubmit = async event => {
     event.preventDefault();
+    setSending(true);
+    showAlert();
+    window.location.reload();
     try{
       const response = await fetch("http://127.0.0.1:8000/contact/",{
         method: "POST",
@@ -100,7 +104,7 @@ export default function Contact() {
                 <SumbitWrapper className="flex">
                   <ButtonInput
                     type="submit"
-                    value="Send Message"
+                    value={sending == false ? "Send Message" : "Sending.."}
                     className="pointer animate radius8"
                     style={{ maxWidth: "150px" }}
                   />

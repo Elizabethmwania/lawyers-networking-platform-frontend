@@ -45,10 +45,12 @@ export default function Blog() {
                   <span className="tag font11">{blog.DatePublished}</span>
                   </p>
                   <p className="font13" >
-                    {blog.Description}
+                    {blog.Description.slice(0, 180)}..
                   </p>
                   <div className="flex flexSpaceNull">
-                    <p className="whiteColor tag coralBg radius6 font12">{blog.Category}    
+                    <p className="whiteColor tag coralBg radius6 font12">{
+                      blog.Category
+                    }    
                     </p>
                     <span className=" radius6 tag font13">
                       <Link key={blog.id} className='blogItem-link' to={`/blog/${blog.id}`}>
