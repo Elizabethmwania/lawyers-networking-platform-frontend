@@ -37,7 +37,7 @@ import Backdrop from "../components/Elements/Backdrop";
             {categories.map((category) =>
               <li className="sidebarListItem">
                 <Link className="link" to="/">
-                  {category.Category}
+                  {category.Category} &nbsp; &nbsp; &nbsp; 
                   <span className="itemNumber">(2)</span>
                 </Link>
               </li>

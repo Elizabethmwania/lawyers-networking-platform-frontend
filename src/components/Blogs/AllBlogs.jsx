@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { blogList } from "./Data";
 import BlogHeader from "./BlogHeader";
 import Navbar from '../Nav/TopNavbar';
 import Footer from '../Sections/Footer';
@@ -9,7 +8,7 @@ import Chip from "./Chip/Chip";
 import EmptyList from "./EmptyList/EmptyList";
 import { Link } from "react-router-dom";
 import img from '../../images/blog/recent-blog.png';
-import RecentBlogs from "./RecentBlogs";
+import Blog from "../Sections/Blog";
 const AllBlogStyle = {
   blogGrid:{
     // display:'inline-grid',
@@ -95,43 +94,46 @@ export default function AllBlogs() {
     <BlogHeader />
     
       {blogs ? (
-      <div className="blogGrid" style={AllBlogStyle.blogGrid}>
-      <div className="blogFlexContainer" style={AllBlogStyle.blogFlexContainer}>
-        <div className='blogWrap' style={AllBlogStyle.blogWrap}>
-          <header className="blogHeaders" style={AllBlogStyle.blogHeaders}>
-           <h2>{blogs.Title}</h2>
-          </header>
-          <img src={img} alt='cover'className="blogImage" style={AllBlogStyle.blogImage} />
-          <div style={{margin:'1rem', display:'flex', justifyContent:'space-between'}}>
-                    <Chip label={blogs.Category} />
-                    <span>
-                    <p className='blogDates' style={AllBlogStyle.blogDates} >Published {blogs.DatePublished}</p>
-                   </span>
-          </div>
-          <p className='font13' style={AllBlogStyle.blogDesc} >{blogs.Description}</p>
-          <Link className='blogGoBack' style={AllBlogStyle.blogGoBack} to='/blog'>
-          <span> &#8592;</span> <span>Go Back</span>
-          </Link>
-        </div>
-        <div className="mostReviewedContainer" style={AllBlogStyle.mostReviewedContainer}>
-          <div className="blogs-sidebar">
-          <div className="blogSidebarItem">
-            <span className="blogSidebarTitle">CATEGORIES</span>
-            <ul className="blogSidebarList">
-            {categories.map((category) =>
-              <li className="sidebarListItem">
-                <Link className="link" to="/">
-                  {category.Category} 
-                  <span className="itemNumber">(2)</span>
+        <div>
+         <div className="blogGrid" style={AllBlogStyle.blogGrid}>
+            <div className="blogFlexContainer" style={AllBlogStyle.blogFlexContainer}>
+              <div className='blogWrap' style={AllBlogStyle.blogWrap}>
+                <header className="blogHeaders" style={AllBlogStyle.blogHeaders}>
+                <h2>{blogs.Title}</h2>
+                </header>
+                <img src={img} alt='cover'className="blogImage" style={AllBlogStyle.blogImage} />
+                <div style={{margin:'1rem', display:'flex', justifyContent:'space-between'}}>
+                          <Chip label={blogs.Category} />
+                          <span>
+                          <p className='blogDates' style={AllBlogStyle.blogDates} >Published {blogs.DatePublished}</p>
+                        </span>
+                </div>
+                <p className='font13' style={AllBlogStyle.blogDesc} >{blogs.Description}</p>
+                <Link className='blogGoBack' style={AllBlogStyle.blogGoBack} to='/blog'>
+                <span> &#8592;</span> <span>Go Back</span>
                 </Link>
-              </li>
-            )}
-            </ul>
-            </div>
+              </div>
+
+              <div className="mostReviewedContainer" style={AllBlogStyle.mostReviewedContainer}>
+                <div className="blogs-sidebar">
+                  <div className="blogSidebarItem">
+                    <span className="blogSidebarTitle">CATEGORIES</span>
+                    <ul className="blogSidebarList">
+                      {categories.map((category) =>
+                        <li className="sidebarListItem">
+                          <Link className="link" to="/">
+                            {category.Category} 
+                            <span className="itemNumber">(2)</span>
+                          </Link>
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div> 
           </div>
-        </div>
-      </div> 
-      <RecentBlogs/>
+        <Blog/>
       </div>  
       ) : (
         <EmptyList />

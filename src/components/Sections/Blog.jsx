@@ -37,7 +37,7 @@ export default function Blog() {
           </HeaderInfo>
           <div className="flex textCenter">
               <BlogWrapper className="flex whiteBg radius8">
-              {blogs.map((blog) => 
+              {blogs.slice(0, 3).map((blog) => 
               // const date = {blog.DatePublished};
                 <SingleBlog>
                   <img src={blogImg} alt='blog' />
