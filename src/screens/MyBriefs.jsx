@@ -43,7 +43,7 @@ export default function MyBriefs() {
 
           <div className="page-content">
             <div style={{ overflowX: "auto" }}>
-              <table width="100%">
+            <table class="styled-table">
                 <thead>
                   <tr>
                     <th># Brief ID</th>
