@@ -8,6 +8,10 @@ import { AiFillPrinter } from "react-icons/ai";
 import PuffLoader from "react-spinners/PuffLoader";
 // Convert date and time to a more readable format
 import Moment from "react-moment";
+// Export report
+import * as XLSX from 'xlsx';
+
+import FileSaver from "file-saver";
 
 export default function ReportsScreen() {
   const {id} = useParams()
@@ -17,14 +21,26 @@ export default function ReportsScreen() {
   const fetchmybriefs = () => {
     fetch(backendapi)
       .then((response) => response.json())
-      .then((data) => {
+      .then(data => {
+        const fieldsToExport = ["Cost", "CourtStation", "BriefTitle"];
+      
         setData(data);
       });
+      
   };
 
   useEffect(() => {
     fetchmybriefs();
   }, []);
+  const filteredData = data.map(({ BriefId, BriefTitle, Cost, CourtStation, BriefDate, BriefStatus }) => ({BriefId, BriefTitle, Cost, CourtStation, BriefDate, BriefStatus }));
+  // Export report in CSV Format
+  const exportData = async () => {
+    const worksheet = XLSX.utils.json_to_sheet(filteredData);
+    const workbook = { Sheets: { "data": worksheet }, SheetNames: ["data"] };
+    const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+    const dataBlob = new Blob([excelBuffer], { type: "application/octet-stream" });
+    FileSaver.saveAs(dataBlob, "Brief Report.xlsx");
+  };
   // Report data
   const options = {
     title: "Brief Analytics",
@@ -64,7 +80,7 @@ export default function ReportsScreen() {
             <h1>Reports</h1>
             <small>Dashboard / Reports</small>
 
-            <button className="ExportBtn">
+            <button className="ExportBtn" onClick={exportData}>
               Export <AiFillPrinter style={{ fontSize: "18px" }} />
             </button>
           </div>
@@ -85,7 +101,7 @@ export default function ReportsScreen() {
                       <span className="las la-sort"></span> Cost
                     </th>
                     <th>
-                      <span className="las la-sort"></span> Location
+                      <span className="las la-sort"></span> Court Station
                     </th>
                     <th>
                       <span className="las la-sort"></span> Status
