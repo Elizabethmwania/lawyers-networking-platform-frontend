@@ -7,7 +7,6 @@ import Header from "../components/Header";
 import profile from "../images/Profile.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-number-input";
 import Swal from "sweetalert2";
 
 export default function ProfileScreen() {

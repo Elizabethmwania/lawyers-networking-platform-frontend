@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../style/reports.scss";
-import {useParams} from 'react-router-dom'
+import { useParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { Chart } from "react-google-charts";
@@ -9,36 +9,49 @@ import PuffLoader from "react-spinners/PuffLoader";
 // Convert date and time to a more readable format
 import Moment from "react-moment";
 // Export report
-import * as XLSX from 'xlsx';
+import * as XLSX from "xlsx";
 
 import FileSaver from "file-saver";
 
 export default function ReportsScreen() {
-  const {id} = useParams()
+  const { id } = useParams();
   const [data, setData] = useState([]);
   // Fetch my briefs
   const backendapi = `http://localhost:8000/brief/mybriefs/${id}`;
   const fetchmybriefs = () => {
     fetch(backendapi)
       .then((response) => response.json())
-      .then(data => {
+      .then((data) => {
         const fieldsToExport = ["Cost", "CourtStation", "BriefTitle"];
-      
+
         setData(data);
       });
-      
   };
 
   useEffect(() => {
     fetchmybriefs();
   }, []);
-  const filteredData = data.map(({ BriefId, BriefTitle, Cost, CourtStation, BriefDate, BriefStatus }) => ({BriefId, BriefTitle, Cost, CourtStation, BriefDate, BriefStatus }));
+  const filteredData = data.map(
+    ({ BriefId, BriefTitle, Cost, CourtStation, BriefDate, BriefStatus }) => ({
+      BriefId,
+      BriefTitle,
+      Cost,
+      CourtStation,
+      BriefDate,
+      BriefStatus,
+    })
+  );
   // Export report in CSV Format
   const exportData = async () => {
     const worksheet = XLSX.utils.json_to_sheet(filteredData);
-    const workbook = { Sheets: { "data": worksheet }, SheetNames: ["data"] };
-    const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
-    const dataBlob = new Blob([excelBuffer], { type: "application/octet-stream" });
+    const workbook = { Sheets: { data: worksheet }, SheetNames: ["data"] };
+    const excelBuffer = XLSX.write(workbook, {
+      bookType: "xlsx",
+      type: "array",
+    });
+    const dataBlob = new Blob([excelBuffer], {
+      type: "application/octet-stream",
+    });
     FileSaver.saveAs(dataBlob, "Brief Report.xlsx");
   };
   // Report data
@@ -87,7 +100,7 @@ export default function ReportsScreen() {
 
           <div className="page-content">
             <div style={{ overflowX: "auto" }}>
-              <table width="100%">
+              <table class="styled-table">
                 <thead>
                   <tr>
                     <th># Brief ID</th>
@@ -112,7 +125,7 @@ export default function ReportsScreen() {
                 <tbody>
                   {data.map((data) => (
                     <tr>
-                   <td>{data.BriefId}</td>
+                      <td>{data.BriefId}</td>
                       <td>
                         <div className="client">
                           <div className="client-info">

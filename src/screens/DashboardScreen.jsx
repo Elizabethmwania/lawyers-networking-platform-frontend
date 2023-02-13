@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../style/dashboard.scss";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { Chart } from "react-google-charts";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 import {
   MdLibraryBooks,
@@ -44,7 +46,7 @@ export default function DashboardScreen() {
   const year = d.getFullYear();
   const hour = d.getHours();
   // Fetch my briefs
-  const {id} = useParams()
+  const { id } = useParams();
   const backendapi = `http://localhost:8000/brief/mybriefs/${id}`;
   const fetchmybriefs = () => {
     fetch(backendapi)
@@ -57,20 +59,20 @@ export default function DashboardScreen() {
   useEffect(() => {
     fetchmybriefs();
   }, []);
-    // Fetch user details
-const [userDetails, setUserDetails] = useState([])
-    const userapi = `http://localhost:8000/users/${id}`;
-    const fetchuserdetails = () => {
-      fetch(userapi)
-        .then((response) => response.json())
-        .then((data) => {
-          setUserDetails(data);
-        });
-    };
-  
-    useEffect(() => {
-      fetchuserdetails();
-    }, []);
+  // Fetch user details
+  const [userDetails, setUserDetails] = useState([]);
+  const userapi = `http://localhost:8000/users/${id}`;
+  const fetchuserdetails = () => {
+    fetch(userapi)
+      .then((response) => response.json())
+      .then((data) => {
+        setUserDetails(data);
+      });
+  };
+
+  useEffect(() => {
+    fetchuserdetails();
+  }, []);
   // Report data
   const options = {
     title: "Brief Analytics",
@@ -99,6 +101,29 @@ const [userDetails, setUserDetails] = useState([])
     ["Active Briefs", ActiveBriefs],
     ["Payment Pending Briefs", PendingPayment],
   ];
+  // Check if the user profile has null values
+  const [userProfile, setUserProfile] = useState({});
+  useEffect(() => {
+    if (id) {
+      axios
+        .get(`http://localhost:8000/users/${id}`)
+        .then((res) => {
+          setUserProfile(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [id]);
+  const isProfileIncomplete = Object.values(userProfile).some(
+    (field) => field === ""
+  );
+
+  if (isProfileIncomplete) {
+    setTimeout(() => {
+      CompleteProfile();
+    }, 3000);
+  }
 
   return (
     <div className="main-content">
@@ -270,3 +295,6 @@ const [userDetails, setUserDetails] = useState([])
     </div>
   );
 }
+const CompleteProfile = () => {
+  Swal.fire("Complete Profile");
+};
