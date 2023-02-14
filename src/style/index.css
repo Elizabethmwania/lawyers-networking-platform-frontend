@@ -130,6 +130,12 @@
     justify-content: space-between;
     align-items: center;
   }
+  .blogflexSpaceCenter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
   .flexNullCenter {
     display: flex;
     align-items: center;
