@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import FullButton from "../Buttons/FullButton";
-import ClientSlider from "../Elements/ClientSlider";
-import { blogs } from "../Data/Data";
 import { Link } from "react-router-dom";
 import blogImg from '../../images/blog/blog1.png';
 
@@ -71,19 +69,7 @@ export default function Blog() {
           </div>
         </div>
       </div>
-      <div className="lightBg" style={{padding: '30px'}}>
-        <div className="container">
-          <HeaderInfo>
-            <h1 className="font30 extraBold">Trusted clients</h1>
-            <p className="font13">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-              <br />
-              labore et dolore magna aliquyam erat, sed diam voluptua.
-            </p>
-          </HeaderInfo>
-          <ClientSlider />
-        </div>
-      </div>
+      
     </Wrapper>
   );
 }
@@ -132,6 +118,11 @@ width: calc(33.33% - 20px);
   @media (max-width: 860px) {
     flex-direction:column;
     align-content:center;
+    width: fit-content;
+    display: flex;
+    flex-direction:column;
+    align-content:center;
+    flex-wrap: wrap;
   }
 `;
 

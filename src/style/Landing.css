@@ -54,6 +54,9 @@ h1 {
 .contact-header {
   text-align: center;
 }
+.clients-header {
+  text-align: center;
+}
 
 /* blog-screen*/
 .blogs-container {
@@ -81,12 +84,10 @@ h1 {
   margin: 20px;
 }
 .blogs-sidebar {
-  flex: 2;
+  margin-top: 5.2rem;
+  flex: 3;
   height: fit-content;
-  margin: 20px;
-  margin-top: 40px;
-  background-color: #f0f0f0;;
-  border-radius: 10px;
+  background-color: #f0f0f0;
   display: flex;
 }
 
@@ -111,11 +112,6 @@ h1 {
   font-weight: 600;
 }
 
-.blogSidebarItem > img {
-  margin-top: 15px;
-  width: 250px;
-  height: 250px;
-}
 
 
 .blogSidebarList {
@@ -149,4 +145,33 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   color: #ffc107;
+}
+@media (max-width: 860px) {
+  .blogs-container{
+    width: fit-content;
+    display: flex;
+    flex-direction:column;
+    align-content:center;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 860px)  {
+  .blogFlexContainer{
+    width: fit-content;
+    display: flex;
+    flex-direction:column;
+    align-content:center;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (max-width: 860px)  {
+  .blogs-sidebar{
+    margin: 20px 10px 20px 0px;
+   
+  }
 }

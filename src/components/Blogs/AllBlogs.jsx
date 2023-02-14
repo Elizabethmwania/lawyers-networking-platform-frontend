@@ -19,12 +19,12 @@ const AllBlogStyle = {
     justifyContent:'center',
     // margin:'50px'
   },
-  mostReviewedContainer:{
-    flex:'3',
-    paddingLeft: '50px',
-  },
+  // mostReviewedContainer:{
+  //   flex:'3',
+  //   paddingLeft: '50px',
+  // },
   blogWrap: {
-    maxWidth: '700px',
+    width: '700px',
     flex:'9'
     
   },
@@ -45,11 +45,6 @@ const AllBlogStyle = {
     color: '#a9a9a9',
     fontWeight: 500,
   },
-  blogSubCategory: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginTop: '1.8rem',
-  },
   blogHeaders:{
     float:'left',
     position:'inherit',
@@ -63,7 +58,7 @@ const AllBlogStyle = {
   },
   blogImage:{
     marginTop:'0rem',
-    maxWidth:'700px'
+    width:'700px'
   }
 
 };
@@ -94,7 +89,7 @@ export default function AllBlogs() {
     <BlogHeader />
     
       {blogs ? (
-        <div>
+        <div className="allBlogs">
          <div className="blogGrid" style={AllBlogStyle.blogGrid}>
             <div className="blogFlexContainer" style={AllBlogStyle.blogFlexContainer}>
               <div className='blogWrap' style={AllBlogStyle.blogWrap}>
@@ -114,7 +109,7 @@ export default function AllBlogs() {
                 </Link>
               </div>
 
-              <div className="mostReviewedContainer" style={AllBlogStyle.mostReviewedContainer}>
+              {/* <div className="mostReviewedContainer" style={AllBlogStyle.mostReviewedContainer}> */}
                 <div className="blogs-sidebar">
                   <div className="blogSidebarItem">
                     <span className="blogSidebarTitle">CATEGORIES</span>
@@ -130,7 +125,7 @@ export default function AllBlogs() {
                     </ul>
                   </div>
                 </div>
-              </div>
+              {/* </div> */}
             </div> 
           </div>
         <Blog/>

@@ -7,6 +7,7 @@ import Contact from "../components/Sections/Contact";
 import Footer from "../components/Sections/Footer"
 import AboutSection from "../components/Sections/AboutSection";
 import Backdrop from "../components/Elements/Backdrop";
+import Clients from "../components/Sections/Clients";
 
 export default function Landing() {
   return (
@@ -16,6 +17,7 @@ export default function Landing() {
       <AboutSection />
       <Services />
       <Blog />
+      <Clients/>
       <Contact />
       <Backdrop/>
       <Footer />
