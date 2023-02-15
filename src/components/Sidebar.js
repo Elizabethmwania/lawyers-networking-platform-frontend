@@ -1,16 +1,24 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams, Navigate } from "react-router-dom";
 import { BsPower } from "react-icons/bs";
 import { FaHome, FaUserTie } from "react-icons/fa";
+import { connect } from "react-redux";
 import { GoListUnordered } from "react-icons/go";
 import { MdOutlineWork } from "react-icons/md";
 import { AiFillMessage } from "react-icons/ai";
 import { VscGraph } from "react-icons/vsc";
 import logo from "../images/Logos.png";
 import { NavLink } from "react-router-dom";
+// Logout user
+import { logout } from "../Actions/auth";
 
-export default function Sidebar() {
+function Sidebar({ logout }) {
+  const [navigate, setNavigate] = useState(false);
   const { id } = useParams();
+  const logout_user = () => {
+    logout();
+    setNavigate(true);
+  };
   return (
     <div className="sidebar">
       <div className="side-header">
@@ -60,7 +68,7 @@ export default function Sidebar() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/">
+              <NavLink to="/#!" onClick={logout_user}>
                 <BsPower className="sidebarIcon" />
                 <small>Log Out</small>
               </NavLink>
@@ -71,3 +79,7 @@ export default function Sidebar() {
     </div>
   );
 }
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+export default connect(mapStateToProps, { logout })(Sidebar);
