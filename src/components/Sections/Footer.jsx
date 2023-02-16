@@ -118,6 +118,7 @@ const Wrapper = styled.div`
 const InnerWrapper = styled.div`
   @media (max-width: 550px) {
     flex-direction: column;
+    flex-wrap:wrap;
   }
 `;
 const StyleP = styled.p`

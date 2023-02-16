@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
-import client1 from '../../images/clients/client1.png';
+import client1 from '../../images/Logo.png';
 
 export default function ClientSlider() {
   const settings = {
