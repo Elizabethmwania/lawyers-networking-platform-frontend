@@ -16,7 +16,7 @@ import BlogCategories from "../components/Blogs/BlogCategories";
         <div className="blogs-flex">
           <BlogIndex />
         </div>
-        <BlogCategories/>
+        {/* <BlogCategories/> */}
       </div>
       <Backdrop/>
       <Footer/>

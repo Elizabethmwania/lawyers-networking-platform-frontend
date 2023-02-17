@@ -6,7 +6,7 @@ export default function BlogCategories() {
     
     useEffect (() => {
     const fetchCategories = async () => {
-      const response = await fetch (
+      const response = await fetch (  
         //each category with blogs
         "http://127.0.0.1:8000/publication/"
       );
