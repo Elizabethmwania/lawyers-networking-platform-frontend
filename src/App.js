@@ -37,6 +37,7 @@ export default function App() {
       <Provider store={store}>
         <Router>
           <Routes>
+            {/* Landing page Links */}
             <Route path="/" element={<Landing />} />
             <Route path="/about" element={<AboutScreen />} />
             <Route path="/blog" element={<BlogScreen />} />
