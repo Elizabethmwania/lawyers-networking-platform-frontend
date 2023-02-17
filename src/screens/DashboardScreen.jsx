@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
+import { login } from "../Actions/auth";
+import { connect } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../style/dashboard.scss";
 import Sidebar from "../components/Sidebar";
@@ -14,7 +16,7 @@ import {
   MdAddTask,
   MdOutlinePendingActions,
 } from "react-icons/md";
-export default function DashboardScreen() {
+function DashboardScreen({ isAuthenticated }) {
   const [data, setData] = useState([]);
   const d = new Date();
   const weekDay = [
@@ -124,13 +126,16 @@ export default function DashboardScreen() {
       CompleteProfile();
     }, 3000);
   }
-
+  // if user not authenticated
+  if (!isAuthenticated) {
+    return <Navigate to={"/login"} />;
+  }
   return (
     <div className="main-content">
       <input type="checkbox" id="menu-toggle" />
       <Sidebar />
       <Header />
- 
+
       <main>
         <br /> <br />
         {/* <MainComponent /> */}
@@ -298,3 +303,9 @@ export default function DashboardScreen() {
 const CompleteProfile = () => {
   Swal.fire("Complete Profile");
 };
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { login })(DashboardScreen);
