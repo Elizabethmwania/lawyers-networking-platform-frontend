@@ -27,11 +27,11 @@ export default function Blog() {
         <div className="container">
           <HeaderInfo>
             <h1 className="font30 extraBold">Recent Stories</h1>
-            <p className="font13">
+            {/* <p className="font13">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
               <br />
               labore et dolore magna aliquyam erat, sed diam voluptua.
-            </p>
+            </p> */}
           </HeaderInfo>
           <div className="flex textCenter">
               <BlogWrapper className="flex whiteBg radius8">

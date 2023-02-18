@@ -77,7 +77,7 @@ export default function AllBlogs() {
     
       {blogs ? (
         <div className="allBlogs">
-          <div className="blogGrid" style={AllBlogStyle.blogGrid}>
+          <div className="blogGrid">
             <div className="flex">
               <div className='blogWrap' style={AllBlogStyle.blogWrap}>
                 <header className="blogHeaders" style={AllBlogStyle.blogHeaders}>
@@ -95,9 +95,9 @@ export default function AllBlogs() {
                   <span> &#8592;</span> <span>Go Back</span>
                 </Link>
               </div>
-              <div className="blogs-container">
+              {/* <div className="blogs-container">
                 <BlogCategories/>
-              </div>
+              </div> */}
             </div> 
           </div>
         <Blog/>

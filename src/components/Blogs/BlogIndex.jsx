@@ -8,11 +8,11 @@ import { Link, useParams } from "react-router-dom";
 import "../Blogs/BlogList/BlogItem/BlogItem.css";
 import img from "../../images/blog/blog1.png";
 import axios from "axios";
-
 export default function BlogIndex() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [data, setData] = useState([]);
+
   useEffect(() => {
     fetchData();
   }, [searchQuery]);
@@ -25,8 +25,10 @@ export default function BlogIndex() {
   };
 
   const handleSearchInput = (event) => {
-    setSearchQuery(event.target.value);
+    event.preventDefault();
+    setSearchQuery(event.target.value.toLowerCase().trim());
   };
+  
   // filter based on category
   useEffect(() => {
     fetchCategoryData();
@@ -55,12 +57,11 @@ export default function BlogIndex() {
       />
       <br />
 
-      {/* Blog List and Empty View   */}
-      {/* {!blogs.length ? <EmptyList /> : <BlogList blogs={allBlogs} />} */}
-      <div className="row">
-        <div className="col-md-9">
+      <div className="blogs-container">
+        <div className="blogs-flex">
           {!data.length ? (
             <EmptyList />
+            
           ) : (
             <div className="PublicationContainer">
               {data.map((blog) => (
@@ -95,16 +96,16 @@ export default function BlogIndex() {
             <div className="blogSidebarItem">
               <span className="blogSidebarTitle">CATEGORIES</span>
               <ul className="blogSidebarList">
-                <li onClick={() => handleCategorySelect("All/")}>
+                <li className="font13" onClick={() => handleCategorySelect("All/")}>
                   All Categories
                 </li>
-                <li onClick={() => handleCategorySelect("Criminal Law")}>
+                <li className="font13" onClick={() => handleCategorySelect("Criminal Law")}>
                   Criminal Law
                 </li>
-                <li onClick={() => handleCategorySelect("Civil Law")}>
+                <li className="font13" onClick={() => handleCategorySelect("Civil Law")}>
                   Civil Law
                 </li>
-                <li onClick={() => handleCategorySelect("Family Law")}>
+                <li className="font13" onClick={() => handleCategorySelect("Family Law")}>
                   Family Law
                 </li>
               </ul>

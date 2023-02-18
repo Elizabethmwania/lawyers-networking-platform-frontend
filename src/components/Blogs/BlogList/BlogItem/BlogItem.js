@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Chip from "../../Chip/Chip";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./BlogItem.css";
 import img from "../../../../images/blog/blog1.png";
 
