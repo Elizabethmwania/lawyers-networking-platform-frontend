@@ -30,7 +30,7 @@ export default function TopNavbar() {
             <img
               src={LogoIcon}
               alt="logo"
-              style={{ width: "50px", height: "50px" }}
+              style={{ width: "80px", height: "80px" }}
             />
             <h1
               style={{ marginLeft: "15px", color: "black" }}

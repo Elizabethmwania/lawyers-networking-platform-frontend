@@ -26,8 +26,10 @@ export default function Header() {
           <div className="header-container">
             <h1 className="extraBold font30">Networking for Legal Practitioners</h1>
             <HeaderP className="font13">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-              voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+            Network for Legal Practitioners (NLP) is a platform that connects advocates with advocates; 
+            and advocates with other service providers in the legal system. Our core objective is to 
+            enable advocates achieve optimum practice by making all legal districts easily accessible, 
+            promoting consultations and recommendations, and coordinating opportunities.
             </HeaderP>
           </div>
         </LeftSide> 

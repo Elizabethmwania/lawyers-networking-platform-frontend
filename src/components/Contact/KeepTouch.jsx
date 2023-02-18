@@ -57,12 +57,9 @@ export default function KeepTouch() {
       <div className="lightBg">
         <div className="container">
           <HeaderInfo className="contact-header">
-            <h1 className="font40 extraBold">Let's get in touch</h1>
+            <h1 className="font30 extraBold">Let's get in touch</h1>
             <p className="font13">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut
-              <br />
-              labore et dolore magna aliquyam erat, sed diam voluptua.
+            Keep in touch with us for more inquiries.
             </p>
           </HeaderInfo>
           <div className="row" style={{ marginLeft: "10%" }}>
@@ -75,6 +72,7 @@ export default function KeepTouch() {
                   value={formData.FirstName}
                   className="font13"
                   onChange={handleInputChange}
+                  required
                 />
                 <label className="font13">Last Name:</label>
 
@@ -84,6 +82,7 @@ export default function KeepTouch() {
                   value={formData.LastName}
                   onChange={handleInputChange}
                   className="font13"
+                  required
                 />
                 <label className="font13">Phone Number:</label>
                 <input
@@ -92,6 +91,7 @@ export default function KeepTouch() {
                   value={formData.PhoneNumber}
                   className="font13"
                   onChange={handleInputChange}
+                  required
                 />
                 <label className="font13">Message:</label>
                 <textarea
@@ -102,6 +102,7 @@ export default function KeepTouch() {
                   value={formData.Message}
                   onChange={handleInputChange}
                   className="font13"
+                  required
                 />
                 <SumbitWrapper className="flex">
                   <ButtonInput
@@ -125,7 +126,7 @@ export default function KeepTouch() {
                     color: "#D49733",
                   }}
                 />
-                <span className="font13">network@gmail.com</span>
+                <span className="font13">omwanzalaw@gmal.com</span>
                 <PhoneIcon
                   style={{
                     height: "30px",
@@ -133,7 +134,7 @@ export default function KeepTouch() {
                     marginTop: "50px",
                   }}
                 />
-                <span className="font13">+254 711 002 673</span>
+                <span className="font13">+254 722 791 366</span>
                 <MapPinIcon
                   style={{
                     height: "30px",
@@ -142,7 +143,12 @@ export default function KeepTouch() {
                   }}
                 />
                 <span className="font13">
-                  P.O Box 19 - 00100 <br />
+                  P.O Box 964-00208
+                  <br/>
+                  Muthaiga Square, 
+                  <br/>
+                  3rd fl, Suite 7
+                  <br/>
                   Muthaiga Square, <br />
                   Nairobi. <br />
                 </span>

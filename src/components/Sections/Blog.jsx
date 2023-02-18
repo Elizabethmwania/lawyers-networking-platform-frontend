@@ -27,20 +27,16 @@ export default function Blog() {
         <div className="container">
           <HeaderInfo>
             <h1 className="font30 extraBold">Recent Stories</h1>
-            {/* <p className="font13">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-              <br />
-              labore et dolore magna aliquyam erat, sed diam voluptua.
-            </p> */}
           </HeaderInfo>
           <div className="flex textCenter">
               <BlogWrapper className="flex whiteBg radius8">
               {blogs.slice(0, 3).map((blog) => 
-              // const date = {blog.DatePublished};
                 <SingleBlog>
                   <img src={blogImg} alt='blog' />
                   <p className="font13 extraBold" style={{ padding: "20px 0" }}>{blog.Title}
+                  <span className="font12"> - Published:
                   <span className="tag font11">{blog.DatePublished}</span>
+                  </span>
                   </p>
                   <p className="font13" >
                     {blog.Description.slice(0, 180)}..

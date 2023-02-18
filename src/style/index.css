@@ -136,6 +136,18 @@
     align-items: center;
     margin-top: 1rem;
   }
+  .clientFlexSpaceCenter{
+    display: flex;
+    align-items: center;
+    width: 60%;
+    margin-left: 25%;
+  }
+  @media only screen and (max-width: 859px) {
+    .clientFlexSpaceCenter{
+      width: fit-content;
+      margin: auto;
+    }
+  }
   .flexNullCenter {
     display: flex;
     align-items: center;

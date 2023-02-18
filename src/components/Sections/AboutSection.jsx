@@ -9,21 +9,20 @@ export default function AboutSection() {
       <div className="about-container" style={{ paddingTop: "30px" }}>
         <div className="container">
           <HeaderInfo>
-            <h1 className="font30 extraBold">What We Do</h1>
+            <h1 className="font30 extraBold">Who We Are</h1>
             <p className="font13">
-            Lorem Ipsum is simply dummy text of the printing and typesetting 
-            industry. Lorem Ipsum has been the industry's standard dummy text 
-            ever since the 1500s, when an unknown printer took a galley of type 
-            and scrambled it to make a type specimen book. It has survived not 
-            only five centuries, but also the leap into electronic typesetting, 
-            remaining essentially unchanged. It was popularised in the 1960s with 
-            the release of Letraset sheets containing Lorem Ipsum passages, and 
-            more recently with desktop publishing 
-            software like Aldus PageMaker including versions of Lorem Ipsum.
+            Network for Legal Practitioners (NLP) is a platform that connects advocates 
+            with advocates; and advocates with other service providers in the legal system. 
+            Our core objective is to enable advocates achieve optimum practice by making all 
+            legal districts easily accessible, promoting consultations and recommendations, 
+            and coordinating opportunities. 
+            <br/>
+            Our servivices include but not limited to Holding Brief, Drawing pleadings, Filing documents,
+            Process service, Research and Recruitment.
             </p>
           </HeaderInfo>
           <ButtonsRow className="flexNullCenter" style={{ margin: "20px 0" }}>
-            <div style={{ width: "fit-content" }}>
+            <div >
               <Link to='/about'>
                 <FullButton title="Read More . . ." />
               </Link>
@@ -40,8 +39,9 @@ const Wrapper = styled.section`
   width: 100%;
 `;
 const HeaderInfo = styled.div`
+
   @media (max-width: 860px) {
-    text-align: center;
+    text-align: left;
   }
 `;
 
@@ -49,5 +49,6 @@ const ButtonsRow = styled.div`
 justify-content: center;
   @media (max-width: 860px) {
     justify-content: center;
+    
   }
 `;

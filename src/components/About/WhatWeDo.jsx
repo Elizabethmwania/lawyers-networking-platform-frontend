@@ -4,35 +4,30 @@ import ContactImg1 from "../../images/about/about1.png";
 export default function WhatWeDo() {
   return (
     <Wrapper>
-      <div className="lightBg">
+      <div className="about">
         <div className="container" style={{width:'80%'}}>
           <HeaderInfo className="contact-header">
-            <h1 className="font40 extraBold">About Us</h1>
+            <h1 className="font30 extraBold">What We Do</h1>
           </HeaderInfo>
           <div className="row" style={{ paddingBottom: "30px" }}>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <AboutContent>
-                <h2>What we do</h2>
-              <p className="font13">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-              sed diam nonumy eirmod tempor invidunt ut            
-              labore et dolore magna aliquyam erat, sed diam voluptua.
+                <h2>Access</h2>
+                <p className="font13">
+                NLP connects members with service providers in various departments including law firms, court and tribunal registries, 
+                land registries, police stations, prisons, and survey offices which
+                enables them to easily find an advocate to hold brief, make key inquiries, 
+                file/serve documents, make applications, inter alia from the comfort of your office.
                <br/> 
-               <h2>Mission</h2>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-              sed diam nonumy eirmod tempor invidunt ut            
-              labore et dolore magna aliquyam erat, sed diam voluptua.
-              
+               <h2>Consultations and recommendations</h2>
+               NLP brings together a pool of advocates, both specialized and general practitioners. Their combined 
+               knowledge and experience provides an infinite resource in any area of practice you may need 
+               help in.The extensive network also enables you to easily find a suitable advocate to refer a client to on matters that you do not wish to handle.
               <br/> 
-              <h2>Vision</h2>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-              sed diam nonumy eirmod tempor invidunt ut            
-              labore et dolore magna aliquyam erat, sed diam voluptua.
-            
-            <h2>Core Values</h2>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-              sed diam nonumy eirmod tempor invidunt ut            
-              labore et dolore magna aliquyam erat, sed diam voluptua.
+              <h2>Coordinate opportunities</h2>
+              NLP connects young and experienced advocates. This way, NLP provides you with either a dependable team to entrust with research or drafting of 
+              pleadings/submission; or work opportunities. 
+            {/* <h2>Core Values</h2> */}
             </p>
             </AboutContent>
             </div>

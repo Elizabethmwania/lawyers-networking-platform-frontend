@@ -56,25 +56,25 @@ export default function Contact() {
   }
   return (
     <Wrapper>
-      <div className="lightBg" >
+      <div className="contactsection-container" >
         <div className="container">
           <HeaderInfo className="contact-header">
             <h1 className="font30 extraBold">Let's get in touch</h1>
             <p className="font13">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-              <br />
-              labore et dolore magna aliquyam erat, sed diam voluptua.
+            Keep in touch with us for more inquiries.
             </p>
           </HeaderInfo>
           <div className="row" style={{ paddingBottom: "30px" }}>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <Form ref={formRef} onSubmit={handleSubmit}>
                 <label className="font13">First Name:</label>
-                  <input type="text"
+                  <input 
+                    type="text"
                     name="FirstName" 
                     value={formData.FirstName} 
                     className="font13"
                     onChange={handleInputChange}
+                    required
                    />
                 <label className="font13">Last Name:</label>
 
@@ -83,7 +83,8 @@ export default function Contact() {
                   name="LastName"
                   value={formData.LastName}
                   onChange={handleInputChange}
-                  className="font13" 
+                  className="font13"
+                  required 
                 />
                 <label className="font13">Phone Number:</label>
                 <input 
@@ -92,6 +93,7 @@ export default function Contact() {
                   value={formData.PhoneNumber} 
                   className="font13" 
                   onChange={handleInputChange}
+                  required
                 />
                 <label className="font13">Message:</label>
                 <textarea rows="4" cols="50" 
@@ -99,7 +101,8 @@ export default function Contact() {
                   name="Message"
                   value={formData.Message}
                   onChange={handleInputChange}  
-                  className="font13" 
+                  className="font13"
+                  required 
                 />
                 <SumbitWrapper className="flex">
                   <ButtonInput
