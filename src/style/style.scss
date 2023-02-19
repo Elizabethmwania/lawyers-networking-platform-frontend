@@ -348,7 +348,11 @@ main {
     border-bottom: 1px solid #dee2e8;
 }
 
-.page-header h1,
+.page-header h3{
+    // text-align: center;
+    color: #e1b772;
+    font-size: 32px;
+}
 .page-header small {
     color: #74767d;
 }

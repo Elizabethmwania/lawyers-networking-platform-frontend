@@ -149,7 +149,7 @@ export default function BriefScreen() {
       <div className="main-content">
         <main>
           <div className="page-header">
-            <h1>Briefs</h1>
+            <h3>Briefs</h3>
             <small>Dashboard / All Briefs</small>
             <button onClick={handleShow} className="addBrief">
               Add brief
@@ -235,7 +235,7 @@ export default function BriefScreen() {
                           <p className="location">
                             <BiCurrentLocation />
                             &nbsp;
-                            {data.Location}
+                            {data.Location}, Kenya
                           </p>
                           <button
                             className="ApplyBtn"

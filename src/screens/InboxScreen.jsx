@@ -65,7 +65,7 @@ export default function InboxScreen() {
       <div className="main-content">
         <main>
           <div className="page-header">
-            <h1>Inbox</h1>
+            <h3>Inbox</h3>
             <small>Dashboard / Inbox</small>
           </div>
 

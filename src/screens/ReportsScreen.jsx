@@ -5,7 +5,6 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { Chart } from "react-google-charts";
 import { AiFillPrinter } from "react-icons/ai";
-import PuffLoader from "react-spinners/PuffLoader";
 // Convert date and time to a more readable format
 import Moment from "react-moment";
 // Export report
@@ -90,7 +89,7 @@ export default function ReportsScreen() {
       <div className="main-content">
         <main>
           <div className="page-header">
-            <h1>Reports</h1>
+            <h3>Reports</h3>
             <small>Dashboard / Reports</small>
 
             <button className="ExportBtn" onClick={exportData}>
@@ -123,37 +122,53 @@ export default function ReportsScreen() {
                 </thead>
 
                 <tbody>
-                  {data.map((data) => (
-                    <tr>
-                      <td>{data.BriefId}</td>
-                      <td>
-                        <div className="client">
-                          <div className="client-info">
-                            <small>{data.BriefTitle}</small>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        {" "}
-                        <Moment
-                          parse="YYYY-MM-DD HH:mm"
-                          style={{ fontSize: "14px" }}
-                        >
-                          {data.BriefDate}
-                        </Moment>
-                      </td>
-                      <td>Ksh. {data.Cost}</td>
-                      <td> {data.CourtStation}</td>
+                  {data.length == 0 ? (
+                    <p
+                      style={{
+                        position: "sticky",
+                        marginTop: "15%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                        color: "red",
+                      }}
+                    >
+                      You have no briefs
+                    </p>
+                  ) : (
+                    <>
+                      {data.map((data) => (
+                        <tr>
+                          <td>{data.BriefId}</td>
+                          <td>
+                            <div className="client">
+                              <div className="client-info">
+                                <small>{data.BriefTitle}</small>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            {" "}
+                            <Moment
+                              parse="YYYY-MM-DD HH:mm"
+                              style={{ fontSize: "14px" }}
+                            >
+                              {data.BriefDate}
+                            </Moment>
+                          </td>
+                          <td>Ksh. {data.Cost}</td>
+                          <td> {data.CourtStation}</td>
 
-                      <td>
-                        {data.BriefStatus == "Complete" ? (
-                          <span className="completeBtn">Complete</span>
-                        ) : (
-                          <span className="activeBtn">Active</span>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
+                          <td>
+                            {data.BriefStatus == "Complete" ? (
+                              <span className="completeBtn">Complete</span>
+                            ) : (
+                              <span className="activeBtn">Active</span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </>
+                  )}
                 </tbody>
               </table>
             </div>

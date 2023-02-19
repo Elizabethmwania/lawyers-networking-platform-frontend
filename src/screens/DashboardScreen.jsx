@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
-import { login } from "../Actions/auth";
-import { connect } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../style/dashboard.scss";
 import Sidebar from "../components/Sidebar";
@@ -16,7 +14,7 @@ import {
   MdAddTask,
   MdOutlinePendingActions,
 } from "react-icons/md";
-function DashboardScreen({ isAuthenticated }) {
+function DashboardScreen() {
   const [data, setData] = useState([]);
   const d = new Date();
   const weekDay = [
@@ -124,12 +122,9 @@ function DashboardScreen({ isAuthenticated }) {
   if (isProfileIncomplete) {
     setTimeout(() => {
       CompleteProfile();
-    }, 3000);
+    }, 1500);
   }
-  // if user not authenticated
-  if (!isAuthenticated) {
-    return <Navigate to={"/login"} />;
-  }
+
   return (
     <div className="main-content">
       <input type="checkbox" id="menu-toggle" />
@@ -140,10 +135,10 @@ function DashboardScreen({ isAuthenticated }) {
         <br /> <br />
         {/* <MainComponent /> */}
         <div className="BannerInfo" style={{ textAlign: "center" }}>
-          <p style={{ fontSize: "30px", color: "black" }}>
+          <p style={{ fontSize: "25px", color: "black" }}>
             {day}, {month} {date}
           </p>
-          <h5 style={{ fontSize: "40px", color: "#e1b772" }}>
+          <h5 style={{ fontSize: "34px", color: "#e1b772" }}>
             {" "}
             {hour >= 12 ? (
               hour >= 16 ? (
@@ -266,13 +261,25 @@ function DashboardScreen({ isAuthenticated }) {
                   <h4 className="card-titles">Briefs Analytics #1</h4>
                 </div>
                 <div className="card-body">
-                  <Chart
-                    chartType="PieChart"
-                    width="100%"
-                    height="400px"
-                    data={BriefReport}
-                    options={options}
-                  />
+                  {CompleteBriefs == 0 ? (
+                    <p
+                      style={{
+                        color: "red",
+                        textAlign: "center",
+                        marginTop: "10%",
+                      }}
+                    >
+                       No brief analytics at the moment
+                    </p>
+                  ) : (
+                    <Chart
+                      chartType="PieChart"
+                      width="100%"
+                      height="400px"
+                      data={BriefReport}
+                      options={options}
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -282,13 +289,26 @@ function DashboardScreen({ isAuthenticated }) {
                   <h4 className="card-titles">Briefs Analytics #2</h4>
                 </div>
                 <div className="card-body">
-                  <Chart
+                {CompleteBriefs == 0 ? (
+                    <p
+                      style={{
+                        color: "red",
+                        textAlign: "center",
+                        marginTop: "10%",
+                      }}
+                    >
+                      No brief analytics at the moment
+                    </p>
+                  ) : (
+                    <Chart
                     chartType="BarChart"
                     width="80%"
                     height="400px"
                     data={BriefNumbers}
                     options={options}
                   />
+                  )}
+                
                 </div>
               </div>
             </div>
@@ -304,8 +324,4 @@ const CompleteProfile = () => {
   Swal.fire("Complete Profile");
 };
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
-});
-
-export default connect(mapStateToProps, { login })(DashboardScreen);
+export default DashboardScreen;
