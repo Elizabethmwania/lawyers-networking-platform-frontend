@@ -5,7 +5,7 @@ import EmptyList from "./EmptyList/EmptyList";
 // import BlogList from './BlogList/BlogList';
 import Chip from "./Chip/Chip";
 import { Link, useParams } from "react-router-dom";
-import "../Blogs/BlogList/BlogItem/BlogItem.css";
+// import "../Blogs/BlogList/BlogItem/BlogItem.css";
 import img from "../../images/blog/blog1.png";
 import axios from "axios";
 export default function BlogIndex() {
@@ -46,17 +46,18 @@ export default function BlogIndex() {
 
   return (
     <div>
+      <div className="searchForm">
       <input
         value={searchQuery}
         onChange={handleSearchInput}
         class="form-control"
         type="search"
-        placeholder="Search"
+        placeholder="Search Title"
         aria-label="Search"
-        style={{ width: "80%" }}
+        style={{ width: "76%"}}
       />
       <br />
-
+      </div>
       <div className="blogs-container">
         <div className="blogs-flex">
           {!data.length ? (
@@ -91,7 +92,7 @@ export default function BlogIndex() {
         </div>
 
         {/* Category */}
-        <div className="col-md-3">
+        <div className="col-md-3 sticky-top">
           <div className="blogs-sidebar">
             <div className="blogSidebarItem">
               <span className="blogSidebarTitle">CATEGORIES</span>

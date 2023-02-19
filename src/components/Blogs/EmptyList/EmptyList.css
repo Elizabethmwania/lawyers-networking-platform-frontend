@@ -1,8 +1,12 @@
 .emptyList-wrap {
+  
     display: flex;
     justify-content: center;
+    width: 50%;
+    height: 70%;
   }
-  .emptyList-wrap img {
-    max-width: 250px;
-    width: 100%;
-  }
+  /* .emptyList-wrap img {
+    margin-top: 0;
+    width: 30%;
+    height: fit-content;
+  } */
