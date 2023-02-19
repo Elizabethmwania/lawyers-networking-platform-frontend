@@ -63,7 +63,7 @@ export default function ProfileScreen() {
       <div className="main-content">
         <main>
           <div className="page-header">
-            <h1>Profile</h1>
+            <h3>Profile</h3>
             <small>Dashboard / Profile</small>
           </div>
 
@@ -109,6 +109,7 @@ export default function ProfileScreen() {
                       <option>--Select Title--</option>
                       <option>Mrs</option>
                       <option>Mr</option>
+                      <option>Miss</option>
                       <option>Dr</option>
                       <option>Hon</option>
                     </select>

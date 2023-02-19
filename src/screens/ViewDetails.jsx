@@ -94,7 +94,7 @@ export default function ViewDetails() {
       <div className="main-content">
         <main>
           <div className="page-header">
-            <h1>Brief Details</h1>
+            <h3>Brief Details</h3>
            
             <small>Dashboard / Brief Details / {BriefTitle}</small>
             <button

@@ -9,7 +9,7 @@ import PuffLoader from "react-spinners/PuffLoader";
 import Moment from "react-moment";
 
 export default function MyBriefs() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [data, setData] = useState([]);
   const [loading, isLoading] = useState(true);
 
@@ -37,13 +37,14 @@ export default function MyBriefs() {
       <div className="main-content">
         <main>
           <div className="page-header">
-            <h1>My Briefs</h1>
+            <h3>My Briefs</h3>
             <small>Dashboard / Briefs</small>
           </div>
+        
 
           <div className="page-content">
             <div style={{ overflowX: "auto" }}>
-            <table class="styled-table">
+              <table class="styled-table">
                 <thead>
                   <tr>
                     <th># Brief ID</th>
@@ -69,51 +70,74 @@ export default function MyBriefs() {
                 </thead>
 
                 {loading == true ? (
-                  <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)"  }}>
+                  <div
+                    style={{
+                      position: "fixed",
+                      top: "65%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                    }}
+                  >
                     <center>
-                      <PuffLoader color="#9a6c20"/>
+                      <PuffLoader color="#9a6c20" />
                     </center>
                   </div>
                 ) : (
-                  <tbody>
-                    {data.map((data) => (
-                      <tr>
-                        <td>{data.BriefId}</td>
-                        <td>
-                          <div className="client">
-                            <div className="client-info">
-                              <small>{data.BriefTitle}</small>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          {" "}
-                          <Moment
-                            parse="YYYY-MM-DD HH:mm"
-                            style={{ fontSize: "14px" }}
-                          >
-                            {data.BriefDate}
-                          </Moment>
-                        </td>
-                        <td>Ksh. {data.Cost}</td>
-                        <td> {data.CourtStation}</td>
-                        <td>
-                          <a
-                            href={`/ViewDetails/${id}/${data.BriefId}`}
-                            className="moreInfoBtn"
-                          >
-                            View Details
-                          </a>
-                        </td>
-                        <td>
-                          {data.BriefStatus == "Complete" ? (
-                            <span className="completeBtn">Complete</span>
-                          ) : (
-                            <span className="activeBtn">Active</span>
-                          )}
-                        </td>
-                      </tr>
-                    ))}
+                  <tbody> 
+                    {data.length == 0 ? (
+                      <p
+                        style={{
+                          position: "fixed",
+                          top: "55%",
+                          left: "50%",
+                          transform: "translate(-50%, -50%)",
+                          color: "red"
+                        }}
+                      >
+                        You have no briefs
+                      </p>
+                    ) : (
+                      <>
+                        {data.map((data) => (
+                          <tr>
+                            <td>{data.BriefId}</td>
+                            <td>
+                              <div className="client">
+                                <div className="client-info">
+                                  <small>{data.BriefTitle}</small>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              {" "}
+                              <Moment
+                                parse="YYYY-MM-DD HH:mm"
+                                style={{ fontSize: "14px" }}
+                              >
+                                {data.BriefDate}
+                              </Moment>
+                            </td>
+                            <td>Ksh. {data.Cost}</td>
+                            <td> {data.CourtStation}</td>
+                            <td>
+                              <a
+                                href={`/ViewDetails/${id}/${data.BriefId}`}
+                                className="moreInfoBtn"
+                              >
+                                View Details
+                              </a>
+                            </td>
+                            <td>
+                              {data.BriefStatus == "Complete" ? (
+                                <span className="completeBtn">Complete</span>
+                              ) : (
+                                <span className="activeBtn">Active</span>
+                              )}
+                            </td>
+                          </tr>
+                        ))}
+                      </>
+                    )}
                   </tbody>
                 )}
               </table>
