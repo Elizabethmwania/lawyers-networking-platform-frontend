@@ -28,6 +28,36 @@ export default function Footer() {
             </ul>
             <ul>
               <li className="flexColumnFooter orangeColor">
+                Quick Links
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate" to='/' smooth={true} offset={-80}>
+                  Home
+                </Link>
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate" to='/' smooth={true} offset={-80}>
+                  About Us
+                </Link>
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate" to='/' smooth={true} offset={-80}>
+                  Contact Us
+                </Link>
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate" to='/' smooth={true} offset={-80}>
+                  Publications
+                </Link>
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate" to='/' smooth={true} offset={-80}>
+                  Login
+                </Link>
+              </li>
+            </ul>
+            <ul>
+              <li className="flexColumnFooter orangeColor">
                 Services
               </li>
               <li className="flexColumnFooter">
@@ -100,11 +130,11 @@ export default function Footer() {
         </div>
         
       </div>
-      {/* <StyleP className="textCenter whiteColor darkBg" style={{marginBottom:'0px'}}>
+      <StyleP className="textCenter whiteColor darkBg" style={{marginBottom:'0px'}}>
               © {getCurrentYear()} - <span className="purpleColor font13">
               </span> 
               All Right Reserved
-        </StyleP> */}
+        </StyleP>
     </Wrapper>
   );
 }
