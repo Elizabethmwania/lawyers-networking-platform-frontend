@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import {} from '@heroicons/react/24/solid'
 import LogoIcon from '../../images/logo/logo.jpg'
 
@@ -23,8 +23,13 @@ export default function Footer() {
                 </Link> */}
               </li>
               <li className="flexColumnFooter animate">P.O Box 964-00208</li>
-              <li className="flexColumnFooter animate">Muthaiga Square,3rd fl, Suite 7</li>
-              <li className="flexColumnFooter animate">Thika Rd. Opp Muthaiga Police Station</li>
+              <li className="flexColumnFooter animate">Muthaiga Square,
+              <br/>3rd fl, Suite 7.</li>
+              <li className="flexColumnFooter animate">Thika Rd. Opp 
+              <br/>Muthaiga Police Station</li>
+              <li className="flexColumnFooter animate">
+                TILL: 8102198
+              </li>
             </ul>
             <ul>
               <li className="flexColumnFooter orangeColor">
@@ -36,23 +41,28 @@ export default function Footer() {
                 </Link>
               </li>
               <li className="flexColumnFooter">
-                <Link className="flexColumnFooter animate" to='/' smooth={true} offset={-80}>
+                <Link className="flexColumnFooter animate" to='/about' smooth={true} offset={-80}>
                   About Us
                 </Link>
               </li>
               <li className="flexColumnFooter">
-                <Link className="flexColumnFooter animate" to='/' smooth={true} offset={-80}>
+                <Link className="flexColumnFooter animate" to='/contact' smooth={true} offset={-80}>
                   Contact Us
                 </Link>
               </li>
               <li className="flexColumnFooter">
-                <Link className="flexColumnFooter animate" to='/' smooth={true} offset={-80}>
+                <Link className="flexColumnFooter animate" to='/blog' smooth={true} offset={-80}>
                   Publications
                 </Link>
               </li>
               <li className="flexColumnFooter">
-                <Link className="flexColumnFooter animate" to='/' smooth={true} offset={-80}>
+                <Link className="flexColumnFooter animate" to='/login' smooth={true} offset={-80}>
                   Login
+                </Link>
+              </li>
+              <li className="flexColumnFooter">
+                <Link className="flexColumnFooter animate" to='/register' smooth={true} offset={-80}>
+                  Join
                 </Link>
               </li>
             </ul>
@@ -61,34 +71,22 @@ export default function Footer() {
                 Services
               </li>
               <li className="flexColumnFooter">
-                <Link className="flexColumnFooter animate" to='/' smooth={true} offset={-80}>
-                  Holding Briefs
-                </Link>
+                Holding Briefs
               </li>
               <li className="flexColumnFooter">
-                <Link className="flexColumnFooter animate" to='/' smooth={true} offset={-80}>
-                  Drawing Pleadings
-                </Link>
+                Drawing Pleadings
               </li>
               <li className="flexColumnFooter">
-                <Link className="flexColumnFooter animate" to='/' smooth={true} offset={-80}>
-                  Filing Documents
-                </Link>
+                Filing Documents
               </li>
               <li className="flexColumnFooter">
-                <Link className="flexColumnFooter animate" to='/' smooth={true} offset={-80}>
-                  Process Service
-                </Link>
+                 Process Service
               </li>
               <li className="flexColumnFooter">
-                <Link className="flexColumnFooter animate" to='/' smooth={true} offset={-80}>
-                  Research
-                </Link>
+                 Research
               </li>
               <li className="flexColumnFooter">
-                <Link className="flexColumnFooter animate" to='/' smooth={true} offset={-80}>
-                  Recruitment
-                </Link>
+                Recruitment
               </li>
             </ul>
             <ul>
@@ -96,24 +94,16 @@ export default function Footer() {
                 Practice Area
               </li>
               <li className="flexColumnFooter">
-                <Link className="flexColumnFooter animate" to="/" smooth={true} offset={-80}>
-                  Criminal Law
-                </Link>
+                Criminal Law
               </li>
               <li className="flexColumnFooter">
-                <Link className="flexColumnFooter animate" to="/" smooth={true} offset={-80}>
-                  COrporate Law
-                </Link>
+                 Corporate Law
               </li>
               <li className="flexColumnFooter">
-                <Link className="flexColumnFooter animate" to="/" smooth={true} offset={-80}>
-                  EmploymentLaw
-                </Link>
+                EmploymentLaw
               </li>
               <li className="flexColumnFooter">
-                <Link className="flexColumnFooter animate" to="/" smooth={true} offset={-80}>
-                  Intellectual Property
-                </Link>
+                Intellectual Property
               </li>
               <li className="flexColumnFooter">
                 <Link className="flexColumnFooter animate pointer" to="/" smooth={true} offset={-80}>
@@ -121,9 +111,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li className="flexColumnFooter">
-                <Link className="flexColumnFooter animate" to="/" smooth={true} offset={-80}>
-                  Tax Law
-                </Link>
+                Tax Law
+               
               </li>
             </ul>
           </InnerWrapper>

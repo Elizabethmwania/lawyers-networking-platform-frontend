@@ -156,6 +156,8 @@
     flex-direction: column;
   }
   .flexColumnFooter {
+    
+    /* background-color: #49CB86; */
     flex-direction: column;
     padding-bottom: 5px;
     color: rgb(161, 148, 148);
@@ -166,9 +168,10 @@
     align-items: center;
   }
   .flexRowFooter{
+    margin-top: 100px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
     flex-direction: row;
   }
   .flexSpaceNull {

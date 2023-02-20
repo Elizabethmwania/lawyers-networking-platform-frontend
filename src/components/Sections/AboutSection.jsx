@@ -17,7 +17,7 @@ export default function AboutSection() {
             legal districts easily accessible, promoting consultations and recommendations, 
             and coordinating opportunities. 
             <br/>
-            Our servivices include but not limited to Holding Brief, Drawing pleadings, Filing documents,
+            Our services include but not limited to Holding Brief, Drawing pleadings, Filing documents,
             Process service, Research and Recruitment.
             </p>
           </HeaderInfo>
