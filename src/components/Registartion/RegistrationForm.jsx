@@ -151,7 +151,7 @@ function RegistrationForm({ signup, isAuthenticated }) {
                             <Form.Control
                               label=" P/Number"
                               placeholder=" P/Number"
-                              type="text"
+                              type="number"
                               name="P105Number"
                               value={P105Number}
                               onChange={(e) => onChange(e)}
@@ -213,7 +213,7 @@ function RegistrationForm({ signup, isAuthenticated }) {
                               name="password"
                               value={password}
                               onChange={(e) => onChange(e)}
-                              minLength="6"
+                              // minLength="6"
                               required
                             />
                           </Form.Group>
@@ -227,7 +227,7 @@ function RegistrationForm({ signup, isAuthenticated }) {
                               name="re_password"
                               value={re_password}
                               onChange={(e) => onChange(e)}
-                              minLength="6"
+                              // minLength="6"
                               required
                             />
                           </Form.Group>
