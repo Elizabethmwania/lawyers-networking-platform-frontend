@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import { Navigate } from "react-router-dom";
 import { connect } from "react-redux";
@@ -15,6 +15,8 @@ function RegistrationForm({ signup, isAuthenticated }) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  // Create user account
   const [accountCreated, setAccountCreated] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -61,14 +63,29 @@ function RegistrationForm({ signup, isAuthenticated }) {
     }
   };
 
-  if (isAuthenticated) {
-    return <Navigate to="/" />;
-  }
+  // Check if account exists
+  const [data, setData] = useState([]);
+  const backendapi = `http://localhost:8000/users/account/${email}`;
+  const fetchData = () => {
+    fetch(backendapi)
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+      });
+  };
+
+  useEffect(() => {
+    if (email) {
+      fetchData();
+    }
+  }, [email]);
+
   if (accountCreated) {
-    showAlert();
+    {
+      data.email == email ? AccountExists() : showAlert();
+    }
     return <Navigate to="/login" />;
   }
-  console.log(formData);
 
   return (
     <>
@@ -249,13 +266,19 @@ function RegistrationForm({ signup, isAuthenticated }) {
                             className="form-check-label"
                             htmlhtmlFor="gridCheck"
                           >
-                            <label className="form-check-label" htmlhtmlFor="gridCheck">
-                    Check here to indicate that you have read and agree to the
-                    terms and condition of the{" "}
-                    <span onClick={handleShow} style={{ color: "blue" }}>
-                      Network of Legal Practitioners
-                    </span>
-                  </label>
+                            <label
+                              className="form-check-label"
+                              htmlhtmlFor="gridCheck"
+                            >
+                              Check here to indicate that you have read and
+                              agree to the terms and condition of the{" "}
+                              <span
+                                onClick={handleShow}
+                                style={{ color: "blue" }}
+                              >
+                                Network of Legal Practitioners
+                              </span>
+                            </label>
                           </label>
                         </div>
                       </div>
@@ -273,6 +296,7 @@ function RegistrationForm({ signup, isAuthenticated }) {
                         </Button>
                       </div>
                     </Form>
+
                     <div className="mt-3">
                       <p className="mb-0  text-center">
                         Already have an account?{" "}
@@ -288,99 +312,97 @@ function RegistrationForm({ signup, isAuthenticated }) {
           </Col>
         </Row>
       </Container>
-        {/* Terms and condition modal */}
-        <Modal
-          show={show}
-          onHide={handleClose}
-          backdrop="static"
-          keyboard={false}
-          size="lg"
-        >
-          <Modal.Header closeButton>
+      {/* Terms and condition modal */}
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+        size="lg"
+      >
+        <Modal.Header closeButton>
           <Modal.Title style={{ textAlign: "center", width: "100%" }}>
-                <h4>Terms and Conditions</h4>
-              </Modal.Title>
-         
-          </Modal.Header>
-          <Modal.Body>
-            <strong>Introduction</strong>
-            <h6>This agreement governs the relationship between advocates.</h6>
-            <h6>Responsibilities of the Holding Advocate</h6>
-            The advocate who holds the brief of the other advocate shall:
-            <ul>
-              <li>
-                a. Act only on the instructions of the advocate whose brief
-                he/she holds.
-              </li>
-              <li>
-                b. Ensure that all documents and evidence relating to the case
-                are safely and securely held.
-              </li>
-              <li>
-                c. Make all reasonable efforts to attend all hearings and
-                meetings relating to a matter.
-              </li>
-              <li>
-                d. Conduct themselves professionally and ethically at all times.
-              </li>
-              <li>
-                e. Respect the confidentiality of all information relating to
-                matters.
-              </li>
-            </ul>
-            Responsibilities of the Advocate Whose Brief is Held The advocate
-            whose brief is being held shall:
-            <ul>
-              <li>
-                a. Provide clear and concise instructions to the holding
-                advocate.
-              </li>
-              <li>
-                b. Ensure that all necessary documents and evidence are provided
-                to the holding advocate.
-              </li>
-              <li>
-                c. Conduct themselves professionally and ethically at all times.
-              </li>
-              <li>
-                d. Pay any fees or expenses associated with his/her matter as
-                agreed.{" "}
-              </li>
-            </ul>
-            <strong>Liability</strong>
-            <br/>
-            Neither advocate shall be liable for any losses, damages, or
-            expenses arising from any act or omission by the other advocate,
-            unless such losses, damages, or expenses were caused by a breach of
-            this Agreement or/and professionalism.
-            <br/>
-            <strong>Termination</strong>
-            <br/>
-            Either advocate may withdraw instructions at any time by giving
-            written notice to the other advocate. The holding advocate shall
-            return all documents and evidence relating to the matter to the
-            advocate whose brief is being held upon termination of instructions.
-            <br/>
-            <strong> Governing Law </strong>
-            <br/>
-            This Agreement shall be governed by and construed in accordance with
-            the laws of the jurisdiction in which the legal proceeding are
-            taking place.
-            <br/>
-            <strong>Severability</strong>
-            <br/>
-            If any provision of this Agreement is found to be invalid or
-            unenforceable, the remaining provisions shall remain in full force
-            and effect. By participating in this arrangement, both advocates
-            confirm that they have read, understood, and agree to this Agreement
-            and rules of professional practice.
-          </Modal.Body>
-          <Modal.Footer>
-            <button className="addBrief" onClick={handleClose}>
-              Understood
-            </button>
-          </Modal.Footer>
-        </Modal>
+            <h4>Terms and Conditions</h4>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <strong>Introduction</strong>
+          <h6>This agreement governs the relationship between advocates.</h6>
+          <h6>Responsibilities of the Holding Advocate</h6>
+          The advocate who holds the brief of the other advocate shall:
+          <ul>
+            <li>
+              a. Act only on the instructions of the advocate whose brief he/she
+              holds.
+            </li>
+            <li>
+              b. Ensure that all documents and evidence relating to the case are
+              safely and securely held.
+            </li>
+            <li>
+              c. Make all reasonable efforts to attend all hearings and meetings
+              relating to a matter.
+            </li>
+            <li>
+              d. Conduct themselves professionally and ethically at all times.
+            </li>
+            <li>
+              e. Respect the confidentiality of all information relating to
+              matters.
+            </li>
+          </ul>
+          Responsibilities of the Advocate Whose Brief is Held The advocate
+          whose brief is being held shall:
+          <ul>
+            <li>
+              a. Provide clear and concise instructions to the holding advocate.
+            </li>
+            <li>
+              b. Ensure that all necessary documents and evidence are provided
+              to the holding advocate.
+            </li>
+            <li>
+              c. Conduct themselves professionally and ethically at all times.
+            </li>
+            <li>
+              d. Pay any fees or expenses associated with his/her matter as
+              agreed.{" "}
+            </li>
+          </ul>
+          <strong>Liability</strong>
+          <br />
+          Neither advocate shall be liable for any losses, damages, or expenses
+          arising from any act or omission by the other advocate, unless such
+          losses, damages, or expenses were caused by a breach of this Agreement
+          or/and professionalism.
+          <br />
+          <strong>Termination</strong>
+          <br />
+          Either advocate may withdraw instructions at any time by giving
+          written notice to the other advocate. The holding advocate shall
+          return all documents and evidence relating to the matter to the
+          advocate whose brief is being held upon termination of instructions.
+          <br />
+          <strong> Governing Law </strong>
+          <br />
+          This Agreement shall be governed by and construed in accordance with
+          the laws of the jurisdiction in which the legal proceeding are taking
+          place.
+          <br />
+          <strong>Severability</strong>
+          <br />
+          If any provision of this Agreement is found to be invalid or
+          unenforceable, the remaining provisions shall remain in full force and
+          effect. By participating in this arrangement, both advocates confirm
+          that they have read, understood, and agree to this Agreement and rules
+          of professional practice.
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="addBrief" onClick={handleClose}>
+            Understood
+          </button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }
@@ -388,7 +410,7 @@ function RegistrationForm({ signup, isAuthenticated }) {
 const showAlert = () => {
   Swal.fire({
     title: "Registration Sucessfull!",
-    text: "Kindly check Email to activate account!",
+    text: "We've sent a link in your email to activate your account!",
     icon: "success",
   });
 };
@@ -398,6 +420,13 @@ const PasswordError = () => {
     icon: "error",
     title: "Error",
     text: "Password do not match!",
+  });
+};
+const AccountExists = () => {
+  Swal.fire({
+    icon: "error",
+    title: "Error",
+    text: "Account already exists!",
   });
 };
 const mapStateToProps = (state) => ({
