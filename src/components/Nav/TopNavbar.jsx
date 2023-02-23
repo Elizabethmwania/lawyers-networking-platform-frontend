@@ -144,7 +144,7 @@ export default function TopNavbar() {
                 smooth={true}
                 offset={-80}
               >
-                Join
+                Register
               </NavLink>
             </li>
           </UlWrapper>

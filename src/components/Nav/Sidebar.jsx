@@ -97,7 +97,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             smooth={true}
             offset={-60}
           >
-            Join
+            Register
           </NavLink>
         </li>
       </UlStyle>

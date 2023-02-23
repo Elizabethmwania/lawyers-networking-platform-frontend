@@ -13,7 +13,7 @@ export default function Header() {
 };
   return (
     <Wrapper className="flex flexColumn" style={{minHeight:'0px'}}>
-      <Carousel activeIndex={index} onSelect={handleSelect}>
+      <Carousel className='courselContainer' activeIndex={index} onSelect={handleSelect}>
       {Carousels.map((carousel) => (
         <Carousel.Item style={{borderBottom:'none'}}>
         <img
@@ -29,7 +29,7 @@ export default function Header() {
             Network for Legal Practitioners (NLP) is a platform that connects advocates with advocates; 
             and advocates with other service providers in the legal system. Our core objective is to 
             enable advocates achieve optimum practice by making all legal districts easily accessible, 
-            promoting consultations and recommendations, and coordinating opportunities.
+            promoting consultations
             </HeaderP>
           </div>
         </LeftSide> 
@@ -56,22 +56,15 @@ const LeftSide = styled.div`
   width: 100%;
   height: 100%;
   @media (max-width: 960px) {
-    width: 100%;
-    order: 2;
-    margin: 50px 0;
-    text-align: center;
-  }
-  @media (max-width: 560px) {
-    margin: 80px 0 50px 0;
+   margin-top:100px
   }
 `;
 const HeaderP = styled.div`
-  max-width: 470px;
+  width: 100%;
   line-height: 1.5rem;
   @media (max-width: 960px) {
-    padding: 15px 0 50px 0;
-    text-align: center;
-    max-width: 100%;
+    margin-bottom:20px;
+    display: none;
   }
 `;
 

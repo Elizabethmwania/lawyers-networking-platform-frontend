@@ -167,6 +167,7 @@
     justify-content: center;
     align-items: center;
   }
+  
   .flexRowFooter{
     margin-top: 100px;
     display: flex;

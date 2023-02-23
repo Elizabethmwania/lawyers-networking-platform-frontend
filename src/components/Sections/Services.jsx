@@ -1,14 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import '../../style/Landing.css'
-import practice2 from '../../images/practice/law1.png';
-import practice1 from '../../images/practice/liftarn_French_lawyer_early_20th_century..svg';
-import practice3 from '../../images/practice/male-computer-user16-0053406wqhcfa.svg';
+import practice2 from '../../images/svg/corporate.svg';
+import practice1 from '../../images/svg/tax.svg';
+import practice3 from '../../images/svg/employment.svg';
 import practice4 from '../../images/practice/law2.png'
 import practice5 from '../../images/practice/law4.png'
 import practice6 from '../../images/practice/law7.png'
 import practice7 from '../../images/practice/images'
 import practice8 from '../../images/practice/law11.png'
+import { Col, Row } from "react-bootstrap";
 export default function Services() {
   return (
     <Wrapper>
@@ -21,12 +22,39 @@ export default function Services() {
             practice to suit the local practices of different regions to better serve their clients.
             </p>
           </HeaderInfo>
-          <ServiceBoxRow className="flex">
-            <ServiceBoxWrapper>
-            <img src={practice1} style={{width:'100px', height:'100px'}} alt="practice-area" />
-              <span className="font13">Corporate Law</span>
-            </ServiceBoxWrapper>
-            <ServiceBoxWrapper>
+          <ServiceBoxRow className="">
+            <Row className="">
+              <Col className="">
+                {/* <ServiceBoxWrapper> */}
+                  <div className="imageContainer">
+                  <img src={practice2} className="serviceImage"alt="practice-area" /></div>
+                {/* </ServiceBoxWrapper> */}
+                <p className=" font13 textCenter">Corporate Law</p>
+              </Col>
+              <Col className="col-md-4">
+                <ServiceBoxWrapper>
+                  <div className="imageContainer">
+                  <img src={practice1} className="serviceImage"alt="practice-area" /></div>
+                </ServiceBoxWrapper>
+                <p className=" font13 textCenter">Corporate Law</p>
+              </Col>
+              <Col className="col-md-4">
+                <ServiceBoxWrapper>
+                  <div className="imageContainer">
+                    <img src={practice3} className="serviceImage"alt="practice-area" />
+                  </div>
+                  <p className=" font13 textCenter">Corporate Law</p>
+                </ServiceBoxWrapper>
+              </Col>
+              {/* <Col className="col-4"> */}
+                {/* <ServiceBoxWrapper> */}
+                  {/* <img src={practice2} style={{width:'100px', height:'100px'}} alt="practice-area" /> */}
+                {/* </ServiceBoxWrapper> */}
+              {/* <p className="">Corporate Law</p>
+              </Col> */}
+            </Row>
+            
+            {/* <ServiceBoxWrapper>
             <img src={practice2} style={{width:'100px', height:'100px'}} alt="practice-area"/>
               <span className="font13">Human Rights</span>
             </ServiceBoxWrapper>
@@ -42,9 +70,9 @@ export default function Services() {
             <ServiceBoxWrapper>
             <img src={practice6} style={{width:'100px', height:'100px'}} alt="practice-area"/>
               <span className="font13">Tax Law</span>
-            </ServiceBoxWrapper>
+            </ServiceBoxWrapper> */}
             
-            <ServiceBoxWrapper>
+            {/* <ServiceBoxWrapper>
             <img src={practice7} style={{width:'100px', height:'100px'}} alt="practice-area"/>
               <span className="font13">Criminal Law</span>
             </ServiceBoxWrapper>
@@ -56,7 +84,7 @@ export default function Services() {
             <ServiceBoxWrapper>
             <img src={practice8} style={{width:'100px', height:'100px'}} alt="practice-area"/>
               <span className="font13">Conveyancing</span>
-            </ServiceBoxWrapper>
+            </ServiceBoxWrapper> */}
           </ServiceBoxRow>
         </div>
       </div>
@@ -68,21 +96,14 @@ const Wrapper = styled.section`
   width: 100%;
 `;
 const ServiceBoxRow = styled.div`
-display: flex;
-flex-flow: row wrap;
-align-content: space-between;
-justify-content: space-between;
+
   @media (max-width: 860px) {
     flex-direction: column;
+    margin-left:0px;
   }
 `;
 const ServiceBoxWrapper = styled.div`
-margin: 10px 50px 50px 0;
-width: 100px;
-color: #D49733;
-font-weight: 200;
-height: 100px;
-text-align: center;
+
   @media (max-width: 860px) {
     width: 100%;
     text-align: center;
