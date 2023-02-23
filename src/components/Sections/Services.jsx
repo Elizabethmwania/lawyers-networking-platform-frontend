@@ -36,14 +36,14 @@ export default function Services() {
                   <div className="imageContainer">
                   <img src={practice1} className="serviceImage"alt="practice-area" /></div>
                 </ServiceBoxWrapper>
-                <p className=" font13 textCenter">Corporate Law</p>
+                <p className=" font13 textCenter">Tax Law</p>
               </Col>
               <Col className="col-md-4">
                 <ServiceBoxWrapper>
                   <div className="imageContainer">
                     <img src={practice3} className="serviceImage"alt="practice-area" />
                   </div>
-                  <p className=" font13 textCenter">Corporate Law</p>
+                  <p className=" font13 textCenter">Employment Law</p>
                 </ServiceBoxWrapper>
               </Col>
               {/* <Col className="col-4"> */}
