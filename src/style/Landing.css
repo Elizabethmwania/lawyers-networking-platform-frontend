@@ -26,7 +26,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-top: 120px;
+  padding-top: 300px;
   text-align: left;
 }
 
@@ -68,37 +68,27 @@ h1 {
   .service-container {
     width: fit-content;
     margin-left: 0px;
-
-  }
-  .imageContainer{
-    
-    margin-left: 0px;
   }
 }
 .imageContainer{
-  border: 1px solid gray;
-  width: 250px;
-  height: 250px;
+  border: 1px solid rgb(155, 153, 153);
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  margin-bottom: 15px;
-  margin-left: 25px;
+  margin-bottom: 20px;
+  margin-left: 60px;
 }
 .serviceImage{
-  width: 250px;
-  height: 150px;
-  align-items: center;
-  align-content: center;
+  width: 80px;
+  height: 80px;
+  margin: 60px;
 }
 
 .contact-header {
   text-align: center;
 }
 .clients-container{
-  background-color: white;
-
+  width: 100%;
 }
 .clients-header {
   text-align: center;

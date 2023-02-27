@@ -1,15 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import '../../style/Landing.css'
-import practice2 from '../../images/svg/corporate.svg';
-import practice1 from '../../images/svg/tax.svg';
-import practice3 from '../../images/svg/employment.svg';
-import practice4 from '../../images/practice/law2.png'
-import practice5 from '../../images/practice/law4.png'
-import practice6 from '../../images/practice/law7.png'
-import practice7 from '../../images/practice/images'
-import practice8 from '../../images/practice/law11.png'
 import { Col, Row } from "react-bootstrap";
+// import '../../style/Landing.css'
+import corporate from '../../images/svg/corporate.svg';
+import tax from '../../images/svg/tax.svg';
+import employment from '../../images/svg/employment.svg';
+import convey from '../../images/svg/convey.svg';
+import human from '../../images/svg/human.svg';
+import intellectual from '../../images/svg/intellectual.svg';
+import FullButton from "../Buttons/FullButton";
+
+
+const ReadMore = ({ children }) => {
+  const services = children;
+  const [isReadMore, setIsReadMore] = useState(true);
+  const toggleReadMore = () => {
+    setIsReadMore(!isReadMore);
+  };
+  return (
+    <Row>
+      {isReadMore ? services.slice(0, 3) : services}
+      <span onClick={toggleReadMore} className="flexCenter">
+        {isReadMore ?   
+        <ButtonsRow>
+          <FullButton title="Show More . . ." />
+        </ButtonsRow>
+        : 
+        <ButtonsRow>
+          <FullButton title="Shore Less" />
+        </ButtonsRow>
+        }
+      </span>
+    </Row>
+  );
+};
 export default function Services() {
   return (
     <Wrapper>
@@ -22,69 +46,59 @@ export default function Services() {
             practice to suit the local practices of different regions to better serve their clients.
             </p>
           </HeaderInfo>
-          <ServiceBoxRow className="">
-            <Row className="">
-              <Col className="">
-                {/* <ServiceBoxWrapper> */}
+          <ServiceBoxRow>
+            <Row>
+            <ReadMore>
+              <Col>
+                <ServiceBoxWrapper>
                   <div className="imageContainer">
-                  <img src={practice2} className="serviceImage"alt="practice-area" /></div>
-                {/* </ServiceBoxWrapper> */}
+                   <img src={corporate} className="serviceImage"alt="practice-area" />
+                  </div>
+                </ServiceBoxWrapper>  
                 <p className=" font13 textCenter">Corporate Law</p>
               </Col>
-              <Col className="col-md-4">
+              <Col>
                 <ServiceBoxWrapper>
                   <div className="imageContainer">
-                  <img src={practice1} className="serviceImage"alt="practice-area" /></div>
+                    <img src={human} className="serviceImage"alt="practice-area" />
+                  </div>
                 </ServiceBoxWrapper>
-                <p className=" font13 textCenter">Tax Law</p>
+                <p className=" font13 textCenter">Human Rights Law</p>
               </Col>
-              <Col className="col-md-4">
+              <Col>
                 <ServiceBoxWrapper>
                   <div className="imageContainer">
-                    <img src={practice3} className="serviceImage"alt="practice-area" />
+                    <img src={convey} className="serviceImage"alt="practice-area" />
+                  </div>
+                  <p className=" font13 textCenter">Conveyancing</p>
+                </ServiceBoxWrapper>
+              </Col>
+              <Col>
+                <ServiceBoxWrapper>
+                  <div className="imageContainer">
+                    <img src={tax} className="serviceImage"alt="practice-area" />
+                  </div>
+                  <p className=" font13 textCenter">Tax Law</p>
+                </ServiceBoxWrapper>
+              </Col>
+              <Col>
+                <ServiceBoxWrapper>
+                  <div className="imageContainer">
+                    <img src={employment} className="serviceImage"alt="practice-area" />
                   </div>
                   <p className=" font13 textCenter">Employment Law</p>
                 </ServiceBoxWrapper>
               </Col>
-              {/* <Col className="col-4"> */}
-                {/* <ServiceBoxWrapper> */}
-                  {/* <img src={practice2} style={{width:'100px', height:'100px'}} alt="practice-area" /> */}
-                {/* </ServiceBoxWrapper> */}
-              {/* <p className="">Corporate Law</p>
-              </Col> */}
+              <Col className="col-md-4">
+                <ServiceBoxWrapper>
+                  <div className="imageContainer">
+                    <img src={intellectual} className="serviceImage"alt="practice-area" />
+                  </div>
+                  <p className=" font13 textCenter">Intellectual Property</p>
+                </ServiceBoxWrapper>
+              </Col>
+              </ReadMore>
             </Row>
-            
-            {/* <ServiceBoxWrapper>
-            <img src={practice2} style={{width:'100px', height:'100px'}} alt="practice-area"/>
-              <span className="font13">Human Rights</span>
-            </ServiceBoxWrapper>
-            
-            <ServiceBoxWrapper>
-            <img src={practice3} style={{width:'100px', height:'100px'}} alt="practice-area"/>
-              <span className="font13">Employment Law</span>
-            </ServiceBoxWrapper>
-            <ServiceBoxWrapper>
-            <img src={practice4} style={{width:'100px', height:'100px'}} alt="practice-area"/>
-              <span className="font13">Intellectual Property</span>
-            </ServiceBoxWrapper>
-            <ServiceBoxWrapper>
-            <img src={practice6} style={{width:'100px', height:'100px'}} alt="practice-area"/>
-              <span className="font13">Tax Law</span>
-            </ServiceBoxWrapper> */}
-            
-            {/* <ServiceBoxWrapper>
-            <img src={practice7} style={{width:'100px', height:'100px'}} alt="practice-area"/>
-              <span className="font13">Criminal Law</span>
-            </ServiceBoxWrapper>
-            
-            <ServiceBoxWrapper>
-            <img src={practice5} style={{width:'100px', height:'100px'}} alt="practice-area"/>
-              <span className="font13">Family Law</span>
-            </ServiceBoxWrapper>
-            <ServiceBoxWrapper>
-            <img src={practice8} style={{width:'100px', height:'100px'}} alt="practice-area"/>
-              <span className="font13">Conveyancing</span>
-            </ServiceBoxWrapper> */}
           </ServiceBoxRow>
         </div>
       </div>
@@ -103,11 +117,10 @@ const ServiceBoxRow = styled.div`
   }
 `;
 const ServiceBoxWrapper = styled.div`
-
   @media (max-width: 860px) {
     width: 100%;
     text-align: center;
-    padding: 40px 0;
+    padding: 10px 0;
   }
 `;
 const HeaderInfo = styled.div`
@@ -118,6 +131,8 @@ const HeaderInfo = styled.div`
 
 const ButtonsRow = styled.div`
 justify-content: center;
+float:right;
+width:fit-content;
   @media (max-width: 860px) {
     justify-content: space-between;
   }

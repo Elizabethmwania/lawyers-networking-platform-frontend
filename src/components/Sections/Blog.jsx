@@ -32,7 +32,9 @@ export default function Blog() {
               <BlogWrapper className="flex whiteBg radius8">
               {blogs.slice(0, 3).map((blog) => 
                 <SingleBlog>
+                  <Link key={blog.id} className='blogItem-link' to={`/blog/${blog.id}`}>            
                   <img src={blogImg} alt='blog' />
+                  </Link>
                   <p className="font13 extraBold" style={{ padding: "20px 0" }}>{blog.Title}
                   <span className="font12"> - Published:
                   <span className="tag font11">{blog.DatePublished}</span>
@@ -107,13 +109,20 @@ const BlogWrapper = styled.div`
 const SingleBlog = styled.div`
 flex-direction: row;
 width: calc(33.33% - 20px);
+animation-duration: 1s;
+animation-iteration-count: 1;
+transform-origin: bottom;
 
 :hover {
-  opacity: 0.7;
+  animation-name: bounce;
+  animation-timing-function: ease;
+}
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-50px); }
+  100% { transform: translateY(0); }
 }
   @media (max-width: 860px) {
-    flex-direction:column;
-    align-content:center;
     width: fit-content;
     display: flex;
     flex-direction:column;

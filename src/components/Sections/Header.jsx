@@ -4,7 +4,7 @@ import '../../style/Landing.css'
 import { Carousels } from '../../components/Data/Data';
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { motion } from 'framer-motion';
 
 export default function Header() {
   const [index, setIndex] = useState(0);
@@ -20,18 +20,20 @@ export default function Header() {
           className="d-block w-100 h-50"
           src={carousel.image}
           alt="First slide"
+          style={{animationDelay: 'fadeIn 1s'}}
         />
         <Carousel.Caption>
         <LeftSide className="flexCenter">
-          <div className="header-container">
+          <motion.div className="header-container" 
+          whileHover={{ scale: 1.2 }}>
             <h1 className="extraBold font30">Networking for Legal Practitioners</h1>
             <HeaderP className="font13">
-            Network for Legal Practitioners (NLP) is a platform that connects advocates with advocates; 
-            and advocates with other service providers in the legal system. Our core objective is to 
-            enable advocates achieve optimum practice by making all legal districts easily accessible, 
-            promoting consultations
+              Network for Legal Practitioners (NLP) is a platform that connects advocates with advocates; 
+              and advocates with other service providers in the legal system. Our core objective is to 
+              enable advocates achieve optimum practice by making all legal districts easily accessible, 
+              promoting consultations and recommendations, and coordinating opportunities. 
             </HeaderP>
-          </div>
+          </motion.div>
         </LeftSide> 
         </Carousel.Caption>
       </Carousel.Item>

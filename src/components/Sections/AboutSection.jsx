@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import FullButton from "../Buttons/FullButton";
-
 export default function AboutSection() {
   return (
     <Wrapper>
