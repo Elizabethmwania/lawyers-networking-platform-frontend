@@ -5,6 +5,7 @@ import Sidebar from "../Nav/Sidebar";
 import Backdrop from "../Elements/Backdrop";
 import LogoIcon from "../../images/logo/logo-no-bg.png";
 import BurgerIcon from "../../images/svg/BurgerIcon";
+import {Rotate} from 'react-reveal';
 
 export default function TopNavbar() {
   const [y, setY] = useState(window.scrollY);
@@ -48,6 +49,7 @@ export default function TopNavbar() {
             className="flexNullCenter"
             style={{ padding: "0", margin: "0" }}
           >
+            <Rotate top left>
             <li
               className="semiBold font15 pointer links"
               style={{ padding: "0", margin: "0" }}
@@ -147,6 +149,7 @@ export default function TopNavbar() {
                 Register
               </NavLink>
             </li>
+            </Rotate>
           </UlWrapper>
         </NavInner>
       </Wrapper>

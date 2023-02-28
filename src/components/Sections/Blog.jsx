@@ -3,7 +3,7 @@ import styled from "styled-components";
 import FullButton from "../Buttons/FullButton";
 import { Link } from "react-router-dom";
 import blogImg from '../../images/blog/blog1.png';
-
+import { Fade } from "react-awesome-reveal";
 
 export default function Blog() {
 
@@ -23,6 +23,7 @@ export default function Blog() {
 
   return (
     <Wrapper>
+      <Fade bottom cascade>
       <div className="blog-container" >
         <div className="container">
           <HeaderInfo>
@@ -32,6 +33,7 @@ export default function Blog() {
               <BlogWrapper className="flex whiteBg radius8">
               {blogs.slice(0, 3).map((blog) => 
                 <SingleBlog>
+                  
                   <Link key={blog.id} className='blogItem-link' to={`/blog/${blog.id}`}>            
                   <img src={blogImg} alt='blog' />
                   </Link>
@@ -61,13 +63,15 @@ export default function Blog() {
           <div className="row flexCenter">
             <div style={{ margin: "50px 0", width: "200px" }}>
               <Link to="/blog" >
-              <FullButton title="Load More"/>
+              <ButtonsRow>
+               <FullButton title="Load More..."/>
+              </ButtonsRow>
               </Link>
             </div>
           </div>
         </div>
       </div>
-      
+      </Fade>
     </Wrapper>
   );
 }
@@ -128,6 +132,27 @@ transform-origin: bottom;
     flex-direction:column;
     align-content:center;
     flex-wrap: wrap;
+  }
+`;
+const ButtonsRow = styled.div`
+justify-content: center;
+float:right;
+width:fit-content;
+animation-duration: 1s;
+animation-iteration-count: 1;
+transform-origin: bottom;
+
+:hover {
+  animation-name: bounce;
+  animation-timing-function: ease;
+}
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-30px); }
+  100% { transform: translateY(0); }
+}
+  @media (max-width: 860px) {
+    justify-content: space-between;
   }
 `;
 

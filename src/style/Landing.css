@@ -78,6 +78,9 @@ h1 {
   margin-bottom: 20px;
   margin-left: 60px;
 }
+.imageContainer:hover{
+  border: 1px solid orange;
+}
 .serviceImage{
   width: 80px;
   height: 80px;

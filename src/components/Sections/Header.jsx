@@ -4,7 +4,7 @@ import '../../style/Landing.css'
 import { Carousels } from '../../components/Data/Data';
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { motion } from 'framer-motion';
+import {Zoom} from 'react-awesome-reveal'
 
 export default function Header() {
   const [index, setIndex] = useState(0);
@@ -24,8 +24,8 @@ export default function Header() {
         />
         <Carousel.Caption>
         <LeftSide className="flexCenter">
-          <motion.div className="header-container" 
-          whileHover={{ scale: 1.2 }}>
+          <Zoom>
+          <div className="header-container">
             <h1 className="extraBold font30">Networking for Legal Practitioners</h1>
             <HeaderP className="font13">
               Network for Legal Practitioners (NLP) is a platform that connects advocates with advocates; 
@@ -33,7 +33,8 @@ export default function Header() {
               enable advocates achieve optimum practice by making all legal districts easily accessible, 
               promoting consultations and recommendations, and coordinating opportunities. 
             </HeaderP>
-          </motion.div>
+          </div>
+          </Zoom>
         </LeftSide> 
         </Carousel.Caption>
       </Carousel.Item>
