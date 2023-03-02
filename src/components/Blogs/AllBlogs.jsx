@@ -81,7 +81,7 @@ export default function AllBlogs() {
           <div className="blogGrid">
             <div className="flex">
               <div className='blogWrap' style={AllBlogStyle.blogWrap}>
-                <Fade>
+                <Fade direction="up" delay={200} duration={1000}>
                 <header className="blogHeaders" style={AllBlogStyle.blogHeaders}>
                 <h2>{blogs.Title}</h2>
                 </header>

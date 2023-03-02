@@ -6,6 +6,7 @@ import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import { PhoneIcon } from "@heroicons/react/24/solid";
 import { MapPinIcon } from "@heroicons/react/24/solid";
 import { Navigate } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 
 export default function KeepTouch() {
   const formRef = useRef(null);
@@ -57,14 +58,17 @@ export default function KeepTouch() {
       <div className="lightBg">
         <div className="container">
           <HeaderInfo className="contact-header">
+          <Fade direction="up" delay={200} duration={1000}>
             <h1 className="font30 extraBold">Let's get in touch</h1>
             <p className="font13">
             Keep in touch with us for more inquiries.
             </p>
+            </Fade>
           </HeaderInfo>
           <div className="row" style={{ marginLeft: "10%" }}>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <Form ref={formRef} onSubmit={handleSubmit}>
+              <Fade direction="up" delay={200} duration={1000}>
                 <label className="font13">First Name:</label>
                 <input
                   type="text"
@@ -113,9 +117,11 @@ export default function KeepTouch() {
                     style={{ maxWidth: "150px" }}
                   />
                 </SumbitWrapper>
+                </Fade>
               </Form>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 flex">
+            {/* <Fade direction="up" delay={500} duration={1000}> */}
               <div
                 style={{ width: "100%" }}
                 className="flexNullCenter flexColumn"
@@ -126,7 +132,9 @@ export default function KeepTouch() {
                     color: "#D49733",
                   }}
                 />
-                <span className="font13">omwanzalaw@gmal.com</span>
+                <Fade direction="up" delay={200} duration={1000}>
+                <span className="font13">nlpeafrica@gmal.com</span>
+                </Fade>
                 <PhoneIcon
                   style={{
                     height: "30px",
@@ -134,7 +142,9 @@ export default function KeepTouch() {
                     marginTop: "50px",
                   }}
                 />
+                <Fade direction="up" delay={200} duration={1000}>
                 <span className="font13">+254 722 791 366</span>
+                </Fade>
                 <MapPinIcon
                   style={{
                     height: "30px",
@@ -142,6 +152,7 @@ export default function KeepTouch() {
                     marginTop: "50px",
                   }}
                 />
+                <Fade direction="up" delay={200} duration={1000}>
                 <span className="font13">
                   P.O Box 964-00208
                   <br/>
@@ -149,15 +160,16 @@ export default function KeepTouch() {
                   <br/>
                   3rd fl, Suite 7
                   <br/>
-                  Muthaiga Square, <br />
                   Nairobi. <br />
                 </span>
+                </Fade>
               </div>
+              {/* </Fade> */}
             </div>
           </div>
         </div>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d90256.46989614451!2d36.80476501014542!3d-1.2880827889894189!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d89586303f%3A0x249cb113a045ce9c!2sKRA%20Offices!5e0!3m2!1sen!2ske!4v1668174135269!5m2!1sen!2ske"
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31910.66780499268!2d36.81300841715545!3d-1.2730746905721804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f16eb9601573b%3A0xd3fd21052bcc867f!2sMuthaiga%20Square%20-%20Nairobi!5e0!3m2!1sen!2ske!4v1677773179154!5m2!1sen!2ske"
           width="100%"
           height="400px"
           title="map"
@@ -166,6 +178,7 @@ export default function KeepTouch() {
           style={{ filter: "opacity(0.7)", border: "0" }}
         />
       </div>
+      
     </Wrapper>
   );
 }

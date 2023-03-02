@@ -107,16 +107,16 @@ export default function BlogIndex() {
             <div className="blogSidebarItem">
               <span className="blogSidebarTitle">CATEGORIES</span>
               <ul className="blogSidebarList">
-                <li className="font13" onClick={() => handleCategorySelect("All/")}>
+                <li className="font13 pointer" onClick={() => handleCategorySelect("All/")}>
                   All Categories
                 </li>
-                <li className="font13" onClick={() => handleCategorySelect("Criminal Law")}>
+                <li className="font13 pointer" onClick={() => handleCategorySelect("Criminal Law")}>
                   Criminal Law
                 </li>
-                <li className="font13" onClick={() => handleCategorySelect("Civil Law")}>
+                <li className="font13 pointer" onClick={() => handleCategorySelect("Civil Law")}>
                   Civil Law
                 </li>
-                <li className="font13" onClick={() => handleCategorySelect("Family Law")}>
+                <li className="font13 pointer" onClick={() => handleCategorySelect("Family Law")}>
                   Family Law
                 </li>
               </ul>
