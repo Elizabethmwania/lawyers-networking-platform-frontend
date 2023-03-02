@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import img from '../../images/blog/recent-blog.png';
 import Blog from "../Sections/Blog";
 import BlogCategories from "./BlogCategories";
+import { Fade } from "react-awesome-reveal";
 
 const AllBlogStyle = {
 
@@ -80,6 +81,7 @@ export default function AllBlogs() {
           <div className="blogGrid">
             <div className="flex">
               <div className='blogWrap' style={AllBlogStyle.blogWrap}>
+                <Fade>
                 <header className="blogHeaders" style={AllBlogStyle.blogHeaders}>
                 <h2>{blogs.Title}</h2>
                 </header>
@@ -94,6 +96,7 @@ export default function AllBlogs() {
                 <Link className='blogGoBack' style={AllBlogStyle.blogGoBack} to='/blog'>
                   <span> &#8592;</span> <span>Go Back</span>
                 </Link>
+                </Fade>
               </div>
               {/* <div className="blogs-container">
                 <BlogCategories/>

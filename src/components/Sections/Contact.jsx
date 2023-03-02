@@ -6,6 +6,7 @@ import { Navigate } from "react-router-dom";
 import ContactImg1 from "../../images/contact/contact1.png";
 import ContactImg2 from "../../images/contact/contact2.png";
 import ContactImg3 from "../../images/contact/contact3.png";
+import { Fade } from "react-awesome-reveal";
 
 export default function Contact() {
   const formRef = useRef(null);
@@ -56,17 +57,21 @@ export default function Contact() {
   }
   return (
     <Wrapper>
+      <Fade direction="left" delay={500} duration={1000}>
       <div className="contactsection-container" >
         <div className="container">
           <HeaderInfo className="contact-header">
+          <Fade direction="up">
             <h1 className="font30 extraBold">Let's get in touch</h1>
             <p className="font13">
             Keep in touch with us for more inquiries.
             </p>
+            </Fade>
           </HeaderInfo>
           <div className="row" style={{ paddingBottom: "30px" }}>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <Form ref={formRef} onSubmit={handleSubmit}>
+              {/* <Fade direction="left"> */}
                 <label className="font13">First Name:</label>
                   <input 
                     type="text"
@@ -112,9 +117,12 @@ export default function Contact() {
                     style={{ maxWidth: "150px" }}
                   />
                 </SumbitWrapper>
+                {/* </Fade> */}
               </Form>
+              {/* </Fade> */}
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 flex">
+              {/* <Fade direction="up"> */}
               <div style={{ width: "50%" }} className="flexNullCenter flexColumn">
                 <ContactImgBox>
                   <img src={ContactImg1} alt="office" className="radius6" />
@@ -128,10 +136,12 @@ export default function Contact() {
                   <img src={ContactImg3} alt="office" className="radius6" />
                 </div>
               </div>
+              {/* </Fade> */}
             </div>
           </div>
         </div>
       </div>
+      </Fade>
     </Wrapper>
   );
 }

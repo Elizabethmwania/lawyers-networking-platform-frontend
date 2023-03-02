@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import SearchBar from "./SearchBar/SearchBar";
 import EmptyList from "./EmptyList/EmptyList";
-// import BlogList from './BlogList/BlogList';
 import Chip from "./Chip/Chip";
+import styled from "styled-components";
 import { Link, useParams } from "react-router-dom";
-// import "../Blogs/BlogList/BlogItem/BlogItem.css";
 import img from "../../images/blog/blog1.png";
 import axios from "axios";
+import { Fade } from "react-awesome-reveal";
 export default function BlogIndex() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -67,7 +67,15 @@ export default function BlogIndex() {
             <div className="PublicationContainer">
               {data.map((blog) => (
                 <div className="blogItem-wrap">
+                  <SingleBlog>
+                  <Fade key={blog.id}  direction="up" cascade delay={blog.id * 200} duration={1000} fraction={0.1}>
+                  <Link
+                      key={blog.id}
+                      className="blogItem-link"
+                      to={`/blog/${blog.id}`}
+                    >
                   <img className="blogItem-cover" src={img} alt="cover" />
+                  </Link>
                   <h5 className="font13 extraBold">
                     {blog.Title}
                     <span className="tag font11">{blog.DatePublished}</span>
@@ -85,6 +93,8 @@ export default function BlogIndex() {
                       Read More ➝
                     </Link>
                   </footer>
+                  </Fade>
+                  </SingleBlog>
                 </div>
               ))}
             </div>
@@ -118,3 +128,20 @@ export default function BlogIndex() {
     </div>
   );
 }
+
+
+const SingleBlog = styled.div`
+animation-duration: 1s;
+animation-iteration-count: 1;
+transform-origin: bottom;
+
+:hover {
+  animation-name: bounce;
+  animation-timing-function: ease;
+}
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-50px); }
+  100% { transform: translateY(0); }
+}
+`;

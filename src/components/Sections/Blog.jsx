@@ -23,17 +23,18 @@ export default function Blog() {
 
   return (
     <Wrapper>
-      <Fade bottom cascade>
       <div className="blog-container" >
         <div className="container">
           <HeaderInfo>
+          <Fade direction="up" delay={500}>
             <h1 className="font30 extraBold">Recent Stories</h1>
+          </Fade>
           </HeaderInfo>
           <div className="flex textCenter">
               <BlogWrapper className="flex whiteBg radius8">
-              {blogs.slice(0, 3).map((blog) => 
+              {blogs.slice(0, 3).map((blog) =>
                 <SingleBlog>
-                  
+                  <Fade key={blog.id}  direction="up" cascade delay={blog.id * 200} duration={1000} fraction={0.1}>
                   <Link key={blog.id} className='blogItem-link' to={`/blog/${blog.id}`}>            
                   <img src={blogImg} alt='blog' />
                   </Link>
@@ -56,6 +57,7 @@ export default function Blog() {
                       </Link>
                     </span>
                   </div>
+                  </Fade>
                 </SingleBlog>
                 )}
               </BlogWrapper>
@@ -71,7 +73,6 @@ export default function Blog() {
           </div>
         </div>
       </div>
-      </Fade>
     </Wrapper>
   );
 }

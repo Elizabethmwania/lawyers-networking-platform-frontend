@@ -5,7 +5,7 @@ import Sidebar from "../Nav/Sidebar";
 import Backdrop from "../Elements/Backdrop";
 import LogoIcon from "../../images/logo/logo-no-bg.png";
 import BurgerIcon from "../../images/svg/BurgerIcon";
-import {Rotate} from 'react-reveal';
+import Reveal, { Fade } from "react-awesome-reveal";
 
 export default function TopNavbar() {
   const [y, setY] = useState(window.scrollY);
@@ -49,11 +49,11 @@ export default function TopNavbar() {
             className="flexNullCenter"
             style={{ padding: "0", margin: "0" }}
           >
-            <Rotate top left>
             <li
               className="semiBold font15 pointer links"
               style={{ padding: "0", margin: "0" }}
             >
+              <Fade direction="down">
               <NavLink
                 className=""
                 style={{ padding: "10px 15px" }}
@@ -68,8 +68,10 @@ export default function TopNavbar() {
               >
                 Home
               </NavLink>
+              </Fade>
             </li>
             <li className="semiBold font15 pointer links">
+            <Fade direction="down" delay='25'>
               <NavLink
                 className=""
                 style={{ padding: "10px 15px" }}
@@ -84,8 +86,10 @@ export default function TopNavbar() {
               >
                 About
               </NavLink>
+              </Fade>
             </li>
             <li className="semiBold font15 pointer links">
+            <Fade direction="down" delay='50'>
               <NavLink
                 className=""
                 activeStyle={{
@@ -100,8 +104,10 @@ export default function TopNavbar() {
               >
                 Publications
               </NavLink>
+              </Fade>
             </li>
             <li className="semiBold font15 pointer links">
+            <Fade direction="down" delay='75'>
               <NavLink
                 className=""
                 style={{ padding: "10px 15px" }}
@@ -116,8 +122,10 @@ export default function TopNavbar() {
               >
                 Contact
               </NavLink>
+              </Fade>
             </li>
             <li className="semiBold font15 pointer links">
+            <Fade direction="down" delay='100'>
               <NavLink
                 className=""
                 style={{ padding: "10px 15px" }}
@@ -132,8 +140,10 @@ export default function TopNavbar() {
               >
                 Login
               </NavLink>
+              </Fade>
             </li>
             <li className="semiBold font15 pointer links">
+            <Fade direction="down" delay='125'>
               <NavLink
                 className=""
                 style={{ padding: "10px 15px" }}
@@ -148,8 +158,9 @@ export default function TopNavbar() {
               >
                 Register
               </NavLink>
+              </Fade>
             </li>
-            </Rotate>
+            {/* </Rotate> */}
           </UlWrapper>
         </NavInner>
       </Wrapper>
