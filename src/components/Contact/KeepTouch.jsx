@@ -185,8 +185,9 @@ export default function KeepTouch() {
 const showAlert = () => {
   Swal.fire({
     title: "Message Sent!",
-    text: "You will get feedback within 12 hours",
+    text: "Your message was sent successfully",
     icon: "success",
+    timer:50000,
   });
 };
 
