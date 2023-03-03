@@ -32,7 +32,7 @@ export default function KeepTouch() {
     window.location.reload();
     event.preventDefault();
     try {
-      const response = await fetch("http://127.0.0.1:8000/contact/", {
+      const response = await fetch("http://3.133.90.3:8000/contact/", {
         method: "POST",
         headers: {
           Accept: "application/json",

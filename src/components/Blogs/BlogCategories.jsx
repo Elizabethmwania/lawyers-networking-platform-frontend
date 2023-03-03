@@ -8,7 +8,7 @@ export default function BlogCategories() {
     const fetchCategories = async () => {
       const response = await fetch (  
         //each category with blogs
-        "http://127.0.0.1:8000/publication/"
+        "http://3.133.90.3:8000/publication/"
       );
       const data = await response.json();
       setCategories(data);

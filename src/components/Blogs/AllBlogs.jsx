@@ -61,7 +61,7 @@ export default function AllBlogs() {
     useEffect (() => {
       const fetchBlogs = async () => {
         const response = await fetch (
-          "http://127.0.0.1:8000/publication/"
+          "http://3.133.90.3:8000/publication/"
         );
         const data = await response.json();
         let blogs = data.find((blogs) => blogs.id === parseInt(id));
