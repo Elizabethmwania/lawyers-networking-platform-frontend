@@ -64,7 +64,7 @@ export default function BriefScreen() {
     handleClose();
     window.location.reload();
     e.preventDefault();
-    await axios.post("http://localhost:8000/brief/", briefs);
+    await axios.post(`/api/brief/`, briefs);
   };
 
   const Applied = "False";
@@ -89,7 +89,7 @@ export default function BriefScreen() {
   const [loading, isLoading] = useState(true);
   const [selectedOption, setSelectedOption] = useState(stage[0].value);
   const [selectedLocation, setSelectedLocation] = useState(location[0].value);
-  const backendapi = "http://localhost:8000/brief/";
+  const backendapi = `/api/brief/`;
 
   const fetchData = () => {
     fetch(backendapi)

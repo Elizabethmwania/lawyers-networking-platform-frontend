@@ -46,12 +46,12 @@ export default function ProfileScreen() {
   };
   const SendToDb = async (e) => {
     e.preventDefault();
-    await axios.put(`http://127.0.0.1:8000/users/update/${id}`, users);
+    await axios.put(`/api/users/update/${id}`, users);
     UpdateProfileSuccess();
   };
   // Load user details
   const LoadUser = async () => {
-    const results = await axios.get(`http://localhost:8000/users/${id}`);
+    const results = await axios.get(`/api/users/${id}`);
     setUsers(results.data);
   };
 

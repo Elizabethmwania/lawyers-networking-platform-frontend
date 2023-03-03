@@ -14,7 +14,7 @@ export default function Header() {
   useEffect(() => {
     if (id) {
       axios
-        .get(`http://localhost:8000/users/${id}`)
+        .get(`/api/users/${id}`)
         .then((res) => {
           setUserProfile(res.data);
         })
