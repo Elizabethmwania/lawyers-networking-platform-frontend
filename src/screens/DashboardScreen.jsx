@@ -47,7 +47,7 @@ function DashboardScreen() {
   const hour = d.getHours();
   // Fetch my briefs
   const { id } = useParams();
-  const backendapi = `http://localhost:8000/brief/mybriefs/${id}`;
+  const backendapi = `/api/brief/mybriefs/${id}`;
   const fetchmybriefs = () => {
     fetch(backendapi)
       .then((response) => response.json())
@@ -61,7 +61,7 @@ function DashboardScreen() {
   }, []);
   // Fetch user details
   const [userDetails, setUserDetails] = useState([]);
-  const userapi = `http://localhost:8000/users/${id}`;
+  const userapi = `/api/users/${id}`;
   const fetchuserdetails = () => {
     fetch(userapi)
       .then((response) => response.json())
@@ -106,7 +106,7 @@ function DashboardScreen() {
   useEffect(() => {
     if (id) {
       axios
-        .get(`http://localhost:8000/users/${id}`)
+        .get(`/api/users/${id}`)
         .then((res) => {
           setUserProfile(res.data);
         })

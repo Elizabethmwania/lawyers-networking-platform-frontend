@@ -12,7 +12,7 @@ export default function Blog() {
     const fetchBlogs = async () => {
       const response = await fetch (
         //sort=DatePublished:desc&_limit=3
-        "http://127.0.0.1:8000/publication/"
+        `/api/publication/`
       );
       const data = await response.json();
       setBlogs(data);

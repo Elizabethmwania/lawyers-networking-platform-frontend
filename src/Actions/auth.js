@@ -37,7 +37,7 @@ export const load_user = () => async (dispatch) => {
 
     try {
       const res = await axios.get(
-        `http://localhost:8000/auth/users/me/`,
+        `/api/auth/users/me/`,
         config
       );
 
@@ -79,7 +79,7 @@ export const googleAuthenticate = (state, code) => async (dispatch) => {
 
     try {
       const res = await axios.post(
-        `http://localhost:8000/auth/o/google-oauth2/?${formBody}`,
+        `/api/auth/o/google-oauth2/?${formBody}`,
         config
       );
 
@@ -119,7 +119,7 @@ export const facebookAuthenticate = (state, code) => async (dispatch) => {
 
     try {
       const res = await axios.post(
-        `http://localhost:8000/auth/o/facebook/?${formBody}`,
+        `/api/auth/o/facebook/?${formBody}`,
         config
       );
 
@@ -150,7 +150,7 @@ export const checkAuthenticated = () => async (dispatch) => {
 
     try {
       const res = await axios.post(
-        `http://localhost:8000/auth/jwt/verify/`,
+        `/api/auth/jwt/verify/`,
         body,
         config
       );
@@ -193,7 +193,7 @@ export const login = (email, password) => async (dispatch) => {
 
   try {
     const res = await axios.post(
-      `http://localhost:8000/auth/jwt/create/`,
+      `/api/auth/jwt/create/`,
       body,
       config
     );
@@ -241,7 +241,7 @@ export const signup =
 
     try {
       const res = await axios.post(
-        `http://localhost:8000/auth/users/`,
+        `/api/auth/users/`,
         body,
         config
       );
@@ -268,7 +268,7 @@ export const verify = (uid, token) => async (dispatch) => {
 
   try {
     await axios.post(
-      `http://localhost:8000/auth/users/activation/`,
+      `/api/auth/users/activation/`,
       body,
       config
     );
@@ -294,7 +294,7 @@ export const reset_password = (email) => async (dispatch) => {
 
   try {
     await axios.post(
-      `http://localhost:8000/auth/users/reset_password/`,
+      `/api/auth/users/reset_password/`,
       body,
       config
     );
@@ -321,7 +321,7 @@ export const reset_password_confirm =
 
     try {
       await axios.post(
-        `http://localhost:8000/auth/users/reset_password_confirm/`,
+        `/api/auth/users/reset_password_confirm/`,
         body,
         config
       );

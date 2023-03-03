@@ -14,7 +14,7 @@ export default function MyBriefs() {
   const [loading, isLoading] = useState(true);
 
   // Fetch my briefs
-  const backendapi = `http://localhost:8000/brief/mybriefs/${id}`;
+  const backendapi = `/api/brief/mybriefs/${id}`;
   const fetchmybriefs = () => {
     fetch(backendapi)
       .then((response) => response.json())

@@ -23,7 +23,7 @@ export default function BriefApplication() {
   useEffect(() => {
     if (briefid) {
       axios
-        .get(`http://localhost:8000/brief/${briefid}`)
+        .get(`/api/brief/${briefid}`)
         .then((res) => {
           setData(res.data);
         })
@@ -53,14 +53,14 @@ export default function BriefApplication() {
     setSending(true);
     ApplicationNotification();
     e.preventDefault();
-    await axios.post("http://localhost:8000/applications/", application);
+    await axios.post(`/api/applications/`, application);
     navigate(`/briefs/${id}`);
   };
   console.log(FullName);
   // Confirm if application is present
   const [myapp, setMyapp] = useState([]);
   const fetchData = () => {
-    fetch(`http://localhost:8000/applications/${briefid}`)
+    fetch(`/api/applications/${briefid}`)
       .then((response) => response.json())
       .then((myapp) => {
         setMyapp(myapp);

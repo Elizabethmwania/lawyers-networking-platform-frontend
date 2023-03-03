@@ -16,7 +16,7 @@ export default function ReportsScreen() {
   const { id } = useParams();
   const [data, setData] = useState([]);
   // Fetch my briefs
-  const backendapi = `http://localhost:8000/brief/mybriefs/${id}`;
+  const backendapi = `/api/brief/mybriefs/${id}`;
   const fetchmybriefs = () => {
     fetch(backendapi)
       .then((response) => response.json())

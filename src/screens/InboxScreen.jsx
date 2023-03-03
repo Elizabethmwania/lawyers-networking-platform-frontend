@@ -30,7 +30,7 @@ export default function InboxScreen() {
     formData.append("SenderId", SenderId);
     formData.append("message", message);
 
-    Axios.post("http://localhost:8000/inbox/", formData, {
+    Axios.post(`/api/inbox/`, formData, {
       headers: {
         "content-type": "multipart/form-data",
       },
@@ -44,7 +44,7 @@ export default function InboxScreen() {
   // fetch the messages
   useEffect(() => {
     if (id) {
-      Axios.get(`http://localhost:8000/inbox/messages/${id}`)
+      Axios.get(`/api/inbox/messages/${id}`)
         .then((res) => {
           setData(res.data);
           setTimeout(() => setLoading(true), 400);
