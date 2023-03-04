@@ -45,7 +45,7 @@ export default function App() {
             <Route path="/contact" element={<ContactScreen />} />
             {/* Authentication Links */}
             <Route path="/register" element={<RegistrationForm />} />
-            <Rpute path="/login" element={<SignInForm/>}/>
+            <Route path="/login" element={<SignInForm/>}/>
             <Route path="/activate/:uid/:token" element={<Activate />} />
             <Route path="/resetpass" element={<ResetPassword />} />
             <Route
