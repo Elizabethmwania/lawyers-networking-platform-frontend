@@ -156,7 +156,7 @@ function DashboardScreen() {
         <div className="page-wrapper">
           {/* Start */}
 
-          <div className="row" style={{ Width: "90%", margin: "auto" }}>
+          <div className="row" style={{ Width: "90%"}}>
             <div className="col-xl-3 col-sm-6 col-12">
               <div className="card">
                 <div className="card-body">
