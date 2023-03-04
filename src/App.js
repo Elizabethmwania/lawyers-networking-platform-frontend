@@ -18,7 +18,7 @@ import ProfileScreen from "./screens/ProfileScreen.jsx";
 import ReportsScreen from "./screens/ReportsScreen.jsx";
 import ViewDetails from "./screens/ViewDetails.jsx";
 import RegistrationForm from "./components/Registartion/RegistrationForm.jsx";
-import LoginForm from "./components/Login/LoginForm.js";
+import LoginForm from "./components/Login/LoginForm.jsx";
 import Activate from "./screens/Authentication/Activate";
 import ResetPassword from "./screens/Authentication/resetPassword";
 import ResetPasswordConfirm from "./screens/Authentication/resetPasswordConfirm";
