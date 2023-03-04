@@ -14,7 +14,7 @@ export default function Footer() {
     <Wrapper>
       <div className="darkBg flexRowFooter">
         <div className="containerFooter">
-          <InnerWrapper className="flexSpaceCenter" style={{ padding: "30px 0" }}>
+          <InnerWrapper className="flexSpaceCenter" style={{ padding: "20px 0" }}>
             <ul>
               <li className="flexColumnFooter orangeColor">
                 About NLP
@@ -140,6 +140,6 @@ const InnerWrapper = styled.div`
 const StyleP = styled.p`
 margin-bottom:'0px';
   @media (max-width: 550px) {
-    margin: 20px 0;
+    margin: 0px;
   }
 `;

@@ -1,17 +1,20 @@
 import React from 'react';
 import AboutHeader from '../components/About/AbouHeader';
 import WhatWeDo from '../components/About/WhatWeDo';
+import Services from '../components/Sections/Services'
+import Contact from '../components/Sections/Contact';
 import Backdrop from '../components/Elements/Backdrop';
 import TopNavbar from '../components/Nav/TopNavbar';
 import Footer from '../components/Sections/Footer';
-import Contact from '../components/Sections/Contact';
+
 const AboutScreen = () => {
     return (
         <>
-        <TopNavbar />
+        <TopNavbar /> 
         <AboutHeader/>
         <WhatWeDo/>
-        <Contact/>
+        <Services/>
+        {/* <Contact/> */}
         <Backdrop/>
         <Footer/>
         </>

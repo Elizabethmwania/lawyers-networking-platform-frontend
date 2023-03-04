@@ -18,7 +18,7 @@ export default function Landing() {
       <Services />
       <Blog />
       <Clients/>
-      <Contact />
+      {/* <Contact /> */}
       <Backdrop/>
       <Footer />
     </>

@@ -21,7 +21,7 @@ export default function TopNavbar() {
   return (
     <>
       <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
-      {/* {sidebarOpen && <Backdrop toggleSidebar={toggleSidebar} />} */}
+      {sidebarOpen && <Backdrop toggleSidebar={toggleSidebar} />}
       <Wrapper
         className="flexCenter animate whiteBg"
         style={y > 100 ? { height: "60px" } : { height: "80px" }}
@@ -187,12 +187,17 @@ const BurderWrapper = styled.button`
   height: 100%;
   padding: 0 15px;
   display: none;
-  @media only screen and (max-width: 900px) {
+  @media (max-width: 760px) {
     display: block;
   }
 `;
 const UlWrapper = styled.ul`
   display: flex;
+  @media (max-width: 760px) {
+    display: none;
+  }
+`;
+const UlWrapperRight = styled.ul`
   @media (max-width: 760px) {
     display: none;
   }

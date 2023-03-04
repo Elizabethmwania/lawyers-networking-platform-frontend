@@ -4,7 +4,7 @@ import styled from "styled-components";
 import ContactImg1 from "../../images/about/about1.png";
 export default function WhatWeDo() {
   return (
-    <Wrapper>
+    <Wrapper id="contact">
       <div className="about">
         <div className="container" style={{width:'80%'}}>
           <HeaderInfo className="contact-header">
