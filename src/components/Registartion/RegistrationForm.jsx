@@ -65,9 +65,8 @@ function RegistrationForm({ signup, isAuthenticated }) {
 
   // Check if account exists
   const [data, setData] = useState([]);
-  const backendapi = `/api/users/account/${email}`;
   const fetchData = () => {
-    fetch(backendapi)
+    fetch(`/api/users/account/${email}`)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
