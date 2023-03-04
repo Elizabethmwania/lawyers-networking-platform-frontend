@@ -156,8 +156,13 @@ function DashboardScreen() {
         <div className="page-wrapper">
           {/* Start */}
 
+
           <div className="row" style={{ Width: "90%", margin: "auto" }}>
             <div className="col-xl-3 col-sm-3 col-12">
+
+          <div className="row" style={{ Width: "90%"}}>
+            <div className="col-xl-3 col-sm-6 col-12" style={{marginBottom:"25px"}}>
+
               <div className="card">
                 <div className="card-body">
                   <div className="dash-widget-header">
@@ -205,7 +210,9 @@ function DashboardScreen() {
                 </div>
               </div>
             </div>
+
             <div className="col-xl-3 col-sm-3 col-12">
+
               <div className="card">
                 <div className="card-body">
                   <div className="dash-widget-header">
@@ -229,7 +236,9 @@ function DashboardScreen() {
                 </div>
               </div>
             </div>
+
             <div className="col-xl-3 col-sm-3 col-12">
+
               <div className="card">
                 <div className="card-body">
                   <div className="dash-widget-header">
@@ -252,7 +261,7 @@ function DashboardScreen() {
               </div>
             </div>
           </div>
-          <br />
+          {/* <br /> */}
           {/* Reports */}
           <div className="row">
             <div className="col-md-6">
