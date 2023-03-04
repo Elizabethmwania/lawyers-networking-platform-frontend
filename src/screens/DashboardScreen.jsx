@@ -255,7 +255,7 @@ function DashboardScreen() {
           {/* <br /> */}
           {/* Reports */}
           <div className="row">
-            <div className="col-md-6" style={{marginBottom:"25px"}}>
+            <div className="col-md-6">
               <div className="card card-table flex-fill">
                 <div className="card-header">
                   <h4 className="card-titles">Briefs Analytics #1</h4>
@@ -283,7 +283,7 @@ function DashboardScreen() {
                 </div>
               </div>
             </div>
-            <div className="col-md-6" style={{marginBottom:"25px"}}>
+            <div className="col-md-6">
               <div className="card  card-table flex-fill">
                 <div className="card-header">
                   <h4 className="card-titles">Briefs Analytics #2</h4>
