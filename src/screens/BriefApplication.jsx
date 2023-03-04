@@ -56,7 +56,9 @@ export default function BriefApplication() {
     await axios.post(`/api/applications/`, application);
     navigate(`/briefs/${id}`);
   };
-  console.log(FullName);
+  setTimeout(() => {
+    setSending(false);
+  }, 3000);
   // Confirm if application is present
   const [myapp, setMyapp] = useState([]);
   const fetchData = () => {
