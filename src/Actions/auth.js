@@ -193,7 +193,7 @@ export const login = (email, password) => async (dispatch) => {
 
   try {
     const res = await axios.post(
-        "/api/auth/jwt/create/",
+        `/api/auth/jwt/create/`,
       body,
       config
     );
