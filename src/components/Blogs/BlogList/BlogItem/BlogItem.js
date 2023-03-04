@@ -11,7 +11,7 @@ export default function BlogItem() {
     const fetchBlogs = async () => {
       const response = await fetch(
         //set slow loading effect or pagination
-        "http://3.133.90.3:8000/publication/"
+        "/api/publication/"
       );
       const data = await response.json();
       setBlogs(data);
