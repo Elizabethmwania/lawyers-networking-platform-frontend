@@ -19,7 +19,7 @@ export default function BlogIndex() {
 
   const fetchData = async () => {
     const result = await axios.get(
-      `http://3.133.90.3:8000/publication/publication/search/?q=${searchQuery}`
+      `/api/publication/publication/search/?q=${searchQuery}`
     );
     setData(result.data);
   };
@@ -36,7 +36,7 @@ export default function BlogIndex() {
 
   const fetchCategoryData = async () => {
     const result = await axios.get(
-      `http://3.133.90.3:8000/publication/publications/${selectedCategory}`
+      `/api/publication/publications/${selectedCategory}`
     );
     setData(result.data);
   };
