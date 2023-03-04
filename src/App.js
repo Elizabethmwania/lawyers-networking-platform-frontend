@@ -18,10 +18,10 @@ import ProfileScreen from "./screens/ProfileScreen.jsx";
 import ReportsScreen from "./screens/ReportsScreen.jsx";
 import ViewDetails from "./screens/ViewDetails.jsx";
 import RegistrationForm from "./components/Registartion/RegistrationForm.jsx";
-import LoginForm from "./components/Login/LoginForm.jsx";
 import Activate from "./screens/Authentication/Activate";
 import ResetPassword from "./screens/Authentication/resetPassword";
 import ResetPasswordConfirm from "./screens/Authentication/resetPasswordConfirm";
+import SignInForm from "./components/Login/SignInForm";
 
 export default function App() {
   return (
@@ -45,7 +45,7 @@ export default function App() {
             <Route path="/contact" element={<ContactScreen />} />
             {/* Authentication Links */}
             <Route path="/register" element={<RegistrationForm />} />
-            <Route path="/login" element={<LoginForm />} />
+            <Route path="/login" element={<SignInForm/>}/>
             <Route path="/activate/:uid/:token" element={<Activate />} />
             <Route path="/resetpass" element={<ResetPassword />} />
             <Route
