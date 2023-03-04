@@ -69,7 +69,7 @@ export default function ViewDetails() {
 
     try {
       const response = await fetch(
-        `http://localhost:8000/brief/update/${dataId}`,
+        `/api/brief/update/${dataId}`,
         {
           method: "PUT",
           body: formData,
