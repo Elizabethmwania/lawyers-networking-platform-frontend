@@ -261,7 +261,7 @@ function DashboardScreen() {
                   <h4 className="card-titles">Briefs Analytics #1</h4>
                 </div>
                 <div className="card-body">
-                  {CompleteBriefs == 0 ? (
+                  {data == 0 ? (
                     <p
                       style={{
                         color: "red",
@@ -289,7 +289,7 @@ function DashboardScreen() {
                   <h4 className="card-titles">Briefs Analytics #2</h4>
                 </div>
                 <div className="card-body">
-                {CompleteBriefs == 0 ? (
+                {data == 0 ? (
                     <p
                       style={{
                         color: "red",

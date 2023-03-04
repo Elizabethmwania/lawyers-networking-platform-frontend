@@ -31,7 +31,7 @@ export default function ViewDetails() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/brief/${dataId}`);
+        const response = await fetch(`/api/brief/${dataId}`);
         const result = await response.json();
         setBriefTitle(result.BriefTitle);
         setCourtStation(result.CourtStation);
