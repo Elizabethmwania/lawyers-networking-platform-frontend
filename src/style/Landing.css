@@ -247,6 +247,10 @@ h1 {
     margin-left: auto;
     margin-right: auto;
   }
+  .blogWrap{
+    margin-left: 0px;
+    width: fit-content;
+  }
 }
 @media (max-width: 860px)  {
   .blogs-sidebar{
