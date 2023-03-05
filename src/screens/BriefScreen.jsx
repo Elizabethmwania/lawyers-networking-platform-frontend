@@ -228,6 +228,7 @@ export default function BriefScreen() {
                             <strong>Stage of the matter</strong>:{" "}
                             {data.Stageofthematter}
                           </p>
+                        
                           <p className="moreInfo">
                             <strong>Court Station: </strong>:{" "}
                             {data.CourtStation}
