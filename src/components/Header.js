@@ -79,7 +79,8 @@ export default function Header() {
                 class="dropdowns-content"
                 style={{ marginTop: "-25px", width: "80px" }}
               >
-                <a href="/profile">Settings</a>
+              
+                <a href={`/profile/${id}`}>Settings</a>
                 <a href="/">Log Out</a>
               </div>
             </div>
