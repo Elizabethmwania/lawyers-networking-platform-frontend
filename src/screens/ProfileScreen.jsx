@@ -271,6 +271,7 @@ export default function ProfileScreen() {
                       <option>Criminal Law</option>
                       <option>Family Law</option>
                       <option>Civil Law</option>
+                      <option>Conveyancing </option>
                     </select>
                   </div>
                 </form>
